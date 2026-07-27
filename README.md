@@ -43,6 +43,19 @@
 
 正式指标是版本化快照；`/api/live/sources` 是实时请求，不会用抓取失败覆盖最近成功快照。
 
+## GitHub Pages
+
+仓库包含 `.github/workflows/pages.yml`：
+
+- 每周一、周五北京时间 08:30 自动更新并部署；
+- 支持在 Actions 页面手动触发；
+- 页面入口为 GitHub Pages 根目录；
+- JSON 接口位于 `api/*.json`，包括 `dashboard.json`、`pricing.json`、
+  `business.json`、`tokens.json`、`sources.json`、`signals.json`、
+  `history.json` 和 `health.json`。
+
+GitHub Pages 是静态托管，接口数据代表最近一次成功 Actions 任务生成的版本化快照。
+
 ## 定时任务
 
 默认安装为每周一、周五 08:30 运行：
