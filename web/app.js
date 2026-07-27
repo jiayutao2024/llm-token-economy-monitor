@@ -203,14 +203,57 @@
 
   function storageKpis(D) {
     const S = D.storage;
-    const Q = S.daily.quality || {};
     return `<section class="section">
       <div class="kpi-grid">
         <article class="card kpi"><div class="kpi-label">存储周期状态</div><div class="kpi-value">${esc(S.cycle.label)}</div><div class="kpi-meta">公开量价与事件综合</div></article>
-        <article class="card kpi"><div class="kpi-label">价格/供需信号</div><div class="kpi-value">${esc(S.cycle.signal_count)}</div><div class="kpi-meta">DRAM/NAND/HBM/eSSD</div></article>
+        <article class="card kpi"><div class="kpi-label">价格上涨广度</div><div class="kpi-value">${S.cycle.price_breadth_pct == null ? "—" : `${esc(S.cycle.price_breadth_pct)}%`}</div><div class="kpi-meta">新鲜公开报价中上涨占比</div></article>
+        <article class="card kpi"><div class="kpi-label">存储价格指标</div><div class="kpi-value">${esc(S.cycle.fresh_price_count)}/${esc(S.cycle.price_metric_count)}</div><div class="kpi-meta">有效/全部 · DRAM/NAND/GDDR/SSD</div></article>
         <article class="card kpi"><div class="kpi-label">高质量事件</div><div class="kpi-value">${esc(S.cycle.event_count)}</div><div class="kpi-meta">过去 ${esc(S.daily.meta?.lookback_hours || "—")} 小时</div></article>
-        <article class="card kpi"><div class="kpi-label">行情覆盖</div><div class="kpi-value">${esc(S.cycle.market_count)}</div><div class="kpi-meta">源错误 ${esc(Q.source_errors || 0)} 个</div></article>
       </div>
+    </section>`;
+  }
+
+  function storagePriceMetrics(D) {
+    const S = D.storage;
+    const metrics = S.price_metrics || [];
+    const changes = metrics.filter(x => Number.isFinite(Number(x.change_pct)));
+    const maxAbs = Math.max(...changes.map(x => Math.abs(Number(x.change_pct))), 1);
+    const dates = [...new Set((S.price_history || []).map(x => x.date))].sort();
+    return `<section class="section">
+      ${sectionHead("DRAM / NAND / SSD 公开价格指标", "显示公开页面最新均价、报价区间与本期变化；不同芯片、模组和整盘单位不混加。",
+        `${esc(S.price_meta?.scope || "公开价格快照")} · 历史日期 ${dates.length} 个`)}
+      <div class="grid-2">
+        <article class="card pad"><h3>本期价格变化</h3><p class="subtitle">按绝对涨跌幅排序；中轴为 0%，标签同时表达方向</p>
+          <div class="delta-list">${changes.sort((a,b)=>Math.abs(Number(b.change_pct))-Math.abs(Number(a.change_pct))).map(x=>{
+            const v=Number(x.change_pct), width=Math.abs(v)/maxAbs*50;
+            return `<div class="delta-row">
+              <div class="delta-label" title="${esc(x.item)}"><b>${esc(x.segment)}</b><small>${esc(x.quote_type)}</small></div>
+              <div class="delta-track"><span class="delta-zero"></span><span class="delta-fill ${v<0?"negative":v===0?"flat":""}" style="${v<0?`right:50%;width:${width}%`:`left:50%;width:${width}%`}"></span></div>
+              <div class="delta-value">${v>0?"+":""}${n(v,2)}%</div>
+            </div>`;
+          }).join("") || `<div class="empty">暂无可比较涨跌幅</div>`}</div>
+          <p class="source-note">${dates.length >= 8 ? `已积累 ${dates.length} 个公开快照日期，可用于趋势观察。` : `历史序列正在每日积累；达到 8 个日期后再展示趋势线，避免用稀疏点制造趋势。`}</p>
+        </article>
+        <article class="card pad"><h3>指标口径</h3>
+          <p><span class="tag red">主指标</span> DRAM DDR5/DDR4 颗粒、服务器 RDIMM、NAND MLC/TLC 与客户端 SSD。</p>
+          <p><span class="tag">HBM</span> 由于没有稳定公开绝对报价，继续采用合约方向、晶圆投入占比与验证/量产证据，不将代理值伪装成价格。</p>
+          <p><b>周期分 ${esc(S.cycle.score)}/100：</b>${esc(S.cycle.method)}</p>
+          <p class="source-note">${esc(S.price_meta?.license_boundary || "")}</p>
+        </article>
+      </div>
+      <article class="card pad price-table-card">
+        <div class="controls">
+          <select id="storage-price-product"><option value="">全部产品</option>${[...new Set(metrics.map(x=>x.product))].map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select>
+          <select id="storage-price-type"><option value="">全部报价类型</option>${[...new Set(metrics.map(x=>x.quote_type))].map(x=>`<option value="${esc(x)}">${esc(x)}</option>`).join("")}</select>
+          <input id="storage-price-search" type="search" placeholder="搜索 DDR5、TLC、RDIMM…">
+        </div>
+        <div class="table-wrap"><table><thead><tr>
+          <th data-key="product">产品</th><th data-key="item">规格</th><th data-key="quote_type">报价类型</th>
+          <th data-key="price">均价</th><th>区间</th><th data-key="change_pct">变化</th>
+          <th data-key="observed_at">数据时间</th><th>状态/来源</th>
+        </tr></thead><tbody id="storage-price-body"></tbody></table></div>
+        <p class="source-note">单位：USD/官网报价单位。报价单位取决于来源表对应的颗粒、模组、晶圆或成品，不可横向加总。</p>
+      </article>
     </section>`;
   }
 
@@ -290,21 +333,57 @@
 
   function storageQuality(D) {
     const Q = D.storage.daily.quality || {};
+    const PQ = D.storage.price_quality || {};
     return `<section class="section">
       ${sectionHead("来源与数据质量", "RSS只负责发现，正式量价和收入必须回到一手来源。")}
       <article class="card pad">
         <p><span class="tag red">${esc(Q.status)}</span> 入选事件 ${esc(Q.selected_events || 0)} · 行情 ${esc(Q.market_quotes || 0)} · 来源错误 ${esc(Q.source_errors || 0)}</p>
+        <p><span class="tag ${PQ.status==="ready"?"red":""}">价格 ${esc(PQ.status || "unknown")}</span> 价格抓取异常 ${(PQ.errors || []).length} 个；单一来源失败时保留最近成功快照。</p>
         <p>${esc(Q.noise_policy || "")}</p>
-        ${(Q.errors || []).length ? `<details><summary>查看来源异常</summary><ul>${Q.errors.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>` : `<p class="source-note">本轮未记录来源异常。</p>`}
+        ${(Q.errors || []).length || (PQ.errors || []).length ? `<details><summary>查看来源异常</summary><ul>${[...(Q.errors||[]),...(PQ.errors||[])].map(x=>`<li>${esc(x)}</li>`).join("")}</ul></details>` : `<p class="source-note">本轮未记录来源异常。</p>`}
       </article>
     </section>`;
   }
 
   function storageView(D) {
-    app.innerHTML = storageKpis(D) + storagePricesChain(D) + heatmapAndFunnel(D) +
+    app.innerHTML = storageKpis(D) + storagePriceMetrics(D) + storagePricesChain(D) + heatmapAndFunnel(D) +
       marketAndNews(D) + storageQuality(D);
+    wireStoragePrices(D);
     wireNews(D);
     makeSortable();
+  }
+
+  function wireStoragePrices(D) {
+    const product = document.querySelector("#storage-price-product");
+    const type = document.querySelector("#storage-price-type");
+    const search = document.querySelector("#storage-price-search");
+    const tbody = document.querySelector("#storage-price-body");
+    product.value = getParam("sp_product");
+    type.value = getParam("sp_type");
+    search.value = getParam("sp_q");
+    const render = () => {
+      const q = search.value.trim().toLowerCase();
+      const rows = (D.storage.price_metrics || []).filter(x =>
+        (!product.value || x.product === product.value) &&
+        (!type.value || x.quote_type === type.value) &&
+        (!q || `${x.item} ${x.segment} ${x.product}`.toLowerCase().includes(q))
+      );
+      tbody.innerHTML = rows.map(x => {
+        const v=Number(x.change_pct), signed=Number.isFinite(v)?`${v>0?"+":""}${n(v,2)}%`:"—";
+        const stale=x.freshness?.status==="stale";
+        return `<tr>
+          <td><span class="tag red">${esc(x.product)}</span><br><small>${esc(x.segment)}</small></td>
+          <td><b>${esc(x.item)}</b></td><td>${esc(x.quote_type)}</td>
+          <td class="num">${x.price==null?"—":`$${n(x.price,3)}`}</td>
+          <td class="num">${x.low==null||x.high==null?"—":`$${n(x.low,3)}–$${n(x.high,3)}`}</td>
+          <td class="num"><span class="tag ${v>0?"red":""}">${esc(signed)}</span></td>
+          <td>${esc(x.observed_at?.slice(0,16).replace("T"," "))}<br><small>样本 1 个公开快照</small></td>
+          <td><span class="tag ${stale?"":"red"}">${stale?"陈旧":"有效"}</span><br>${sourceLink(x.source_url,x.source_name)}</td>
+        </tr>`;
+      }).join("") || `<tr><td colspan="8" class="empty">没有匹配的存储价格指标</td></tr>`;
+      setParam("sp_product",product.value);setParam("sp_type",type.value);setParam("sp_q",search.value.trim());
+    };
+    product.addEventListener("change",render);type.addEventListener("change",render);search.addEventListener("input",render);render();
   }
 
   function wirePricing(D) {

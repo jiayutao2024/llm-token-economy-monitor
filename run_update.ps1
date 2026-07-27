@@ -16,6 +16,11 @@ if ($LASTEXITCODE -ne 0) {
     throw "存储产业情报更新失败，退出码：$LASTEXITCODE"
 }
 
+& $pythonLauncher -3.10 (Join-Path $projectRoot "scripts\collect_storage_prices.py") --project-root $projectRoot
+if ($LASTEXITCODE -ne 0) {
+    throw "Storage price update failed, exit code: $LASTEXITCODE"
+}
+
 & $pythonLauncher -3.10 (Join-Path $projectRoot "scripts\build_unified_data.py") --project-root $projectRoot
 if ($LASTEXITCODE -ne 0) {
     throw "双维数据模型构建失败，退出码：$LASTEXITCODE"

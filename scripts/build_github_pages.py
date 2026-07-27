@@ -69,6 +69,15 @@ def main() -> int:
             "meta": meta,
             **payload["storage"],
         },
+        "storage-prices.json": {
+            "meta": meta,
+            "cycle": payload["storage"]["cycle"],
+            "summary": payload["storage"]["price_summary"],
+            "rows": payload["storage"]["price_metrics"],
+            "history": payload["storage"]["price_history"],
+            "quality": payload["storage"]["price_quality"],
+            "methodology": payload["storage"]["price_meta"],
+        },
         "market-cycle.json": {
             "meta": meta,
             **payload["market_cycle"],
@@ -101,7 +110,8 @@ def main() -> int:
             "overview.json": "阶段判断、八大总量指标与产业验证",
             "ai-compute.json": "Token、API价格、ARR和CSP Capex",
             "gpu-rental.json": "标准化单卡GPU租赁价格",
-            "storage.json": "存储周期、价格方向、事件与行情",
+            "storage.json": "存储周期、公开价格指标、事件与行情",
+            "storage-prices.json": "DRAM、NAND、GDDR与SSD公开报价及自建历史",
             "market-cycle.json": "阶段得分、阈值和证据覆盖",
             "news.json": "经过去重和噪声过滤的发现队列",
             "health.json": "来源成功、陈旧数据和部署状态",
@@ -118,7 +128,7 @@ def main() -> int:
         api_root / "index.json",
         {
             "name": "Zheshang AI Compute & Storage Monitor API",
-            "version": 2,
+            "version": 2.1,
             "snapshot_at": meta["generated_at"],
             "refresh_schedule": "Daily 23:30 UTC / 07:30 Asia/Shanghai",
             "schema": {

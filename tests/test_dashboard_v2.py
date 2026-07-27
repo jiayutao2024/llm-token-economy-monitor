@@ -12,6 +12,11 @@ spec = importlib.util.spec_from_file_location(
 )
 unified = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(unified)
+price_spec = importlib.util.spec_from_file_location(
+    "storage_prices", ROOT / "scripts" / "collect_storage_prices.py"
+)
+storage_prices = importlib.util.module_from_spec(price_spec)
+price_spec.loader.exec_module(storage_prices)
 
 
 class DashboardV2Tests(unittest.TestCase):
@@ -66,6 +71,56 @@ class DashboardV2Tests(unittest.TestCase):
         self.assertNotIn("https://", html)
         self.assertNotIn("cdn.", html.lower())
         self.assertNotIn("fetch(\"http", js.lower())
+
+    def test_public_storage_price_parser(self):
+        parser = storage_prices.PricePageParser()
+        parser.feed("""
+        <div id="dram_spot" class="price-content">
+          <div class="price-last-update"><p>Last Update 2026-07-27 18:10 (GMT+8)</p></div>
+          <table><thead><tr><th>Item</th><th>Session Average</th><th>Session Change</th></tr></thead>
+          <tbody><tr><td>DDR5 16Gb (2Gx8) 4800/5600</td><td>50.833</td><td>▲ 1.52 %</td></tr></tbody></table>
+        </div>
+        """)
+        section = parser.tables["dram_spot"]
+        self.assertIn("2026-07-27 18:10", section["last_update"])
+        self.assertEqual(section["rows"][0]["Session Average"], "50.833")
+        self.assertEqual(storage_prices.parse_number("▼ -0.61 %"), -0.61)
+
+    def test_storage_price_history_deduplicates_daily_grain(self):
+        metric = {
+            "metric_id": "storage_test",
+            "product": "DRAM",
+            "segment": "DDR5",
+            "quote_type": "现货",
+            "price": 10.0,
+            "change_pct": 1.0,
+            "currency": "USD",
+            "unit": "USD/官网报价单位",
+            "observed_at": "2026-07-27T18:10+08:00",
+            "source_url": "https://example.com",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "history.jsonl"
+            storage_prices.update_history(path, [metric])
+            metric["price"] = 11.0
+            rows = storage_prices.update_history(path, [metric])
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["price"], 11.0)
+
+    def test_storage_price_snapshot_quality(self):
+        data = json.loads(
+            (ROOT / "data" / "storage_prices_latest.json").read_text(encoding="utf-8")
+        )
+        rows = data["metrics"]
+        ids = [row["metric_id"] for row in rows]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertGreaterEqual(len(rows), 8)
+        for row in rows:
+            self.assertGreater(row["price"], 0)
+            self.assertLessEqual(row["low"], row["price"])
+            self.assertGreaterEqual(row["high"], row["price"])
+            self.assertEqual(row["source_tier"], 2)
+            self.assertIn(row["freshness"]["status"], {"fresh", "stale"})
 
 
 if __name__ == "__main__":

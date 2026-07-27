@@ -144,6 +144,7 @@ def main() -> int:
 
     ai = load_json(root / "data" / "dashboard_api.json", {})
     framework = load_json(root / "data" / "framework_metrics.json", {})
+    storage_prices = load_json(root / "data" / "storage_prices_latest.json", {})
     storage = load_json(root / "存储日报" / "output" / "latest.json", {})
     if not storage:
         storage = {
@@ -212,12 +213,24 @@ def main() -> int:
         row.get("direction") in {"上行", "偏紧", "改善", "上修"}
         for row in storage_signals
     )
+    price_summary = storage_prices.get("summary", {})
+    price_breadth = price_summary.get("up_breadth_pct")
+    direction_score = upward / max(len(storage_signals), 1) * 100
+    cycle_score = (
+        round(float(price_breadth) * 0.6 + direction_score * 0.4, 1)
+        if price_breadth is not None
+        else round(direction_score, 1)
+    )
     storage_cycle = {
-        "label": "上行偏紧" if upward >= 3 else "分化观察",
-        "score": round(upward / max(len(storage_signals), 1) * 100),
+        "label": "上行偏紧" if cycle_score >= 60 else ("下行去库" if cycle_score < 35 else "分化观察"),
+        "score": cycle_score,
         "signal_count": len(storage_signals),
+        "price_metric_count": price_summary.get("metric_count", 0),
+        "fresh_price_count": price_summary.get("fresh_count", 0),
+        "price_breadth_pct": price_breadth,
         "event_count": len(storage.get("events", [])),
         "market_count": len(storage.get("market", [])),
+        "method": "60%公开价格上涨广度 + 40%供需方向；陈旧报价不参与价格广度。",
     }
 
     normalized: list[dict[str, Any]] = []
@@ -243,6 +256,14 @@ def main() -> int:
             row.get("source_url", ""), int(row.get("source_tier", 3)),
             row.get("evidence_status", "unknown"), generated_at, row.get("note", ""),
         ))
+    for row in storage_prices.get("metrics", []):
+        normalized.append(normalized_metric(
+            row["metric_id"], row.get("price"), row.get("unit", "USD/官网报价单位"),
+            "全球", row.get("observed_at", ""), row.get("source_name", ""),
+            row.get("source_url", ""), int(row.get("source_tier", 2)),
+            row.get("evidence_status", "public_snapshot"), generated_at, row.get("note", ""),
+            row.get("currency", "USD"),
+        ))
 
     ai_sources = ai.get("sources", [])
     ai_success = sum(row.get("status") == "ok" for row in ai_sources)
@@ -254,6 +275,8 @@ def main() -> int:
         "ai_sources_total": len(ai_sources),
         "storage_status": storage_quality.get("status", "unknown"),
         "storage_source_errors": storage_quality.get("source_errors", 0),
+        "storage_price_status": storage_prices.get("quality", {}).get("status", "unknown"),
+        "storage_price_errors": len(storage_prices.get("quality", {}).get("errors", [])),
         "stale_macro_metrics": [
             row["metric_id"] for row in macro if row.get("freshness", {}).get("status") == "stale"
         ],
@@ -303,6 +326,11 @@ def main() -> int:
         "storage": {
             "cycle": storage_cycle,
             "price_signals": storage_signals,
+            "price_metrics": storage_prices.get("metrics", []),
+            "price_history": storage_prices.get("history", []),
+            "price_summary": price_summary,
+            "price_quality": storage_prices.get("quality", {}),
+            "price_meta": storage_prices.get("meta", {}),
             "daily": storage,
             "chain": [
                 "终端需求", "bit需求", "库存", "有效供给", "价格",
@@ -334,6 +362,15 @@ def main() -> int:
             for row in framework.get("gpu_rental", [])
         ],
         "storage_cycle": storage_cycle["label"],
+        "storage_price_breadth_pct": price_breadth,
+        "storage_prices": [
+            {
+                "metric_id": row.get("metric_id"),
+                "price": row.get("price"),
+                "change_pct": row.get("change_pct"),
+            }
+            for row in storage_prices.get("metrics", [])
+        ],
         "health": health["status"],
     }
     existing = []
