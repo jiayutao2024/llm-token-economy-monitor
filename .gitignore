@@ -1,0 +1,6 @@
+logs/
+scripts/__pycache__/
+.edge-profile*/
+dashboard-preview*.png
+dashboard-*-preview*.png
+dashboard-mobile-final.png

@@ -1,0 +1,101 @@
+{
+  "dashboard_title": "全球大模型商业化与 Token 经济跟踪",
+  "timezone": "Asia/Shanghai",
+  "schedule": {
+    "days": ["Monday", "Friday"],
+    "time": "08:30"
+  },
+  "fx": {
+    "CNY_per_USD": 7.2,
+    "note": "仅用于跨币种价格横向比较；不是财务核算汇率。"
+  },
+  "companies": [
+    {"id": "openai", "name": "OpenAI", "region": "海外", "type": "独立模型公司"},
+    {"id": "anthropic", "name": "Anthropic", "region": "海外", "type": "独立模型公司"},
+    {"id": "google", "name": "Google DeepMind", "region": "海外", "type": "科技集团"},
+    {"id": "xai", "name": "xAI", "region": "海外", "type": "独立模型公司"},
+    {"id": "meta", "name": "Meta AI", "region": "海外", "type": "科技集团"},
+    {"id": "alibaba", "name": "阿里巴巴 / 通义千问", "region": "国内", "type": "科技集团"},
+    {"id": "bytedance", "name": "字节跳动 / 豆包", "region": "国内", "type": "科技集团"},
+    {"id": "deepseek", "name": "DeepSeek", "region": "国内", "type": "独立模型公司"},
+    {"id": "zhipu", "name": "智谱 / Z.ai", "region": "国内", "type": "独立模型公司"},
+    {"id": "moonshot", "name": "月之暗面 / Kimi", "region": "国内", "type": "独立模型公司"}
+  ],
+  "sources": [
+    {
+      "id": "openai_pricing",
+      "company_id": "openai",
+      "kind": "official_pricing",
+      "name": "OpenAI API Pricing",
+      "url": "https://developers.openai.com/api/docs/pricing"
+    },
+    {
+      "id": "anthropic_pricing",
+      "company_id": "anthropic",
+      "kind": "official_pricing",
+      "name": "Claude API Pricing",
+      "url": "https://platform.claude.com/docs/en/about-claude/pricing"
+    },
+    {
+      "id": "google_pricing",
+      "company_id": "google",
+      "kind": "official_pricing",
+      "name": "Gemini Developer API Pricing",
+      "url": "https://ai.google.dev/gemini-api/docs/pricing"
+    },
+    {
+      "id": "xai_pricing",
+      "company_id": "xai",
+      "kind": "official_pricing",
+      "name": "xAI API Pricing",
+      "url": "https://docs.x.ai/developers/pricing"
+    },
+    {
+      "id": "alibaba_pricing",
+      "company_id": "alibaba",
+      "kind": "official_pricing",
+      "name": "阿里云百炼模型价格",
+      "url": "https://help.aliyun.com/zh/model-studio/model-pricing"
+    },
+    {
+      "id": "doubao_pricing",
+      "company_id": "bytedance",
+      "kind": "official_pricing",
+      "name": "火山方舟模型服务计费",
+      "url": "https://www.volcengine.com/docs/84458/1585097?lang=zh"
+    },
+    {
+      "id": "deepseek_pricing",
+      "company_id": "deepseek",
+      "kind": "official_pricing",
+      "name": "DeepSeek Models & Pricing",
+      "url": "https://api-docs.deepseek.com/quick_start/pricing"
+    },
+    {
+      "id": "zhipu_pricing",
+      "company_id": "zhipu",
+      "kind": "official_pricing",
+      "name": "智谱开放平台产品价格",
+      "url": "https://bigmodel.cn/pricing"
+    },
+    {
+      "id": "kimi_pricing",
+      "company_id": "moonshot",
+      "kind": "official_pricing",
+      "name": "Kimi 开放平台",
+      "url": "https://platform.kimi.com/"
+    },
+    {
+      "id": "tokens_per_day",
+      "company_id": null,
+      "kind": "industry_usage",
+      "name": "Tokens Per Day 行业推理需求指数",
+      "url": "https://tokensperday.com/"
+    }
+  ],
+  "news_queries": [
+    "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
+    "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+    "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)"
+  ]
+}

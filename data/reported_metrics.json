@@ -1,0 +1,214 @@
+{
+  "as_of": "2026-07-27",
+  "pricing": [
+    {
+      "company_id": "openai",
+      "model": "GPT-5.4",
+      "tier": "标准 API",
+      "currency": "USD",
+      "input_per_m": 2.5,
+      "cached_input_per_m": 0.25,
+      "output_per_m": 15.0,
+      "context_k": 272,
+      "source_id": "openai_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-03-05"
+    },
+    {
+      "company_id": "anthropic",
+      "model": "Claude Sonnet 4.6",
+      "tier": "标准 API / 全球路由",
+      "currency": "USD",
+      "input_per_m": 3.0,
+      "cached_input_per_m": 0.3,
+      "output_per_m": 15.0,
+      "context_k": 1000,
+      "source_id": "anthropic_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-05-27"
+    },
+    {
+      "company_id": "google",
+      "model": "Gemini 3.5 Flash",
+      "tier": "Paid / Standard",
+      "currency": "USD",
+      "input_per_m": 1.5,
+      "cached_input_per_m": 0.15,
+      "output_per_m": 9.0,
+      "context_k": 1000,
+      "source_id": "google_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-07-09"
+    },
+    {
+      "company_id": "xai",
+      "model": "Grok 4.5",
+      "tier": "短上下文标准 API",
+      "currency": "USD",
+      "input_per_m": 2.0,
+      "cached_input_per_m": 0.3,
+      "output_per_m": 6.0,
+      "context_k": 500,
+      "source_id": "xai_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-07-06"
+    },
+    {
+      "company_id": "alibaba",
+      "model": "Qwen3.7-Max",
+      "tier": "国际部署 / 标准 API",
+      "currency": "USD",
+      "input_per_m": 2.5,
+      "cached_input_per_m": null,
+      "output_per_m": 7.5,
+      "context_k": 1000,
+      "source_id": "alibaba_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-07-20"
+    },
+    {
+      "company_id": "bytedance",
+      "model": "Doubao-Seed-2.0-Pro",
+      "tier": "0–32K 输入",
+      "currency": "CNY",
+      "input_per_m": 3.2,
+      "cached_input_per_m": null,
+      "output_per_m": 16.0,
+      "context_k": 256,
+      "source_id": "doubao_pricing",
+      "evidence": "公开资料整理，待官网解析复核",
+      "observed_date": "2026-06-09"
+    },
+    {
+      "company_id": "deepseek",
+      "model": "DeepSeek-V4-Pro",
+      "tier": "缓存未命中",
+      "currency": "USD",
+      "input_per_m": 0.435,
+      "cached_input_per_m": 0.003625,
+      "output_per_m": 0.87,
+      "context_k": 1000,
+      "source_id": "deepseek_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-06-20"
+    },
+    {
+      "company_id": "zhipu",
+      "model": "GLM-5.2",
+      "tier": "标准 API",
+      "currency": "CNY",
+      "input_per_m": 8.0,
+      "cached_input_per_m": 2.0,
+      "output_per_m": 28.0,
+      "context_k": 1000,
+      "source_id": "zhipu_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-07-06"
+    },
+    {
+      "company_id": "moonshot",
+      "model": "Kimi K2.6",
+      "tier": "标准 API",
+      "currency": "CNY",
+      "input_per_m": 6.5,
+      "cached_input_per_m": 1.1,
+      "output_per_m": 27.0,
+      "context_k": 256,
+      "source_id": "kimi_pricing",
+      "evidence": "官方",
+      "observed_date": "2026-06-30"
+    }
+  ],
+  "business_metrics": [
+    {
+      "company_id": "anthropic",
+      "metric": "annualized_revenue",
+      "value_usd_b": 47.0,
+      "period": "2026-05",
+      "label": "年化收入",
+      "confidence": "公司披露 / 权威媒体转述",
+      "source_name": "AP：Anthropic 融资公告",
+      "source_url": "https://apnews.com/article/86c432fa375548fd4f111f8164d6ffc1",
+      "note": "公司披露的 annualized revenue；不等同审计口径年度收入。"
+    },
+    {
+      "company_id": "openai",
+      "metric": "annualized_revenue",
+      "value_usd_b": 25.0,
+      "period": "2026-02",
+      "label": "年化收入",
+      "confidence": "媒体援引知情人士",
+      "source_name": "Reuters / The Information",
+      "source_url": "https://www.marketscreener.com/news/openai-tops-25-billion-in-annualized-revenue-the-information-reports-ce7e5fdadf8cf02c",
+      "note": "截至 2026 年 2 月底的年化收入报道值。"
+    },
+    {
+      "company_id": "moonshot",
+      "metric": "arr",
+      "value_usd_b": 0.3,
+      "period": "2026-07",
+      "label": "ARR / 年化收入运行率",
+      "confidence": "二手媒体报道",
+      "source_name": "TechRepublic：Kimi K3 商业化进展",
+      "source_url": "https://www.techrepublic.com/fr/article/news-apac-china-moonshot-ai-ipo/",
+      "note": "报道由 4 月约 2 亿美元升至 7 月约 3 亿美元；需等待公司或监管文件确认。"
+    },
+    {
+      "company_id": "zhipu",
+      "metric": "annual_revenue",
+      "value_usd_b": 0.107,
+      "period": "FY2025",
+      "label": "年度收入（非 ARR）",
+      "confidence": "上市公司业绩 / 权威媒体",
+      "source_name": "AP：Z.ai 2025 年收入",
+      "source_url": "https://apnews.com/article/a00bf637866fcd4d81f4fde28c9862ce",
+      "note": "724 百万元人民币，报道折算约 1.07 亿美元；与 ARR 不可直接横比。"
+    }
+  ],
+  "token_disclosures": [
+    {
+      "company_id": "bytedance",
+      "metric": "inference_tokens_per_day",
+      "value_t": 180.0,
+      "unit": "万亿 tokens/日",
+      "period": "2026-06",
+      "confidence": "公司高管公开披露",
+      "source_name": "上证报：火山引擎 FORCE 大会",
+      "source_url": "https://finance.sina.com.cn/roll/2026-06-23/doc-iniekknt9788268.shtml",
+      "note": "豆包大模型日均调用量；口径可能包含字节内部及火山引擎客户流量。"
+    },
+    {
+      "company_id": "openai",
+      "metric": "api_tokens_per_minute",
+      "value_t": 0.015,
+      "unit": "万亿 tokens/分钟",
+      "period": "2026-04",
+      "confidence": "媒体转述公司披露",
+      "source_name": "Cinco Días：OpenAI API 使用量",
+      "source_url": "https://cincodias.elpais.com/companias/2026-06-05/los-gigantes-de-la-ia-endurecen-la-pugna-por-los-usuarios-en-su-carrera-hacia-la-bolsa.html",
+      "note": "报道值为 API 超过 150 亿 tokens/分钟；折合下限约 21.6 万亿 tokens/日。"
+    },
+    {
+      "company_id": null,
+      "metric": "china_inference_tokens_per_day",
+      "value_t": 140.0,
+      "unit": "万亿 tokens/日",
+      "period": "2026-03",
+      "confidence": "政府统计口径的媒体转述",
+      "source_name": "TechRadar：China token economy",
+      "source_url": "https://www.techradar.com/pro/today-the-token-economy-is-emerging-ai-use-in-china-increases-1000-fold-with-usage-exceeding-140-trillion-tokens-a-day",
+      "note": "全行业口径，不应与单家公司口径直接相加。"
+    },
+    {
+      "company_id": "moonshot",
+      "metric": "training_tokens",
+      "value_t": 15.5,
+      "unit": "万亿训练 tokens",
+      "period": "Kimi K2",
+      "confidence": "论文披露",
+      "source_name": "Kimi K2 技术论文",
+      "source_url": "https://arxiv.org/abs/2507.20534",
+      "note": "训练语料规模，不是线上推理调用量。"
+    }
+  ]
+}
