@@ -1,0 +1,12 @@
+{
+  "name": "llm-token-economy-monitor",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "wrangler deploy --dry-run --outdir=dist"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
