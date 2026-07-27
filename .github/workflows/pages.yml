@@ -3,17 +3,21 @@ name: Refresh and deploy dashboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 0 * * 1,5"
+    - cron: "30 23 * * *"
   push:
     branches: ["main"]
     paths:
       - "config/**"
       - "data/reported_metrics.json"
+      - "data/framework_metrics.json"
       - "scripts/**"
+      - "web/**"
+      - "存储日报/scripts/**"
+      - "存储日报/config/**"
       - ".github/workflows/pages.yml"
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -29,16 +33,53 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Checkout persistent history
+        uses: actions/checkout@v6
+        with:
+          ref: data-history
+          path: .history-store
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
 
+      - name: Restore persistent history
+        shell: bash
+        run: |
+          cp .history-store/data/history.jsonl data/history.jsonl
+          cp .history-store/data/unified_history.jsonl data/unified_history.jsonl
+
       - name: Refresh public sources
         run: python scripts/update_dashboard.py --project-root .
 
+      - name: Refresh storage intelligence
+        run: python "存储日报/scripts/run_storage_intel.py" --hours 30 --target-news 12 --max-news 15
+
+      - name: Build unified data model
+        run: python scripts/build_unified_data.py --project-root .
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v && python -m unittest discover -s "存储日报/tests" -v
+
       - name: Build GitHub Pages and JSON APIs
         run: python scripts/build_github_pages.py --project-root .
+
+      - name: Persist history
+        shell: bash
+        working-directory: .history-store
+        run: |
+          cp ../data/history.jsonl data/history.jsonl
+          cp ../data/unified_history.jsonl data/unified_history.jsonl
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/history.jsonl data/unified_history.jsonl
+          if git diff --cached --quiet; then
+            echo "No history changes"
+          else
+            git commit -m "data: append daily monitoring snapshot"
+            git push origin HEAD:data-history
+          fi
 
       - name: Configure Pages
         uses: actions/configure-pages@v5

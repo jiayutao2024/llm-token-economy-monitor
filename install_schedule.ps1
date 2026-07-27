@@ -1,14 +1,15 @@
 param(
-    [string]$Time = "08:30"
+    [string]$Time = "07:30"
 )
 
 $ErrorActionPreference = "Stop"
 $projectRoot = Split-Path -Parent $MyInvocation.MyCommand.Path
 $runner = Join-Path $projectRoot "run_update.ps1"
-$taskName = "LLM-Market-Monitor-Mon-Fri"
+$taskName = "AI-Compute-Storage-Monitor-Daily"
+$oldTaskName = "LLM-Market-Monitor-Mon-Fri"
 
 if (-not (Test-Path -LiteralPath $runner)) {
-    throw "找不到运行脚本：$runner"
+    throw "Runner script was not found: $runner"
 }
 
 $action = New-ScheduledTaskAction `
@@ -16,8 +17,7 @@ $action = New-ScheduledTaskAction `
     -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$runner`"" `
     -WorkingDirectory $projectRoot
 
-$monday = New-ScheduledTaskTrigger -Weekly -WeeksInterval 1 -DaysOfWeek Monday -At $Time
-$friday = New-ScheduledTaskTrigger -Weekly -WeeksInterval 1 -DaysOfWeek Friday -At $Time
+$daily = New-ScheduledTaskTrigger -Daily -At $Time
 $settings = New-ScheduledTaskSettingsSet `
     -StartWhenAvailable `
     -AllowStartIfOnBatteries `
@@ -27,9 +27,13 @@ $settings = New-ScheduledTaskSettingsSet `
 Register-ScheduledTask `
     -TaskName $taskName `
     -Action $action `
-    -Trigger @($monday, $friday) `
+    -Trigger $daily `
     -Settings $settings `
-    -Description "每周一和周五更新全球大模型商业化与 Token 经济 HTML 看板" `
+    -Description "Daily refresh for AI compute, token, GPU rental and storage dashboard" `
     -Force | Out-Null
+
+if (Get-ScheduledTask -TaskName $oldTaskName -ErrorAction SilentlyContinue) {
+    Unregister-ScheduledTask -TaskName $oldTaskName -Confirm:$false
+}
 
 Get-ScheduledTask -TaskName $taskName | Select-Object TaskName, State

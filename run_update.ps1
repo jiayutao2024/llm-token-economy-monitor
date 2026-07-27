@@ -11,6 +11,21 @@ if ($LASTEXITCODE -ne 0) {
     throw "大模型商业化跟踪更新失败，退出码：$LASTEXITCODE"
 }
 
+& $pythonLauncher -3.10 (Join-Path $projectRoot "存储日报\scripts\run_storage_intel.py") --hours 30 --target-news 12 --max-news 15
+if ($LASTEXITCODE -ne 0) {
+    throw "存储产业情报更新失败，退出码：$LASTEXITCODE"
+}
+
+& $pythonLauncher -3.10 (Join-Path $projectRoot "scripts\build_unified_data.py") --project-root $projectRoot
+if ($LASTEXITCODE -ne 0) {
+    throw "双维数据模型构建失败，退出码：$LASTEXITCODE"
+}
+
+& $pythonLauncher -3.10 (Join-Path $projectRoot "scripts\build_github_pages.py") --project-root $projectRoot
+if ($LASTEXITCODE -ne 0) {
+    throw "GitHub Pages 构建失败，退出码：$LASTEXITCODE"
+}
+
 & $pythonLauncher -3.10 (Join-Path $projectRoot "scripts\build_online_worker.py") --project-root $projectRoot
 if ($LASTEXITCODE -ne 0) {
     throw "在线 Worker 打包失败，退出码：$LASTEXITCODE"

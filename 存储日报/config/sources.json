@@ -1,0 +1,120 @@
+{
+  "feeds": [
+    {
+      "id": "gnews_hbm",
+      "name": "Google News - HBM/AI Memory",
+      "type": "google_news_query",
+      "query": "(HBM4 OR HBM3E OR high bandwidth memory OR 高带宽存储) (AMD OR NVIDIA OR accelerator OR AI芯片)",
+      "language": "en-US",
+      "region": "US",
+      "tier": 2
+    },
+    {
+      "id": "gnews_dram",
+      "name": "Google News - DRAM",
+      "type": "google_news_query",
+      "query": "(DRAM OR DDR5 OR LPDDR5X OR GDDR7) (price OR supply OR demand OR capacity OR order OR memory)",
+      "language": "en-US",
+      "region": "US",
+      "tier": 2
+    },
+    {
+      "id": "gnews_nand",
+      "name": "Google News - NAND/SSD",
+      "type": "google_news_query",
+      "query": "(NAND OR SSD OR enterprise SSD OR eSSD OR UFS) (price OR supply OR demand OR capacity OR order)",
+      "language": "en-US",
+      "region": "US",
+      "tier": 2
+    },
+    {
+      "id": "gnews_memory_makers",
+      "name": "Google News - Global Memory Makers",
+      "type": "google_news_query",
+      "query": "(Samsung memory OR SK hynix OR Micron OR Kioxia OR Sandisk) (HBM OR DRAM OR NAND OR SSD)",
+      "language": "en-US",
+      "region": "US",
+      "tier": 2
+    },
+    {
+      "id": "gnews_storage_hardware",
+      "name": "Google News - HDD/Tape/Storage Systems",
+      "type": "google_news_query",
+      "query": "(HDD OR hard disk OR HAMR OR tape storage OR data storage) (Seagate OR Western Digital OR Toshiba OR IBM OR hyperscale)",
+      "language": "en-US",
+      "region": "US",
+      "tier": 2
+    },
+    {
+      "id": "gnews_china_memory",
+      "name": "Google News - China Memory",
+      "type": "google_news_query",
+      "query": "(长江存储 OR 长鑫存储 OR 长鑫科技 OR 兆易创新 OR 江波龙 OR 佰维存储 OR 东芯股份 OR 北京君正 OR 澜起科技 OR 德明利) 存储",
+      "language": "zh-CN",
+      "region": "CN",
+      "tier": 2
+    },
+    {
+      "id": "bing_cn_products",
+      "name": "Bing News - 国内存储产品",
+      "type": "bing_news_query",
+      "query": "DRAM NAND HBM SSD 存储 芯片 价格 产能 订单",
+      "language": "zh-CN",
+      "region": "CN",
+      "tier": 2
+    },
+    {
+      "id": "bing_cn_chain",
+      "name": "Bing News - 国内存储产业链",
+      "type": "bing_news_query",
+      "query": "长江存储 长鑫存储 存储芯片 设备 材料 封装 模组 渠道",
+      "language": "zh-CN",
+      "region": "CN",
+      "tier": 2
+    },
+    {
+      "id": "amd_ir",
+      "name": "AMD Investor Relations",
+      "type": "rss",
+      "url": "https://ir.amd.com/rss/news-releases.xml",
+      "tier": 1
+    },
+    {
+      "id": "micron_ir",
+      "name": "Micron Investor Relations",
+      "type": "rss",
+      "url": "https://investors.micron.com/rss/news-releases.xml",
+      "tier": 1,
+      "enabled": false
+    },
+    {
+      "id": "sandisk_ir",
+      "name": "Sandisk Investor Relations",
+      "type": "rss",
+      "url": "https://investor.sandisk.com/rss/news-releases.xml",
+      "tier": 1,
+      "enabled": false
+    }
+  ],
+  "source_domain_tiers": {
+    "amd.com": 1,
+    "samsung.com": 1,
+    "skhynix.com": 1,
+    "micron.com": 1,
+    "kioxia-holdings.com": 1,
+    "sandisk.com": 1,
+    "sec.gov": 1,
+    "cninfo.com.cn": 1,
+    "sse.com.cn": 1,
+    "szse.cn": 1,
+    "reuters.com": 2,
+    "bloomberg.com": 2,
+    "nikkei.com": 2,
+    "trendforce.com": 2,
+    "digitimes.com": 2,
+    "thelec.net": 2,
+    "chosun.com": 2,
+    "tomshardware.com": 3,
+    "techpowerup.com": 3
+  }
+}

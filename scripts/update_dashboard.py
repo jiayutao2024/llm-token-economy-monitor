@@ -341,7 +341,7 @@ def prepare_payload(
             "title": config["dashboard_title"],
             "generated_at": now_shanghai().isoformat(timespec="seconds"),
             "metrics_as_of": metrics["as_of"],
-            "schedule": "每周一、周五 08:30（Asia/Shanghai）",
+            "schedule": "每日 07:30（Asia/Shanghai）",
             "fx_note": f"跨币种比较按 1 USD = {cny_per_usd:g} CNY；{config['fx']['note']}",
         },
         "kpis": {

@@ -1,18 +1,18 @@
 {
   "meta": {
-    "title": "全球大模型商业化与 Token 经济跟踪",
-    "generated_at": "2026-07-27T11:00:53+08:00",
+    "title": "【创新构建总量八大指标+产业双维体系,AI牛市目前处于哪个阶段？】全球大模型和Token跟踪",
+    "generated_at": "2026-07-27T18:02:50+08:00",
     "metrics_as_of": "2026-07-27",
-    "schedule": "每周一、周五 08:30（Asia/Shanghai）",
+    "schedule": "每日 07:30（Asia/Shanghai）",
     "fx_note": "跨币种比较按 1 USD = 7.2 CNY；仅用于跨币种价格横向比较；不是财务核算汇率。"
   },
   "kpis": {
     "companies": 10,
     "pricing_models": 9,
-    "source_success": "8/10",
-    "source_changed": 0,
+    "source_success": "9/10",
+    "source_changed": 3,
     "arr_disclosures": 3,
-    "price_verified": "6/9",
+    "price_verified": "7/9",
     "largest_daily_token_t": 180.0
   },
   "pricing": [
@@ -50,8 +50,8 @@
       "company": "字节跳动 / 豆包",
       "region": "国内",
       "blended_cost_usd": 0.888889,
-      "source_check": "unavailable",
-      "source_status": "partial_dynamic",
+      "source_check": "values_seen_near_model",
+      "source_status": "ok",
       "price_delta_pct": 0.0
     },
     {
@@ -299,7 +299,7 @@
       "name": "OpenAI API Pricing",
       "url": "https://developers.openai.com/api/docs/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:48+08:00",
+      "checked_at": "2026-07-27T18:02:45+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://developers.openai.com/api/docs/pricing",
@@ -314,7 +314,7 @@
       "name": "Claude API Pricing",
       "url": "https://platform.claude.com/docs/en/about-claude/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:48+08:00",
+      "checked_at": "2026-07-27T18:02:45+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://platform.claude.com/docs/en/about-claude/pricing",
@@ -329,7 +329,7 @@
       "name": "Gemini Developer API Pricing",
       "url": "https://ai.google.dev/gemini-api/docs/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:48+08:00",
+      "checked_at": "2026-07-27T18:02:45+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn",
@@ -344,7 +344,7 @@
       "name": "xAI API Pricing",
       "url": "https://docs.x.ai/developers/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:48+08:00",
+      "checked_at": "2026-07-27T18:02:45+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://docs.x.ai/developers/pricing",
@@ -359,14 +359,14 @@
       "name": "阿里云百炼模型价格",
       "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:48+08:00",
+      "checked_at": "2026-07-27T18:02:45+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "content_hash": "34bc048e6010925b15d92d262b9e7394545a1662f53ecae04b7dfb46f499e819",
-      "changed": false,
+      "content_hash": "b3eff5a112ba216c87064d1f392fb8292db403e049ec1cc7f54cedecf2df8742",
+      "changed": true,
       "error": null,
-      "text_chars": 92461
+      "text_chars": 92463
     },
     {
       "source_id": "doubao_pricing",
@@ -374,14 +374,14 @@
       "name": "火山方舟模型服务计费",
       "url": "https://www.volcengine.com/docs/84458/1585097?lang=zh",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:48+08:00",
-      "status": "partial_dynamic",
+      "checked_at": "2026-07-27T18:02:45+08:00",
+      "status": "ok",
       "http_status": 200,
       "final_url": "https://docs.volcengine.com/docs/84458/1585097?lang=zh",
-      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "changed": null,
-      "error": "页面主要内容由前端动态加载，已抓到页面但无法稳定解析正文",
-      "text_chars": 0
+      "content_hash": "c318643e36f17f984528eccb8ac750d55d6a8a0a532d8a3f18cf1acc7aa2098e",
+      "changed": true,
+      "error": null,
+      "text_chars": 5994
     },
     {
       "source_id": "deepseek_pricing",
@@ -389,14 +389,14 @@
       "name": "DeepSeek Models & Pricing",
       "url": "https://api-docs.deepseek.com/quick_start/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:49+08:00",
+      "checked_at": "2026-07-27T18:02:46+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-      "content_hash": "f74f1b6a19bdc054efaa38420319ca9d0b3eb0da129665b7254a30c65af0797b",
-      "changed": false,
+      "content_hash": "d0473c41d07f4dabb76e3852a0df59c88791adc6ea353d5e2e68cff0eeea2e72",
+      "changed": true,
       "error": null,
-      "text_chars": 2341
+      "text_chars": 2122
     },
     {
       "source_id": "zhipu_pricing",
@@ -404,7 +404,7 @@
       "name": "智谱开放平台产品价格",
       "url": "https://bigmodel.cn/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:49+08:00",
+      "checked_at": "2026-07-27T18:02:46+08:00",
       "status": "partial_dynamic",
       "http_status": 200,
       "final_url": "https://bigmodel.cn/pricing",
@@ -419,7 +419,7 @@
       "name": "Kimi 开放平台",
       "url": "https://platform.kimi.com/",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T11:00:49+08:00",
+      "checked_at": "2026-07-27T18:02:46+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://platform.kimi.com/",
@@ -434,7 +434,7 @@
       "name": "Tokens Per Day 行业推理需求指数",
       "url": "https://tokensperday.com/",
       "kind": "industry_usage",
-      "checked_at": "2026-07-27T11:00:49+08:00",
+      "checked_at": "2026-07-27T18:02:46+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://tokensperday.com/",
@@ -535,10 +535,10 @@
     },
     {
       "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-      "title": "豆包2.1 Pro模型发布，日均Token调用量增长超10倍 - Sohu",
+      "title": "豆包2.1 Pro模型发布，日均Token调用量增长超10倍 - 搜狐网",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAwYlI4Xzk2ajAyRlNoR1ZVLWJuc3BWbnA0cUpZZkhoNENwOGdRcjhBZHlPTGZVV1lqQUt4NGRmNnV1ekQ2YU13TTlRY2dRcVExM09XcVpn?oc=5",
       "published_at": "2026-06-24T01:46:08+00:00",
-      "publisher": "Sohu",
+      "publisher": "搜狐网",
       "status": "待人工复核"
     },
     {
@@ -735,10 +735,10 @@
     },
     {
       "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "ARR反超OpenAI，Anthropic重写token经济学 - 新浪财经",
+      "title": "ARR反超OpenAI，Anthropic重写token经济学 - finance.sina.com.cn",
       "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5GdmJyVk5YMUpZeGI3ZzVZSHlaZlkydW9qWWhhaHd4aFpvaUk3OWp4MnpOV0dPTDVhWVl6cXpTMWcwQ0dxcnZCTVFscXZoNzhLb0pSUDNFMmV1blliM2xkUXRRZ3dmMHlMYnJ1V0FFUnVaR0NtNEE?oc=5",
       "published_at": "2026-04-07T07:00:00+00:00",
-      "publisher": "新浪财经",
+      "publisher": "finance.sina.com.cn",
       "status": "待人工复核"
     },
     {
@@ -751,10 +751,10 @@
     },
     {
       "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "ARR反超OpenAI，Anthropic重写token经济学 - 新浪财经",
+      "title": "ARR反超OpenAI，Anthropic重写token经济学 - finance.sina.com.cn",
       "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBJYjBNc2kzSi1BRTlDUGZVSkhBdXdUT3ZaUldjdEZSenUtZUV5blkxTWUyTVVnbmhtOUNqWG1uU1l1NEIyRlZoVm4yNGh3ak9Qa19Kd21aNXJrZ2RJWm5ybFZDbUc0ekhCYWdVTzRHOA?oc=5",
       "published_at": "2026-04-07T07:00:00+00:00",
-      "publisher": "新浪财经",
+      "publisher": "finance.sina.com.cn",
       "status": "待人工复核"
     },
     {
@@ -791,6 +791,10 @@
       {
         "run_at": "2026-07-27T08:30:06+08:00",
         "value": 0.54375
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 0.54375
       }
     ],
     "bytedance::Doubao-Seed-2.0-Pro": [
@@ -816,6 +820,10 @@
       },
       {
         "run_at": "2026-07-27T08:30:06+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
         "value": 0.888889
       }
     ],
@@ -843,6 +851,10 @@
       {
         "run_at": "2026-07-27T08:30:06+08:00",
         "value": 1.614583
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 1.614583
       }
     ],
     "zhipu::GLM-5.2": [
@@ -868,6 +880,10 @@
       },
       {
         "run_at": "2026-07-27T08:30:06+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
         "value": 1.805556
       }
     ],
@@ -895,6 +911,10 @@
       {
         "run_at": "2026-07-27T08:30:06+08:00",
         "value": 3.0
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 3.0
       }
     ],
     "google::Gemini 3.5 Flash": [
@@ -920,6 +940,10 @@
       },
       {
         "run_at": "2026-07-27T08:30:06+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
         "value": 3.375
       }
     ],
@@ -947,6 +971,10 @@
       {
         "run_at": "2026-07-27T08:30:06+08:00",
         "value": 3.75
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 3.75
       }
     ],
     "openai::GPT-5.4": [
@@ -973,6 +1001,10 @@
       {
         "run_at": "2026-07-27T08:30:06+08:00",
         "value": 5.625
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 5.625
       }
     ],
     "anthropic::Claude Sonnet 4.6": [
@@ -998,6 +1030,10 @@
       },
       {
         "run_at": "2026-07-27T08:30:06+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-07-27T11:00:53+08:00",
         "value": 6.0
       }
     ]

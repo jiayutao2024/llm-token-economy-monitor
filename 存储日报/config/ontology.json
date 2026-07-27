@@ -1,0 +1,118 @@
+{
+  "products": {
+    "HBM": ["hbm", "hbm2e", "hbm3", "hbm3e", "hbm4", "hbm4e", "high bandwidth memory", "高带宽内存", "高带宽存储"],
+    "DRAM": ["dram", "ddr4", "ddr5", "ddr6", "lpddr4", "lpddr5", "lpddr5x", "gddr6", "gddr7", "内存颗粒"],
+    "NAND": ["nand", "3d nand", "slc nand", "mlc", "tlc", "qlc", "plc", "闪存颗粒"],
+    "SSD": ["ssd", "essd", "enterprise ssd", "client ssd", "nvme", "sata ssd", "solid state drive", "固态硬盘", "企业级固态"],
+    "Managed Flash": ["emmc", "ufs", "ufs 4.0", "ufs 4.1", "embedded storage", "嵌入式存储"],
+    "NOR/EEPROM": ["nor flash", "spi nor", "eeprom", "slc flash"],
+    "Controller": ["ssd controller", "flash controller", "memory controller", "主控芯片", "存储控制器"],
+    "CXL/SCM": ["cxl memory", "memory expander", "storage class memory", "persistent memory", "computational storage", "存算一体"],
+    "HDD": ["hdd", "hard disk", "hamr", "mamr", "heat assisted magnetic recording", "硬盘", "机械硬盘"],
+    "Tape/Archive": ["tape storage", "lto", "magnetic tape", "cold archive", "磁带存储", "归档存储"],
+    "Optical/MED": ["optical storage", "magneto-electric disk", "med storage", "光存储", "磁电存储"]
+  },
+  "chain_layers": {
+    "End Demand": ["ai server", "accelerator", "gpu", "data center", "hyperscale", "cloud capex", "server shipment", "smartphone", "pc shipment", "automotive", "ai服务器", "算力芯片", "云资本开支", "手机出货", "pc出货"],
+    "Memory Design/Manufacturing": ["memory maker", "memory manufacturer", "wafer starts", "wpm", "fab", "utilization", "yield", "晶圆", "产能", "稼动率", "良率", "扩产"],
+    "Equipment": ["lithography", "etch", "deposition", "cmp", "cleaning equipment", "testing equipment", "刻蚀", "薄膜沉积", "清洗设备", "量测", "测试设备"],
+    "Materials": ["silicon wafer", "photoresist", "sputtering target", "electronic gas", "precursor", "硅片", "光刻胶", "靶材", "电子特气", "前驱体"],
+    "Packaging/Test": ["tsv", "tc bonding", "hybrid bonding", "advanced packaging", "cowos", "base die", "interposer", "封装", "测试", "混合键合", "先进封装"],
+    "Module/Channel": ["memory module", "dimm", "rdimm", "sodimm", "module maker", "distributor", "inventory", "模组", "渠道", "代理商", "库存"],
+    "System/OEM": ["storage system", "array", "server oem", "pc oem", "smartphone oem", "整机", "服务器厂商", "存储系统"]
+  },
+  "event_types": {
+    "Order/Contract": ["order", "contract", "supply agreement", "long-term agreement", "lta", "procure", "purchase", "selected supplier", "订单", "采购", "供货协议", "长协", "中标", "定点"],
+    "Qualification/Sample": ["sample", "qualification", "qualified", "validation", "certification", "tape-out", "送样", "验证", "认证", "流片"],
+    "Mass Production/Shipment": ["mass production", "volume production", "shipment", "shipping", "ramp", "量产", "出货", "爬坡"],
+    "Capacity/Capex": ["capex", "capacity", "fab expansion", "new fab", "wafer starts", "investment plan", "资本开支", "扩产", "产能", "新厂", "投产"],
+    "Supply Cut/Disruption": ["production cut", "output cut", "supply disruption", "earthquake", "fire", "power outage", "shutdown", "减产", "停产", "断供", "地震", "火灾", "停电"],
+    "Price": ["price increase", "price hike", "contract price", "spot price", "asp", "pricing", "涨价", "价格上涨", "合约价", "现货价", "均价"],
+    "Inventory/Utilization": ["inventory", "days inventory", "utilization", "channel stock", "库存", "稼动率", "去库存", "补库存"],
+    "Earnings/Guidance": ["earnings", "revenue", "profit", "margin", "guidance", "forecast", "业绩", "营收", "利润", "毛利率", "指引", "预告"],
+    "Technology/Roadmap": ["roadmap", "breakthrough", "world first", "generation", "layer", "node", "technology", "路线图", "首款", "突破", "层数", "制程"],
+    "Policy/Trade": ["export control", "sanction", "tariff", "subsidy", "chips act", "entity list", "出口管制", "制裁", "关税", "补贴", "实体清单"],
+    "M&A/IPO/Financing": ["acquisition", "merger", "ipo", "listing", "funding", "stake sale", "收购", "并购", "上市", "融资", "增资", "股权"],
+    "Demand/Shipment": ["server shipment", "gpu shipment", "pc shipment", "smartphone shipment", "cloud capex", "order backlog", "出货量", "资本开支", "订单积压", "需求增长"]
+  },
+  "evidence_stages": {
+    "1_Rumor": ["rumor", "reportedly", "sources say", "传闻", "据悉", "知情人士"],
+    "2_Announcement": ["announce", "unveil", "roadmap", "发布", "宣布", "路线图"],
+    "3_Sample": ["sample", "送样"],
+    "4_Qualification": ["qualified", "qualification", "validation", "认证", "验证通过"],
+    "5_Contract": ["contract", "supply agreement", "order", "long-term agreement", "合同", "订单", "供货协议", "长协"],
+    "6_MassProduction": ["mass production", "volume production", "量产"],
+    "7_ShipmentRevenue": ["shipment", "revenue contribution", "commercial delivery", "出货", "收入贡献", "商业交付"]
+  },
+  "exclusion_terms": [
+    "coupon", "promo code", "black friday", "prime day", "clearance sale",
+    "gaming laptop deal", "laptop deal", "ssd deal", "amazon offer", "off the 870 evo",
+    "save on", "save $", "saves $", "slashed in price", "where to buy", "buying guide", "buy the samsung", "buying the samsung", "ssd review", "ssd [review]", "best external ssd", "best portable ssd", "how to upgrade", "how to check", "ps5 storage upgrade",
+    "优惠券", "促销价", "历史低价", "值得买", "购物节", "游戏本优惠",
+    "giveaway", "win a", "deal will save", "to watch this week", "etf stocks",
+    "赠品", "抽奖", "评测", "概念股推荐", "ram deal", "perfect starting point",
+    "股价一夜", "融资客", "名单", "估值可能", "装机"
+  ],
+  "logic_templates": {
+    "Order/Contract": {
+      "first_order_effect": "需求可见度与供应商份额预期上升；若为长协，价格与产能锁定价值更高。",
+      "second_order_effect": "供应商可能追加产能/封装投入，挤占同类产品产能并影响其他存储品种供给。",
+      "verification": "核对客户最终出货量、单机存储容量、供应份额、ASP、合同期限、良率和收入确认时点。"
+    },
+    "Qualification/Sample": {
+      "first_order_effect": "技术与客户导入概率提高，但尚不能等同订单或收入。",
+      "second_order_effect": "若通过验证，后续可能进入量产并改变供应份额；失败或延期则预期回撤。",
+      "verification": "追踪送样→验证通过→定点/合同→量产→出货收入五个后续节点。"
+    },
+    "Mass Production/Shipment": {
+      "first_order_effect": "供给和收入兑现度上升，技术风险下降；具体盈利取决于良率与ASP。",
+      "second_order_effect": "新增有效供给可能缓解紧缺并压制价格，但高端产品放量也会改善产品结构。",
+      "verification": "核对有效bit/晶圆产出、良率、客户结构、单价、库存和收入占比。"
+    },
+    "Capacity/Capex": {
+      "first_order_effect": "中期供给增加；短期利好设备、材料和厂务，短期未必形成存储收入。",
+      "second_order_effect": "若需求不及预期，扩产会加大后续价格下行风险；先进产能也可能挤压成熟品供给。",
+      "verification": "区分宣布投资、设备搬入、风险量产和有效bit产出，并跟踪建设/良率爬坡节奏。"
+    },
+    "Supply Cut/Disruption": {
+      "first_order_effect": "有效供给下降，库存去化和涨价预期增强，持有现货库存的厂商/渠道可能受益。",
+      "second_order_effect": "下游模组与整机成本上升；若事件短暂或库存充足，价格影响可能被高估。",
+      "verification": "核对受影响产能、产品结构、停产时长、库存水位、可替代供给和保险/复产进度。"
+    },
+    "Price": {
+      "first_order_effect": "原厂ASP与毛利率预期改善；模组/渠道受益取决于库存成本与价格传导。",
+      "second_order_effect": "持续涨价可能抑制终端需求并吸引复产扩产，形成周期反转条件。",
+      "verification": "区分现货价与合约价、报价与成交价，并核对销量、库存和产品组合。"
+    },
+    "Inventory/Utilization": {
+      "first_order_effect": "库存下降/稼动率上升通常指向周期改善，反之指向需求或价格压力。",
+      "second_order_effect": "渠道补库可放大短期需求，但若终端销售未改善可能形成二次去库。",
+      "verification": "同时核对原厂、模组、渠道和终端四层库存及sell-in/sell-through。"
+    },
+    "Earnings/Guidance": {
+      "first_order_effect": "将行业叙事映射到收入、ASP、bit出货、毛利率和资本开支，是预期兑现的关键证据。",
+      "second_order_effect": "龙头指引会改变全行业供需与价格预期，并外溢至设备、材料、模组和下游。",
+      "verification": "拆分量、价、产品结构、汇率和一次性因素，并与一致预期及前次指引比较。"
+    },
+    "Technology/Roadmap": {
+      "first_order_effect": "提升技术竞争力或产品性能预期，但路线图不等于可量产产品。",
+      "second_order_effect": "新工艺可能改变成本、设备/材料价值量和竞争格局。",
+      "verification": "追踪样品指标、客户验证、良率、成本/bit、量产时间和真实订单。"
+    },
+    "Policy/Trade": {
+      "first_order_effect": "改变设备、材料、产品和客户的可获得性，并影响国产替代节奏。",
+      "second_order_effect": "可能触发库存前置、供应链重构、重复建设和区域价格差。",
+      "verification": "以法规原文、生效日期、覆盖产品/主体、许可证和豁免为准。"
+    },
+    "M&A/IPO/Financing": {
+      "first_order_effect": "改善资本与资源整合预期，或引入新增供给/竞争者。",
+      "second_order_effect": "估值锚、股权稀释、整合成本和监管审批可能改变短期市场反应。",
+      "verification": "核对交易结构、估值、资金用途、审批、业绩承诺与实际产能/客户协同。"
+    },
+    "Demand/Shipment": {
+      "first_order_effect": "终端或算力出货提高存储bit需求；弹性由单机容量与产品类型决定。",
+      "second_order_effect": "需求强度影响库存、价格、产能配置及供应链资本开支。",
+      "verification": "用客户出货、单机容量、订单积压、交付周期和终端sell-through交叉验证。"
+    }
+  }
+}

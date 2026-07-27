@@ -1,0 +1,2 @@
+timestamp,customer,supplier,product,stage,volume,unit,asp,currency,source_url,confidence,notes
+2026-07-22T12:00:00+08:00,AMD,Samsung Electronics,HBM4,Contract,,,,,https://www.amd.com/en/newsroom/,high,示例行，请替换为已核验数据

@@ -1,88 +1,81 @@
-# 全球大模型商业化与 Token 经济跟踪
+# AI 算力与存储产业双维跟踪
 
-这是一套不需要 API Key 的轻量自动化：
+公开站点：
 
-- 每周一、周五抓取官方定价页和行业数据页；
-- 对来源页做内容指纹，识别“网页发生变化”；
-- 保存每次运行的价格快照，形成价格变化历史；
-- 抓取 Google News RSS，生成 ARR、token 用量、价格调整的待复核信号；
-- 输出一个自包含的 `dashboard.html`，无需本地服务器即可打开。
-- 同步生成可部署的在线 Worker，提供 Dashboard 与 JSON API。
+- Dashboard：<https://jiayutao2024.github.io/llm-token-economy-monitor/>
+- 存储 Tab：<https://jiayutao2024.github.io/llm-token-economy-monitor/storage/>
+- API 目录：<https://jiayutao2024.github.io/llm-token-economy-monitor/api/index.json>
 
-## 运行
+页面不依赖 GPT、登录、VPN、CDN 或第三方前端脚本。GitHub Actions 在服务器端抓取公开来源，读者只访问本站生成的静态 HTML、CSS、JavaScript 和 JSON。
 
-在 PowerShell 中：
+## Dashboard 结构
+
+### AI 与算力
+
+- 浙商研究框架中的总量八大指标；
+- “总量拥挤度 × 产业验证度”二维阶段矩阵；
+- 国内外大模型 API Token 价格；
+- Token 使用量与 ARR/收入披露；
+- GPU 单卡租赁价格；
+- 北美 CSP Capex 与产业六项验证。
+
+### 存储产业
+
+- DRAM、NAND、HBM、企业级 SSD 公开价格方向；
+- 需求 → bit需求 → 库存 → 供给 → 价格 → 盈利 → Capex 产业链；
+- 产品 × 产业环节事件热力图；
+- 发布 → 送样 → 验证 → 合同 → 量产 → 收入证据漏斗；
+- 国内外核心标的行情；
+- 经过去重和零售噪声过滤的公开新闻发现队列。
+
+## 刷新与历史
+
+- 每日北京时间 07:30 自动更新；
+- GitHub Actions cron：`30 23 * * *`；
+- `data-history` 分支保存 `history.jsonl` 和 `unified_history.jsonl`；
+- 单一来源失败时保留最近成功快照并在健康接口中标记。
+
+本地更新：
 
 ```powershell
 .\run_update.ps1
 ```
 
-输出：
-
-- `dashboard.html`：最终看板；
-- `data/history.jsonl`：每次运行的快照；
-- `data/source_state.json`：来源抓取状态与网页指纹；
-- `data/news_signals.json`：自动发现的新闻线索；
-- `logs/update.log`：运行日志。
-- `data/dashboard_api.json`：标准化 API 快照；
-- `worker/index.js`：在线 Dashboard 与 API 的部署入口。
-
-## 在线 API
-
-部署后可用：
-
-- `/api/dashboard`：完整快照；
-- `/api/pricing`：API token 价格；
-- `/api/business`：ARR、年化收入和年度收入；
-- `/api/tokens`：token 用量和训练量披露；
-- `/api/sources`：来源与抓取状态；
-- `/api/signals`：新闻待复核池；
-- `/api/history`：价格历史；
-- `/api/live/sources`：在线实时检查来源连通性；
-- `/health`：服务及快照健康状态。
-
-正式指标是版本化快照；`/api/live/sources` 是实时请求，不会用抓取失败覆盖最近成功快照。
-
-## GitHub Pages
-
-仓库包含 `.github/workflows/pages.yml`：
-
-- 每周一、周五北京时间 08:30 自动更新并部署；
-- 支持在 Actions 页面手动触发；
-- 页面入口为 GitHub Pages 根目录；
-- JSON 接口位于 `api/*.json`，包括 `dashboard.json`、`pricing.json`、
-  `business.json`、`tokens.json`、`sources.json`、`signals.json`、
-  `history.json` 和 `health.json`。
-
-GitHub Pages 是静态托管，接口数据代表最近一次成功 Actions 任务生成的版本化快照。
-
-## 定时任务
-
-默认安装为每周一、周五 08:30 运行：
+本地安装每日任务：
 
 ```powershell
-.\install_schedule.ps1
+.\install_schedule.ps1 -Time "07:30"
 ```
 
-修改时间：
+## 公共 API
 
-```powershell
-.\install_schedule.ps1 -Time "09:00"
+- `/api/dashboard.json`：完整双 Tab 快照；
+- `/api/overview.json`：阶段判断和总量八指标；
+- `/api/ai-compute.json`：Token、ARR、价格和 Capex；
+- `/api/gpu-rental.json`：GPU 租赁价格；
+- `/api/storage.json`：存储周期、行情和事件；
+- `/api/market-cycle.json`：阶段分数、阈值和覆盖率；
+- `/api/news.json`：事件与待复核池；
+- `/api/health.json`：来源、陈旧指标和部署状态；
+- `/api/metrics.json`：统一字段的标准化指标；
+- 原 `pricing.json`、`business.json`、`tokens.json`、`sources.json`、`signals.json`、`history.json` 保持兼容。
+
+标准化指标字段：
+
+```text
+metric_id, value, unit, currency, region, period,
+source_name, source_url, source_tier, evidence_status,
+collected_at, note
 ```
 
-计划任务名称：`LLM-Market-Monitor-Mon-Fri`。
+## 数据边界
 
-## 数据口径
+- T1：公司官网、IR、交易所、监管、政府和官方价格页；
+- T2：权威媒体和可公开引用的行业研究；
+- T3：RSS/聚合新闻，仅用于发现，不自动写入正式指标；
+- ARR、年化收入和年度收入不合并；
+- 公司、行业、训练和推理 Token 不跨口径求和；
+- 按需、合约、竞价和整机 GPU 价格不混排；
+- 不上传 Wind、付费 TrendForce 历史表、原始研究 PPT/Word 或内部底稿。
 
-- 价格默认是每百万 tokens 的公开标价；跨币种比较使用配置文件中的固定汇率。
-- “混合成本”假设每 100 万总 tokens 中输入占 75%、输出占 25%，仅用于统一比较。
-- ARR、annualized revenue、年度收入不是同一口径，看板会分开展示。
-- 公司未披露的数据保持“未披露”，不填 0。
-- 自动化只把新闻放进“待复核信号”，不会直接把媒体标题中的数字写进正式指标。
-
-## 更新公司或人工复核值
-
-- 公司、来源、运行时间：`config/monitor.json`
-- 已复核价格、ARR、token 披露：`data/reported_metrics.json`
-
-修改后重新运行 `run_update.ps1` 即可。
+公开页面用于研究线索与证据管理，不构成投资建议。

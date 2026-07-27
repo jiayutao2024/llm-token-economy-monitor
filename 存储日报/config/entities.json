@@ -1,0 +1,32 @@
+{
+  "entities": [
+    {"name":"Samsung Electronics","aliases":["samsung electronics","samsung memory","samsung","三星电子","三星"],"region":"Korea","roles":["DRAM","HBM","NAND","SSD","Foundry"],"tickers":["005930.KS"]},
+    {"name":"SK hynix","aliases":["sk hynix","sk하이닉스","海力士","sk海力士"],"region":"Korea","roles":["DRAM","HBM","NAND","SSD"],"tickers":["000660.KS","SKHY.US"]},
+    {"name":"Micron","aliases":["micron technology","micron","美光"],"region":"US","roles":["DRAM","HBM","NAND","SSD"],"tickers":["MU.US"]},
+    {"name":"Kioxia","aliases":["kioxia","铠侠","东芝存储"],"region":"Japan","roles":["NAND","SSD"],"tickers":["285A.JP"]},
+    {"name":"Sandisk","aliases":["sandisk","闪迪"],"region":"US","roles":["NAND","SSD"],"tickers":["SNDK.US"]},
+    {"name":"YMTC","aliases":["ymtc","yangtze memory","长江存储"],"region":"China","roles":["NAND","SSD"],"tickers":[]},
+    {"name":"CXMT","aliases":["cxmt","changxin memory","长鑫存储","长鑫科技"],"region":"China","roles":["DRAM"],"tickers":[]},
+    {"name":"Fujian Jinhua","aliases":["fujian jinhua","jinhua integrated circuit","福建晋华","晋华"],"region":"China","roles":["DRAM"],"tickers":[]},
+    {"name":"AMD","aliases":["advanced micro devices","amd","超威半导体"],"region":"US","roles":["AI Accelerator","CPU","HBM Demand"],"tickers":["AMD.US"]},
+    {"name":"NVIDIA","aliases":["nvidia","英伟达","辉达"],"region":"US","roles":["AI Accelerator","HBM Demand"],"tickers":["NVDA.US"]},
+    {"name":"Broadcom","aliases":["broadcom","博通"],"region":"US","roles":["ASIC","HBM Demand"],"tickers":["AVGO.US"]},
+    {"name":"Google","aliases":["google","alphabet","谷歌","tpu"],"region":"US","roles":["Cloud","ASIC","Storage Demand"],"tickers":["GOOGL.US"]},
+    {"name":"Microsoft","aliases":["microsoft","微软","azure"],"region":"US","roles":["Cloud","Storage Demand"],"tickers":["MSFT.US"]},
+    {"name":"Amazon","aliases":["amazon","aws","亚马逊"],"region":"US","roles":["Cloud","Storage Demand"],"tickers":["AMZN.US"]},
+    {"name":"Meta","aliases":["meta platforms","meta","facebook"],"region":"US","roles":["Cloud","Storage Demand"],"tickers":["META.US"]},
+    {"name":"Seagate","aliases":["seagate","希捷"],"region":"US","roles":["HDD"],"tickers":["STX.US"]},
+    {"name":"Western Digital","aliases":["western digital","wdc","西部数据"],"region":"US","roles":["HDD"],"tickers":["WDC.US"]},
+    {"name":"GigaDevice","aliases":["gigadevice","兆易创新"],"region":"China","roles":["NOR/EEPROM","DRAM"],"tickers":["603986.SH"]},
+    {"name":"Montage Technology","aliases":["montage technology","澜起科技"],"region":"China","roles":["Memory Interface","CXL"],"tickers":["688008.SH"]},
+    {"name":"Longsys","aliases":["longsys","江波龙"],"region":"China","roles":["Module/Channel","SSD","Managed Flash"],"tickers":["301308.SZ"]},
+    {"name":"BIWIN Storage","aliases":["biwin","佰维存储"],"region":"China","roles":["Module/Channel","SSD","Managed Flash"],"tickers":["688525.SH"]},
+    {"name":"Dosilicon","aliases":["dosilicon","东芯股份"],"region":"China","roles":["SLC NAND","NOR/EEPROM"],"tickers":["688110.SH"]},
+    {"name":"Ingenic","aliases":["ingenic","北京君正"],"region":"China","roles":["DRAM","SRAM","Automotive"],"tickers":["300223.SZ"]},
+    {"name":"Deyiwei","aliases":["deyiwei","德明利"],"region":"China","roles":["Controller","Module/Channel","SSD"],"tickers":["001309.SZ"]},
+    {"name":"Netac","aliases":["netac","朗科科技"],"region":"China","roles":["Module/Channel","SSD"],"tickers":["300042.SZ"]},
+    {"name":"Shannon Systems","aliases":["shannon systems","忆恒创源"],"region":"China","roles":["Enterprise SSD"],"tickers":[]},
+    {"name":"Phison","aliases":["phison","群联"],"region":"Taiwan","roles":["Controller","SSD"],"tickers":["8299.TW"]},
+    {"name":"Silicon Motion","aliases":["silicon motion","慧荣"],"region":"Taiwan","roles":["Controller","SSD"],"tickers":["SIMO.US"]}
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "source": "Yahoo Finance public chart endpoint",
+  "foreign": [
+    {"symbol":"005930.KS","name":"三星电子","role":"DRAM / HBM / NAND"},
+    {"symbol":"000660.KS","name":"SK海力士","role":"DRAM / HBM / NAND"},
+    {"symbol":"MU","name":"美光科技","role":"DRAM / HBM / NAND"},
+    {"symbol":"SNDK","name":"闪迪","role":"NAND / SSD"},
+    {"symbol":"WDC","name":"西部数据","role":"HDD"},
+    {"symbol":"STX","name":"希捷科技","role":"HDD"}
+  ],
+  "domestic": [
+    {"symbol":"603986.SS","name":"兆易创新","role":"NOR / DRAM"},
+    {"symbol":"688008.SS","name":"澜起科技","role":"内存接口 / CXL"},
+    {"symbol":"688110.SS","name":"东芯股份","role":"SLC NAND / NOR"},
+    {"symbol":"301308.SZ","name":"江波龙","role":"模组 / SSD / 嵌入式"},
+    {"symbol":"688525.SS","name":"佰维存储","role":"模组 / SSD / 嵌入式"},
+    {"symbol":"001309.SZ","name":"德明利","role":"主控 / 模组 / SSD"}
+  ]
+}

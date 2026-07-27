@@ -1,9 +1,9 @@
 {
-  "dashboard_title": "全球大模型商业化与 Token 经济跟踪",
+  "dashboard_title": "【创新构建总量八大指标+产业双维体系,AI牛市目前处于哪个阶段？】全球大模型和Token跟踪",
   "timezone": "Asia/Shanghai",
   "schedule": {
-    "days": ["Monday", "Friday"],
-    "time": "08:30"
+    "days": ["Daily"],
+    "time": "07:30"
   },
   "fx": {
     "CNY_per_USD": 7.2,
