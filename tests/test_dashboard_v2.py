@@ -103,6 +103,14 @@ class DashboardV2Tests(unittest.TestCase):
         self.assertNotIn("cdn.", html.lower())
         self.assertNotIn("fetch(\"http", js.lower())
 
+    def test_public_pages_carry_owner_watermark(self):
+        html = (ROOT / "web" / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "web" / "styles.css").read_text(encoding="utf-8")
+        self.assertIn("浙商证券研究所 · 陶嘉宇", html)
+        self.assertIn('class="watermark-layer"', html)
+        self.assertIn(".watermark-layer", css)
+        self.assertIn("pointer-events:none", css)
+
     def test_public_storage_price_parser(self):
         parser = storage_prices.PricePageParser()
         parser.feed("""
