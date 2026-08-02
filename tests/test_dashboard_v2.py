@@ -17,9 +17,40 @@ price_spec = importlib.util.spec_from_file_location(
 )
 storage_prices = importlib.util.module_from_spec(price_spec)
 price_spec.loader.exec_module(storage_prices)
+macro_spec = importlib.util.spec_from_file_location(
+    "macro", ROOT / "scripts" / "collect_macro_indicators.py"
+)
+macro = importlib.util.module_from_spec(macro_spec)
+macro_spec.loader.exec_module(macro)
 
 
 class DashboardV2Tests(unittest.TestCase):
+    def test_percentile_rank(self):
+        self.assertEqual(macro.percentile_rank([1, 2, 3, 4]), 100.0)
+        self.assertEqual(macro.percentile_rank([1, 2, 3, 4], 2), 50.0)
+
+    def test_kst_has_expected_warmup_and_direction(self):
+        values = [100 + i for i in range(80)]
+        result = macro.kst_series(values)
+        self.assertIsNone(result[43])
+        self.assertIsNotNone(result[44])
+        self.assertGreater(result[-1], 0)
+
+    def test_macro_snapshot_contract(self):
+        path = ROOT / "data" / "macro_indicators_latest.json"
+        if not path.exists():
+            self.skipTest("macro snapshot is generated during refresh")
+        data = json.loads(path.read_text(encoding="utf-8"))
+        rows = data["metrics"]
+        self.assertEqual(len(rows), 8)
+        self.assertEqual(len({row["metric_id"] for row in rows}), 8)
+        for row in rows:
+            self.assertIn("data_frequency", row)
+            self.assertIn("source_date", row)
+            self.assertGreater(row["sample_count"], 0)
+            self.assertGreaterEqual(row["risk_percentile"], 0)
+            self.assertLessEqual(row["risk_percentile"], 100)
+
     def test_stage_matrix(self):
         self.assertEqual(
             unified.determine_stage(80, 70)["stage_short"], "共振拥挤"

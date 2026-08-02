@@ -57,6 +57,15 @@ def main() -> int:
             "overview": payload["overview"],
             "health": payload["health"],
         },
+        "macro-indicators.json": {
+            "meta": meta,
+            "rows": payload["overview"]["macro_indicators"],
+            "health": {
+                "status": payload["health"].get("macro_source_status"),
+                "last_collected_at": payload["health"].get("macro_last_collected_at"),
+                "errors": payload["health"].get("macro_source_errors", []),
+            },
+        },
         "ai-compute.json": {
             "meta": meta,
             **payload["ai_compute"],
@@ -124,13 +133,17 @@ def main() -> int:
             "history.json": "兼容：价格历史",
         }.items()
     ]
+    endpoint_docs.append({
+        "path": "./macro-indicators.json",
+        "description": "总量八大指标最新观测、真实数据日期、频率与公开来源",
+    })
     write_json(
         api_root / "index.json",
         {
             "name": "Zheshang AI Compute & Storage Monitor API",
             "version": 2.1,
             "snapshot_at": meta["generated_at"],
-            "refresh_schedule": "Daily 23:30 UTC / 07:30 Asia/Shanghai",
+            "refresh_schedule": "Every 6 hours / 01:30, 07:30, 13:30, 19:30 Asia/Shanghai",
             "schema": {
                 "normalized_metric": [
                     "metric_id", "value", "unit", "currency", "region", "period",

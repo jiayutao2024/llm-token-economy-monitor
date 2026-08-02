@@ -2,9 +2,9 @@
   "meta": {
     "title": "【创新构建总量八大指标+产业双维体系,AI牛市目前处于哪个阶段？】全球大模型和Token跟踪",
     "contact": "请联系浙商何佳烨/孙一峰/赵乾凯/马莉",
-    "generated_at": "2026-07-27T18:24:07+08:00",
-    "metrics_as_of": "2026-07-27",
-    "schedule": "每日 07:30（Asia/Shanghai）",
+    "generated_at": "2026-08-02T12:59:50+08:00",
+    "metrics_as_of": "2026-07-31",
+    "schedule": "每日 01:30 / 07:30 / 13:30 / 19:30（Asia/Shanghai）",
     "timezone": "Asia/Shanghai",
     "fx_note": "跨币种比较按 1 USD = 7.2 CNY；仅用于跨币种价格横向比较；不是财务核算汇率。",
     "public_policy": "只发布可公开引用的数据、方向和有限快照；不上传Wind、付费TrendForce历史或内部底稿。"
@@ -12,10 +12,10 @@
   "kpis": {
     "companies": 10,
     "pricing_models": 9,
-    "source_success": "9/10",
-    "source_changed": 3,
+    "source_success": "8/10",
+    "source_changed": 1,
     "arr_disclosures": 3,
-    "price_verified": "7/9",
+    "price_verified": "6/9",
     "largest_daily_token_t": 180.0
   },
   "pricing": [
@@ -53,8 +53,8 @@
       "company": "字节跳动 / 豆包",
       "region": "国内",
       "blended_cost_usd": 0.888889,
-      "source_check": "values_seen_near_model",
-      "source_status": "ok",
+      "source_check": "unavailable",
+      "source_status": "partial_dynamic",
       "price_delta_pct": 0.0
     },
     {
@@ -302,14 +302,14 @@
       "name": "OpenAI API Pricing",
       "url": "https://developers.openai.com/api/docs/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:45+08:00",
+      "checked_at": "2026-08-02T07:30:03+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://developers.openai.com/api/docs/pricing",
-      "content_hash": "d3a476d83f55c05b5421dea0bd489deadede00c9c566a3ff832fe0f633e0ca0b",
+      "content_hash": "1e1189974fc7c6ce4f1c444f21f33456268065d5357a778d14488396dd1e0d0e",
       "changed": false,
       "error": null,
-      "text_chars": 17460
+      "text_chars": 18064
     },
     {
       "source_id": "anthropic_pricing",
@@ -317,7 +317,7 @@
       "name": "Claude API Pricing",
       "url": "https://platform.claude.com/docs/en/about-claude/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:45+08:00",
+      "checked_at": "2026-08-02T07:30:03+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://platform.claude.com/docs/en/about-claude/pricing",
@@ -332,14 +332,14 @@
       "name": "Gemini Developer API Pricing",
       "url": "https://ai.google.dev/gemini-api/docs/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:45+08:00",
+      "checked_at": "2026-08-02T07:30:03+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn",
-      "content_hash": "c0202d79d34321b4cfb20adb5980395132c4fb1b2f63576f41c814ce70612bf9",
+      "content_hash": "1f3defc70029c151c7eaf6d4a4da7be6fc2703897fea97e7d975a7c8bf29b9e6",
       "changed": false,
       "error": null,
-      "text_chars": 27391
+      "text_chars": 31476
     },
     {
       "source_id": "xai_pricing",
@@ -347,14 +347,14 @@
       "name": "xAI API Pricing",
       "url": "https://docs.x.ai/developers/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:45+08:00",
+      "checked_at": "2026-08-02T07:30:03+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://docs.x.ai/developers/pricing",
-      "content_hash": "f8863dad285da7c485ebe9b44ebbceec950ab749245f2c7f4515d2acc503c0d0",
+      "content_hash": "be6c8532d55230b5113603e373b5af9b5334866e66445f0c2beaa6ad4c64c0e2",
       "changed": false,
       "error": null,
-      "text_chars": 10185
+      "text_chars": 10325
     },
     {
       "source_id": "alibaba_pricing",
@@ -362,14 +362,14 @@
       "name": "阿里云百炼模型价格",
       "url": "https://help.aliyun.com/zh/model-studio/model-pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:45+08:00",
+      "checked_at": "2026-08-02T07:30:03+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://help.aliyun.com/zh/model-studio/model-pricing",
-      "content_hash": "b3eff5a112ba216c87064d1f392fb8292db403e049ec1cc7f54cedecf2df8742",
+      "content_hash": "6a3dcd8c2677210910b2a412cc81dc03fb8402734153052c652ccd45e56ff251",
       "changed": true,
       "error": null,
-      "text_chars": 92463
+      "text_chars": 94687
     },
     {
       "source_id": "doubao_pricing",
@@ -377,14 +377,14 @@
       "name": "火山方舟模型服务计费",
       "url": "https://www.volcengine.com/docs/84458/1585097?lang=zh",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:45+08:00",
-      "status": "ok",
+      "checked_at": "2026-08-02T07:30:03+08:00",
+      "status": "partial_dynamic",
       "http_status": 200,
       "final_url": "https://docs.volcengine.com/docs/84458/1585097?lang=zh",
-      "content_hash": "c318643e36f17f984528eccb8ac750d55d6a8a0a532d8a3f18cf1acc7aa2098e",
-      "changed": true,
-      "error": null,
-      "text_chars": 5994
+      "content_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "changed": null,
+      "error": "页面主要内容由前端动态加载，已抓到页面但无法稳定解析正文",
+      "text_chars": 0
     },
     {
       "source_id": "deepseek_pricing",
@@ -392,14 +392,14 @@
       "name": "DeepSeek Models & Pricing",
       "url": "https://api-docs.deepseek.com/quick_start/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:46+08:00",
+      "checked_at": "2026-08-02T07:30:04+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://api-docs.deepseek.com/quick_start/pricing/",
-      "content_hash": "d0473c41d07f4dabb76e3852a0df59c88791adc6ea353d5e2e68cff0eeea2e72",
-      "changed": true,
+      "content_hash": "63429152a9b61a41e484517d236e65e6a9ae472dd2d90a610d5c36e6d2d0d6f8",
+      "changed": false,
       "error": null,
-      "text_chars": 2122
+      "text_chars": 2705
     },
     {
       "source_id": "zhipu_pricing",
@@ -407,7 +407,7 @@
       "name": "智谱开放平台产品价格",
       "url": "https://bigmodel.cn/pricing",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:46+08:00",
+      "checked_at": "2026-08-02T07:30:05+08:00",
       "status": "partial_dynamic",
       "http_status": 200,
       "final_url": "https://bigmodel.cn/pricing",
@@ -422,14 +422,14 @@
       "name": "Kimi 开放平台",
       "url": "https://platform.kimi.com/",
       "kind": "official_pricing",
-      "checked_at": "2026-07-27T18:02:46+08:00",
+      "checked_at": "2026-08-02T07:30:05+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://platform.kimi.com/",
-      "content_hash": "321ea2a491ef4ddee66d02c8bc647289cdd2e621e135a5303adac3de68bf849c",
+      "content_hash": "e56e3b73422d52d753b520b13c382083fe7b604ef0cc463b96818aa757c40686",
       "changed": false,
       "error": null,
-      "text_chars": 3526
+      "text_chars": 3529
     },
     {
       "source_id": "tokens_per_day",
@@ -437,7 +437,7 @@
       "name": "Tokens Per Day 行业推理需求指数",
       "url": "https://tokensperday.com/",
       "kind": "industry_usage",
-      "checked_at": "2026-07-27T18:02:46+08:00",
+      "checked_at": "2026-08-02T07:30:07+08:00",
       "status": "ok",
       "http_status": 200,
       "final_url": "https://tokensperday.com/",
@@ -449,6 +449,14 @@
   ],
   "signals": [
     {
+      "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
+      "title": "降幅高达80%！OpenAI大砍两款AI模型价格 “Token价格战”升温 - 财联社",
+      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBCWHJOcG91cUpOc2tLcWFmRlpDaW1vbDlaZURpWGxyMVVYeGpPLWNjSllBRWtUdXlXU3ZibnkwUWhhRDZOZWViSg?oc=5",
+      "published_at": "2026-08-01T13:44:35+00:00",
+      "publisher": "财联社",
+      "status": "待人工复核"
+    },
+    {
       "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
       "title": "Anthropic Opus 5发布：主打Token效率而非能力飞跃 - 至顶网",
       "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9FbWZzOHgxdHd2QXhaSlp2X3lobkJjek45S1VKMkI5QnZCY3dEbjVxNXI3UnRWT3NCSDRIRndXUXIzMUJ1X0tQdmNHTFVBampaUkE?oc=5",
@@ -458,18 +466,26 @@
     },
     {
       "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "Anthropic ARR达741亿美元，大幅领先OpenAI，但增速开始放缓 - 华尔街见闻",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5XZUtic0RMMzRvRFNKRUVpSGdMX3FySGlWOXpURVBDLXZ5RjNlOE0zbDFnWU94S1FCSkRqNkJLY1BQckVXZ0tYcTR5VGFmcWM4MWc?oc=5",
-      "published_at": "2026-07-24T02:42:15+00:00",
-      "publisher": "华尔街见闻",
+      "title": "Anthropic Opus 5发布：主打Token效率而非能力飞跃-模型 - 至顶网",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5rQlpON3hrNk5LTmZ4Qk8zejNlRXN4dFdMX3BWVFB0dWZncDk2c1NGWWlpV0dJVndJOXJqUE5rU25NZGJMWGNPOEdoc3JaNmdNdGZ3c0xBYzI4djl3UUFtWllxaw?oc=5",
+      "published_at": "2026-07-25T16:02:46+00:00",
+      "publisher": "至顶网",
       "status": "待人工复核"
     },
     {
       "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "TickerTrends：Anthropic ARR 达 741 亿美元，约为 OpenAI 413 亿美元的 1.79 倍 - 链捕手ChainCatcher",
+      "title": "TickerTrends：Anthropic ARR 达 741 亿美元，约为 OpenAI 413 亿美元的 1.79 倍 - ChainCatcher",
       "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1XTnN3T2g2MDhISGNBX2dEUTEwWW5lTjVWeGZrVzZrV2VkOXhBY3hwTnhuSllvNlVuODdoc2ZUUGJCbkxnRzROM1EtLUpndUJmVXExNUVSYw?oc=5",
       "published_at": "2026-07-24T00:44:02+00:00",
-      "publisher": "链捕手ChainCatcher",
+      "publisher": "ChainCatcher",
+      "status": "待人工复核"
+    },
+    {
+      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+      "title": "Anthropic ARR达741亿美元，大幅领先OpenAI，但增速开始放缓 - 华尔街见闻",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5XZUtic0RMMzRvRFNKRUVpSGdMX3FySGlWOXpURVBDLXZ5RjNlOE0zbDFnWU94S1FCSkRqNkJLY1BQckVXZ0tYcTR5VGFmcWM4MWc?oc=5",
+      "published_at": "2026-07-23T07:00:00+00:00",
+      "publisher": "华尔街见闻",
       "status": "待人工复核"
     },
     {
@@ -478,6 +494,14 @@
       "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBGcUZiLW9HT2hPQnBfaW13YUJ0YkJmQnJnV1JaT3ZVTTAwdUZQTUo0cnhTcm93LURrVnQ0SDhHRXNOT19GREp6Nw?oc=5",
       "published_at": "2026-07-21T10:05:00+00:00",
       "publisher": "财联社",
+      "status": "待人工复核"
+    },
+    {
+      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+      "title": "报道：智谱ARR达到10亿美元，半年增长15倍 - 华尔街见闻",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE01dGY4b1RaMi1sdEZ0LVFyVFpkc3NwcnpZQzlNazNYbEQ5Nm4xYU0xOThacWVldTdJMm8tcUQ1c3BSM1lFZ2ZIdGZYbVZZRDEteUo4?oc=5",
+      "published_at": "2026-07-17T07:00:00+00:00",
+      "publisher": "华尔街见闻",
       "status": "待人工复核"
     },
     {
@@ -513,6 +537,14 @@
       "status": "待人工复核"
     },
     {
+      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+      "title": "Anthropic ARR暴涨_新浪新闻 - 新浪网",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ybmVRYnZyVVBUQThyOC1DbEtNenZtUzBQQWVWaXNJbGFZUk9ZclN3SWpKdnh5NnFWd0JmMTF1WFhXZV80bEN1OWR4N3ZZS3BweUNRVm90NzVLQkhualdVYjhYQQ?oc=5",
+      "published_at": "2026-06-27T07:00:00+00:00",
+      "publisher": "新浪网",
+      "status": "待人工复核"
+    },
+    {
       "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
       "title": "180万亿Token之后，豆包要算经济账 - 北京商报",
       "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1YQ29qRXNVZlV2encybmVHRHNVblVOX2ZhcnhLTEJKR3pEalNoUUxkVHh1Z3VFMDN4V01mVzJlbzN2RlBocGZKSnBkWmxYVVFWWXFMb1lQNWhFWkdtQ1NR?oc=5",
@@ -522,10 +554,18 @@
     },
     {
       "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-      "title": "一年暴涨10倍！豆包大模型日均token调用量达180万亿！“国模国芯”长逻辑VS流动性调整，科创芯片ETF汇添富(588750)后市怎么看？ - 东方财富",
+      "title": "180万亿Token之后，豆包要算经济账 - 北京商报",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5lbXFxS0p3eVdCRms3UHBNN2xpMFl5aThyaEhCS21tbTB0d05lMk15VG9IdjcxREo3NUtXZnN2MWNVVEdSaEx0MzlCb3FTcFBTM1JYeGthMFAzNzhuX3c?oc=5",
+      "published_at": "2026-06-25T07:00:00+00:00",
+      "publisher": "北京商报",
+      "status": "待人工复核"
+    },
+    {
+      "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
+      "title": "一年暴涨10倍！豆包大模型日均token调用量达180万亿！“国模国芯”长逻辑VS流动性调整，科创芯片ETF汇添富(588750)后市怎么看？ - eastmoney.com",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zTER3OG9RRDlmYTk3OTFJVDVmdDdwVlVVRkdNQkJJMC11a19aQ21zdkM0Zm95dHlxRl9FZFo5SjBiZ3VHdW9VVERVTUJlOGJsRDMtUGlSdDFZNkxSRFNwYw?oc=5",
       "published_at": "2026-06-24T07:00:00+00:00",
-      "publisher": "东方财富",
+      "publisher": "eastmoney.com",
       "status": "待人工复核"
     },
     {
@@ -538,10 +578,10 @@
     },
     {
       "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-      "title": "豆包2.1 Pro模型发布，日均Token调用量增长超10倍 - 搜狐网",
+      "title": "豆包2.1 Pro模型发布，日均Token调用量增长超10倍 - sohu.com",
       "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAwYlI4Xzk2ajAyRlNoR1ZVLWJuc3BWbnA0cUpZZkhoNENwOGdRcjhBZHlPTGZVV1lqQUt4NGRmNnV1ekQ2YU13TTlRY2dRcVExM09XcVpn?oc=5",
       "published_at": "2026-06-24T01:46:08+00:00",
-      "publisher": "搜狐网",
+      "publisher": "sohu.com",
       "status": "待人工复核"
     },
     {
@@ -554,10 +594,10 @@
     },
     {
       "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-      "title": "豆包大模型日均Token调用量已突破180万亿，过去一年增长超10倍 - 中国基金报",
+      "title": "豆包大模型日均Token调用量已突破180万亿，过去一年增长超10倍 - chnfund.com",
       "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBXSnlhdE5YbnF1QjQ3RWU4MHJHOE1pa1BNbTFZaURrM3YwdDlwZmJUUkh0RGdRRk1weFMwemhua2w0R2FGZXlQLVlZOWFVOWZUYndtX0RSTnlqRlh1am9seGF5cHNNVS16VDFmU0hZU21ib3ctU3NwOUdB?oc=5",
       "published_at": "2026-06-23T07:00:00+00:00",
-      "publisher": "中国基金报",
+      "publisher": "chnfund.com",
       "status": "待人工复核"
     },
     {
@@ -566,6 +606,14 @@
       "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE80MzFaenM0WVI1OTlKQkMxQ0tac3BteDhGS3R3dnpFRkNzRHFLQk9pbkdURHZ3WG5SdTBnbFBrZ2lEbEhUc3lxT1g2WQ?oc=5",
       "published_at": "2026-06-23T07:00:00+00:00",
       "publisher": "时代在线",
+      "status": "待人工复核"
+    },
+    {
+      "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
+      "title": "豆包日均Token使用量突破180万亿，两年涨1500倍 - 风闻",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LZ3FaUk1xZmpPc0ZGQ0dVNDVuYkxEbDlOcHB4eWIySVlQOXRGTHg4Wkl2cUt4Z2ZEall5TUQ4SDViMjdONnVORHdoWm43V2NUajdEc1o4WHRKQ2s?oc=5",
+      "published_at": "2026-06-23T04:55:03+00:00",
+      "publisher": "风闻",
       "status": "待人工复核"
     },
     {
@@ -582,6 +630,14 @@
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBxYTU5ZTRkNUN2S0duR3pjVTc3dDFON2w1Zk5fN0UzbkhwU19JdWhFeEdZd0c3UVpzWENkU0FRTnRfeWJxTW1YOFdsa2R6dWV3anJCWkhVaFVtY21ocDN1Rw?oc=5",
       "published_at": "2026-06-16T07:00:00+00:00",
       "publisher": "信息化观察网",
+      "status": "待人工复核"
+    },
+    {
+      "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
+      "title": "智谱股价冲高回落，对标Anthropic仍需考虑企业预算压力 - 证券时报",
+      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9JOU5BWjhqbExCOGdHMTk5YnljLWd1ckZ3UkdUaVdieEJmRzR4a0hhWDd0aUJCajBLdkhJOEdZX1ViczFhLWE4UWd4NEhyOG9wTzV1SUxCX2U4anZ2?oc=5",
+      "published_at": "2026-06-15T07:00:00+00:00",
+      "publisher": "证券时报",
       "status": "待人工复核"
     },
     {
@@ -634,6 +690,14 @@
     },
     {
       "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
+      "title": "补贴→Token计费→降价，OpenAI打响价格战，Token经济学拐点将至？ - 36 Kr",
+      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFA3czRDVHQ2VjZpNFBkOG1NRmxlaURJUzlTREx2SXhVeXVrVDRhb0JBZWQ5dE42NE1sVGhUUXlyOHNvRE5pYkJmRllTUTVWZw?oc=5",
+      "published_at": "2026-06-11T07:00:00+00:00",
+      "publisher": "36 Kr",
+      "status": "待人工复核"
+    },
+    {
+      "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
       "title": "继谷歌大模型Gemini降价后，OpenAI也将迎来降价潮，会发展成“新能源车式”竞争吗？ - TradingKey",
       "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOVUlLQ0V3SWFlQTMyYmd6OEZteXc1bEY1T0FMTVlBMXctQzRqVDhvUF9MVlN1SXI2NnRoUjFmbDFOd0YyRXBzSmNqUVVhdEd1eXRpUTJBaVlWT3l1ZUpHb0dkamRhVVQ1cXp0Z3BjVllpa1BJSUFuek40dFdYYVgzem1iN2NRZ1l0VzlMV3ZnRk1QUUl6eXpXY3Q1RVRqd0FLTnJQLXBDRU1HUWNMRDcyYXB0ckhDdHZxOW16VmNYVkVVUUlLOHVIMWxOdlc2WGpEbkQ1TUJkWlRGN1hLekM2MWJ3RU9YTlZHMnhn?oc=5",
       "published_at": "2026-06-10T07:00:00+00:00",
@@ -646,6 +710,14 @@
       "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBUaHNaSW55MThJYkszR2R3bHlrVzBMc1g3N3lMdGVzWmhjaE9sbmx4WHpqVnBWaDlheTRhQ0N5RU5PQ0psOW9FMnM0SEtGUQ?oc=5",
       "published_at": "2026-06-08T07:00:00+00:00",
       "publisher": "36 Kr",
+      "status": "待人工复核"
+    },
+    {
+      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+      "title": "合计700亿美元！SpaceX先后与Anthropic和谷歌签下大单，“算力租赁”ARR高达260亿美元 - 华尔街见闻",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SN0Q3aGx3VlhKWmNaNkFXYl9JVkRKVVhEZm1VbGtOWm1tZnlaUG1wa1ZRelZrRUlxUW9RT2tuSTUzMjk0aE1tUGlWbXQ4LURaeGdn?oc=5",
+      "published_at": "2026-06-06T07:00:00+00:00",
+      "publisher": "华尔街见闻",
       "status": "待人工复核"
     },
     {
@@ -695,87 +767,11 @@
       "published_at": "2026-05-06T07:00:00+00:00",
       "publisher": "财联社",
       "status": "待人工复核"
-    },
-    {
-      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "两个月就翻倍！Claude Code让Anthropic成史上收入增长最快公司 - 智源社区",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE94MWRQWTVYYmNuWmZLdWYwMW5Dd2UtYzZjNG1qS3JVMS1jVUc5Z2JDNlBNbzFvcVllWjkwamhPb3pjb2NDT2loTA?oc=5",
-      "published_at": "2026-05-05T07:00:00+00:00",
-      "publisher": "智源社区",
-      "status": "待人工复核"
-    },
-    {
-      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "“从未见过此等增速”！Anthropic年化收入两个月翻番，首超OpenAI - 华尔街见闻",
-      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9HQWFsVUpjNkpVeFFvU3UtYlN5am9OUGhEWGZUTzBjc0tFSjVUWE5xNE1FN2FJdEVoQ1ItQ2tYTnFrQUZHempaUGVnNDJoQzVVdGFV?oc=5",
-      "published_at": "2026-05-04T07:00:00+00:00",
-      "publisher": "华尔街见闻",
-      "status": "待人工复核"
-    },
-    {
-      "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-      "title": "日均140万亿Token狂飙背后，中国AI有哪4大趋势？ - 中欧国际工商学院| CEIBS",
-      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1CYWlpZUtBemhMUFRlRF8xVm4yVlk2NEtqanhIRGo5d1BXdk9JZEQzUlBRSFNGM3FKN1pjMW1YS3NoMi1CQ0s1OGU0UXl4RzFfVk1CREVEQzE?oc=5",
-      "published_at": "2026-04-24T07:00:00+00:00",
-      "publisher": "中欧国际工商学院| CEIBS",
-      "status": "待人工复核"
-    },
-    {
-      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "今天的一个大新闻：Anthropic的3月份最新ARR已经达到300亿美金，超过OpenAI的大约250亿。你知道有多疯... - 雪球",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5CazFkZ3FvaU1EN0hfb0U2UkttVl9uSm5MSG9JQmlSbktBaG5PTFducDRpNzg2azBxMXBhVFJ2MkxOdkFWRDFGajloWmo3Y25J?oc=5",
-      "published_at": "2026-04-08T07:00:00+00:00",
-      "publisher": "雪球",
-      "status": "待人工复核"
-    },
-    {
-      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "小米罗福莉谈Anthropic封杀OpenClaw：真正的出路并非更便宜Token！ - C114通信网",
-      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9JaHRibVp1RE5hbm9GcVBMb1RlQmtYb2VpRFJaNFk2Wko0V2Z1NzRVMXlXeTBDZnFHNE9fN3BLWG5yS1U4VU9kdGpPaUpjMUV5Tnc?oc=5",
-      "published_at": "2026-04-08T07:00:00+00:00",
-      "publisher": "C114通信网",
-      "status": "待人工复核"
-    },
-    {
-      "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "ARR反超OpenAI，Anthropic重写token经济学 - finance.sina.com.cn",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5GdmJyVk5YMUpZeGI3ZzVZSHlaZlkydW9qWWhhaHd4aFpvaUk3OWp4MnpOV0dPTDVhWVl6cXpTMWcwQ0dxcnZCTVFscXZoNzhLb0pSUDNFMmV1blliM2xkUXRRZ3dmMHlMYnJ1V0FFUnVaR0NtNEE?oc=5",
-      "published_at": "2026-04-07T07:00:00+00:00",
-      "publisher": "finance.sina.com.cn",
-      "status": "待人工复核"
-    },
-    {
-      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "Anthropic ARR 首超 OpenAI 达 300 亿美金，极度聚焦编程和B2B - vcsmemo.com",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB2Z081OHN0Z0tZN2ZDdWdHQjB0OHFQci0zU2c5TzVKVGxSbGJLRUFHTFJtNjc1Zk9ReUhIb1UxUmlkWndWd2E5RTh1UGxWWnNpMXBfOXBGQzBwRUJjNmh2cllORTdBMll6S1NQWmpBM3oydw?oc=5",
-      "published_at": "2026-04-07T07:00:00+00:00",
-      "publisher": "vcsmemo.com",
-      "status": "待人工复核"
-    },
-    {
-      "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-      "title": "ARR反超OpenAI，Anthropic重写token经济学 - finance.sina.com.cn",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBJYjBNc2kzSi1BRTlDUGZVSkhBdXdUT3ZaUldjdEZSenUtZUV5blkxTWUyTVVnbmhtOUNqWG1uU1l1NEIyRlZoVm4yNGh3ak9Qa19Kd21aNXJrZ2RJWm5ybFZDbUc0ekhCYWdVTzRHOA?oc=5",
-      "published_at": "2026-04-07T07:00:00+00:00",
-      "publisher": "finance.sina.com.cn",
-      "status": "待人工复核"
-    },
-    {
-      "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-      "title": "每天烧 120 万亿 Token，这是 AI 圈最新的凡尔赛 - 爱范儿",
-      "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTFBuTUc1c2ZCbllzbk5YSjhmak1Ja3h1bkVWNy1WbHZaZG1GczZ1SGxkU2w4X2RCSkl1NWRYRlByYjdkNVU?oc=5",
-      "published_at": "2026-04-02T10:03:33+00:00",
-      "publisher": "爱范儿",
-      "status": "待人工复核"
     }
   ],
   "history_series": {
     "deepseek::DeepSeek-V4-Pro": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 0.54375
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 0.54375
       },
@@ -797,15 +793,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 0.54375
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 0.54375
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 0.54375
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 0.54375
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 0.54375
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 0.54375
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 0.54375
       }
     ],
     "bytedance::Doubao-Seed-2.0-Pro": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 0.888889
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 0.888889
       },
@@ -827,15 +843,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 0.888889
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 0.888889
       }
     ],
     "moonshot::Kimi K2.6": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 1.614583
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 1.614583
       },
@@ -857,15 +893,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 1.614583
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 1.614583
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 1.614583
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 1.614583
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 1.614583
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 1.614583
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 1.614583
       }
     ],
     "zhipu::GLM-5.2": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 1.805556
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 1.805556
       },
@@ -887,15 +943,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 1.805556
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 1.805556
       }
     ],
     "xai::Grok 4.5": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 3.0
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 3.0
       },
@@ -917,15 +993,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 3.0
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 3.0
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 3.0
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 3.0
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 3.0
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 3.0
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 3.0
       }
     ],
     "google::Gemini 3.5 Flash": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 3.375
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 3.375
       },
@@ -947,15 +1043,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 3.375
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 3.375
       }
     ],
     "alibaba::Qwen3.7-Max": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 3.75
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 3.75
       },
@@ -977,15 +1093,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 3.75
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 3.75
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 3.75
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 3.75
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 3.75
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 3.75
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 3.75
       }
     ],
     "openai::GPT-5.4": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 5.625
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 5.625
       },
@@ -1007,15 +1143,35 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 5.625
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 5.625
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 5.625
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 5.625
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 5.625
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 5.625
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 5.625
       }
     ],
     "anthropic::Claude Sonnet 4.6": [
       {
-        "run_at": "2026-07-27T01:24:05+08:00",
-        "value": 6.0
-      },
-      {
         "run_at": "2026-07-27T01:25:21+08:00",
         "value": 6.0
       },
@@ -1037,6 +1193,30 @@
       },
       {
         "run_at": "2026-07-27T11:00:53+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-07-27T18:02:50+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-07-28T07:30:06+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-07-29T07:30:19+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-07-30T07:39:08+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-07-31T07:35:38+08:00",
+        "value": 6.0
+      },
+      {
+        "run_at": "2026-08-01T07:35:38+08:00",
         "value": 6.0
       }
     ]
@@ -1052,7 +1232,7 @@
       "stage_short": "共振拥挤",
       "stage_label": "上游紧缺涨价与中下游商业闭环共振期",
       "rationale": "产业兑现仍强，但总量估值、杠杆与风险偏好已处较高分位。",
-      "macro_score": 90.0,
+      "macro_score": 81.8,
       "industry_score": 77.0,
       "macro_coverage": "8/8",
       "industry_coverage": "6/6",
@@ -1078,169 +1258,209 @@
         "metric_id": "macro_spy_djp",
         "name": "SPY / DJP",
         "family": "跨资产",
-        "value": 16.74,
+        "value": 15.7668,
         "unit": "倍",
-        "percentile": 87.5,
-        "risk_percentile": 87.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开版后续以公开ETF行情代理",
+        "percentile": 74.3,
+        "risk_percentile": 74.3,
+        "period": "2026-07-31",
+        "data_frequency": "日频（交易日）",
+        "source_date": "2026-07-31",
+        "source_name": "Yahoo Finance 公开行情",
         "source_url": "https://finance.yahoo.com/quote/SPY/",
         "source_tier": 2,
-        "evidence_status": "proxy_baseline",
-        "freshness_days": 30,
-        "note": "股票相对商品的表现；高分位代表成长交易拥挤度提高。",
+        "evidence_status": "public_proxy",
+        "freshness_days": 7,
+        "sample_count": 2514,
+        "history_start": "2016-08-01",
+        "note": "股票相对商品的公开 ETF 代理；高分位代表成长交易拥挤度提高。",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 30
+          "age_days": 2,
+          "allowed_days": 7
         }
       },
       {
         "metric_id": "macro_discretionary_staples",
         "name": "可选消费 / 必需消费",
         "family": "风险偏好",
-        "value": 2.06,
+        "value": 1.365,
         "unit": "倍",
-        "percentile": 97.5,
-        "risk_percentile": 97.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开版使用XLY/XLP代理",
+        "percentile": 80.1,
+        "risk_percentile": 80.1,
+        "period": "2026-07-31",
+        "data_frequency": "日频（交易日）",
+        "source_date": "2026-07-31",
+        "source_name": "Yahoo Finance 公开行情",
         "source_url": "https://finance.yahoo.com/quote/XLY/",
         "source_tier": 2,
-        "evidence_status": "proxy_baseline",
-        "freshness_days": 30,
-        "note": "风险消费相对防御消费；代理口径与Wind行业指数并非完全一致。",
+        "evidence_status": "public_proxy",
+        "freshness_days": 7,
+        "sample_count": 2514,
+        "history_start": "2016-08-01",
+        "note": "XLY/XLP 代理风险消费相对防御消费。",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 30
+          "age_days": 2,
+          "allowed_days": 7
         }
       },
       {
         "metric_id": "macro_dxy",
         "name": "美元流动性",
         "family": "流动性",
-        "value": 100.96,
+        "value": 99.8,
         "unit": "指数点",
-        "percentile": 82.5,
-        "risk_percentile": 82.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开版使用美元指数公开行情代理",
-        "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+        "percentile": 62.3,
+        "risk_percentile": 62.3,
+        "period": "2026-07-31",
+        "data_frequency": "日频（交易日）",
+        "source_date": "2026-07-31",
+        "source_name": "Yahoo Finance 公开行情",
+        "source_url": "https://finance.yahoo.com/quote/DX-Y.NYB/",
         "source_tier": 2,
-        "evidence_status": "proxy_baseline",
-        "freshness_days": 30,
-        "note": "美元走强通常对应全球美元流动性收紧。",
+        "evidence_status": "public_proxy",
+        "freshness_days": 7,
+        "sample_count": 2513,
+        "history_start": "2016-08-02",
+        "note": "美元指数公开行情代理；美元走强通常对应全球美元流动性收紧。",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 30
+          "age_days": 2,
+          "allowed_days": 7
         }
       },
       {
         "metric_id": "macro_funding_kst",
-        "name": "商业票据利率 + 贷存比KST",
+        "name": "商业票据利率 + 贷存比 KST",
         "family": "流动性",
-        "value": 3.72,
-        "secondary_value": 5.32,
+        "value": 3.78,
         "unit": "% / KST",
-        "percentile": 92.5,
-        "risk_percentile": 92.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开版以FRED资金价格与银行资产负债代理",
-        "source_url": "https://fred.stlouisfed.org/",
-        "source_tier": 2,
-        "evidence_status": "proxy_baseline",
-        "freshness_days": 45,
-        "note": "资金价格和信用扩张合成指标，两个子指标不应拆成两个总量指标。",
+        "percentile": 68.0,
+        "risk_percentile": 68.0,
+        "period": "2026-07-30",
+        "data_frequency": "周频",
+        "source_date": "2026-07-30",
+        "source_name": "美联储 CP 与 H.8",
+        "source_url": "https://www.federalreserve.gov/releases/cp/",
+        "source_tier": 1,
+        "evidence_status": "official_calculated",
+        "freshness_days": 14,
+        "sample_count": 478,
+        "history_start": "2017-05-31",
+        "note": "90天 AA 非金融商业票据利率与商业银行贷存比 KST 的风险分位均值；两项均为美联储公开代理口径。",
+        "secondary_value": 2.6012,
+        "secondary_period": "2026-07-22",
+        "calculation": "mean(percentile(CP90), percentile(KST(loan/deposit)))",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 45
+          "age_days": 3,
+          "allowed_days": 14
         }
       },
       {
         "metric_id": "macro_cpi_18roc",
-        "name": "CPI 18个月ROC",
+        "name": "CPI 18个月 ROC",
         "family": "通胀",
-        "value": 5.81,
+        "value": 5.0675,
         "unit": "%",
-        "percentile": 87.5,
-        "risk_percentile": 87.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；CPI公开源为FRED",
-        "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+        "percentile": 72.5,
+        "risk_percentile": 72.5,
+        "period": "2026-06-01",
+        "data_frequency": "月频",
+        "source_date": "2026-06-01",
+        "source_name": "美国劳工统计局 BLS",
+        "source_url": "https://www.bls.gov/cpi/data.htm",
         "source_tier": 1,
-        "evidence_status": "research_baseline",
-        "freshness_days": 45,
-        "note": "衡量通胀趋势边际变化，不等于CPI同比水平。",
+        "evidence_status": "official_calculated",
+        "freshness_days": 75,
+        "sample_count": 120,
+        "history_start": "2016-06-01",
+        "note": "CPI-U 经季调指数的18个月变化率，反映通胀趋势而非当月同比。",
+        "calculation": "CPI(t)/CPI(t-18m)-1",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 45
+          "age_days": 62,
+          "allowed_days": 75
         }
       },
       {
         "metric_id": "macro_dividend_yield",
         "name": "股息率",
         "family": "估值",
-        "value": 1.06,
+        "value": 1.08,
         "unit": "%",
-        "percentile": 17.5,
-        "risk_percentile": 82.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开版以Shiller数据代理",
-        "source_url": "https://www.econ.yale.edu/~shiller/data.htm",
+        "percentile": 98.4,
+        "risk_percentile": 98.4,
+        "period": "2026-07-31",
+        "data_frequency": "月频",
+        "source_date": "2026-07-31",
+        "source_name": "Multpl 标普500股息率公开月表",
+        "source_url": "https://www.multpl.com/s-p-500-dividend-yield/table/by-month",
         "source_tier": 2,
-        "evidence_status": "proxy_baseline",
-        "freshness_days": 60,
-        "note": "低股息率对应较高估值风险，因此风险分位采用反向分位。",
+        "evidence_status": "public_snapshot",
+        "freshness_days": 75,
+        "sample_count": 122,
+        "history_start": "2016-07-31",
+        "note": "标普500股息率公开月度序列；低股息率对应高估值风险，风险分位反向计算。",
+        "calculation": "100 - percentile(S&P 500 dividend yield)",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 60
+          "age_days": 2,
+          "allowed_days": 75
         }
       },
       {
         "metric_id": "macro_margin_kst",
-        "name": "保证金余额KST",
+        "name": "保证金余额 KST",
         "family": "杠杆资金",
-        "value": 5.81,
+        "value": 631.3777,
         "unit": "KST",
-        "percentile": 97.5,
-        "risk_percentile": 97.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开源为FINRA月度保证金统计",
-        "source_url": "https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics",
+        "percentile": 100.0,
+        "risk_percentile": 100.0,
+        "period": "2026-06-01",
+        "data_frequency": "月频",
+        "source_date": "2026-06-01",
+        "source_name": "FINRA 保证金统计",
+        "source_url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
         "source_tier": 1,
-        "evidence_status": "research_baseline",
+        "evidence_status": "official_calculated",
         "freshness_days": 75,
-        "note": "高位动量代表杠杆资金拥挤；需观察顶背离而非只看绝对值。",
+        "sample_count": 77,
+        "history_start": "2020-02-01",
+        "note": "FINRA 客户证券保证金账户借方余额的经典 KST 动量；高分位代表杠杆资金拥挤。",
+        "underlying_value": 1502072.0,
+        "underlying_unit": "USD million",
+        "calculation": "KST(FINRA margin debit balance)",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
+          "age_days": 62,
           "allowed_days": 75
         }
       },
       {
         "metric_id": "macro_excess_cape_yield",
-        "name": "超额CAPE收益率",
+        "name": "超额 CAPE 收益率",
         "family": "估值",
-        "value": 1.39,
+        "value": -0.0256,
         "unit": "%",
-        "percentile": 7.5,
-        "risk_percentile": 92.5,
-        "period": "2026-07-22",
-        "source_name": "浙商研究基准；公开源为Shiller数据",
-        "source_url": "https://www.econ.yale.edu/~shiller/data.htm",
-        "source_tier": 1,
-        "evidence_status": "research_baseline",
-        "freshness_days": 60,
-        "note": "低超额收益率代表股票相对无风险利率的风险补偿不足。",
+        "percentile": 99.2,
+        "risk_percentile": 99.2,
+        "period": "2026-07-31",
+        "data_frequency": "月频",
+        "source_date": "2026-07-31",
+        "source_name": "Multpl CAPE + 美国财政部实际收益率",
+        "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+        "source_tier": 2,
+        "evidence_status": "public_calculated",
+        "freshness_days": 75,
+        "sample_count": 121,
+        "history_start": "2016-08-01",
+        "note": "CAPE 收益率减美国财政部10年期实际收益率；CAPE月表为公开二级源，实际收益率为官方一级源。",
+        "calculation": "100/CAPE - Treasury 10Y real yield",
         "freshness": {
           "status": "fresh",
-          "age_days": 5,
-          "allowed_days": 60
+          "age_days": 2,
+          "allowed_days": 75
         }
       }
     ],
@@ -1343,8 +1563,8 @@
         "company": "字节跳动 / 豆包",
         "region": "国内",
         "blended_cost_usd": 0.888889,
-        "source_check": "values_seen_near_model",
-        "source_status": "ok",
+        "source_check": "unavailable",
+        "source_status": "partial_dynamic",
         "price_delta_pct": 0.0
       },
       {
@@ -1724,10 +1944,6 @@
     "history_series": {
       "deepseek::DeepSeek-V4-Pro": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 0.54375
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 0.54375
         },
@@ -1749,15 +1965,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 0.54375
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 0.54375
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 0.54375
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 0.54375
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 0.54375
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 0.54375
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 0.54375
         }
       ],
       "bytedance::Doubao-Seed-2.0-Pro": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 0.888889
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 0.888889
         },
@@ -1779,15 +2015,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 0.888889
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 0.888889
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 0.888889
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 0.888889
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 0.888889
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 0.888889
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 0.888889
         }
       ],
       "moonshot::Kimi K2.6": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 1.614583
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 1.614583
         },
@@ -1809,15 +2065,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 1.614583
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 1.614583
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 1.614583
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 1.614583
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 1.614583
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 1.614583
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 1.614583
         }
       ],
       "zhipu::GLM-5.2": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 1.805556
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 1.805556
         },
@@ -1839,15 +2115,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 1.805556
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 1.805556
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 1.805556
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 1.805556
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 1.805556
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 1.805556
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 1.805556
         }
       ],
       "xai::Grok 4.5": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 3.0
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 3.0
         },
@@ -1869,15 +2165,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 3.0
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 3.0
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 3.0
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 3.0
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 3.0
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 3.0
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 3.0
         }
       ],
       "google::Gemini 3.5 Flash": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 3.375
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 3.375
         },
@@ -1899,15 +2215,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 3.375
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 3.375
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 3.375
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 3.375
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 3.375
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 3.375
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 3.375
         }
       ],
       "alibaba::Qwen3.7-Max": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 3.75
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 3.75
         },
@@ -1929,15 +2265,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 3.75
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 3.75
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 3.75
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 3.75
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 3.75
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 3.75
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 3.75
         }
       ],
       "openai::GPT-5.4": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 5.625
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 5.625
         },
@@ -1959,15 +2315,35 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 5.625
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 5.625
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 5.625
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 5.625
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 5.625
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 5.625
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 5.625
         }
       ],
       "anthropic::Claude Sonnet 4.6": [
         {
-          "run_at": "2026-07-27T01:24:05+08:00",
-          "value": 6.0
-        },
-        {
           "run_at": "2026-07-27T01:25:21+08:00",
           "value": 6.0
         },
@@ -1989,6 +2365,30 @@
         },
         {
           "run_at": "2026-07-27T11:00:53+08:00",
+          "value": 6.0
+        },
+        {
+          "run_at": "2026-07-27T18:02:50+08:00",
+          "value": 6.0
+        },
+        {
+          "run_at": "2026-07-28T07:30:06+08:00",
+          "value": 6.0
+        },
+        {
+          "run_at": "2026-07-29T07:30:19+08:00",
+          "value": 6.0
+        },
+        {
+          "run_at": "2026-07-30T07:39:08+08:00",
+          "value": 6.0
+        },
+        {
+          "run_at": "2026-07-31T07:35:38+08:00",
+          "value": 6.0
+        },
+        {
+          "run_at": "2026-08-01T07:35:38+08:00",
           "value": 6.0
         }
       ]
@@ -2016,7 +2416,7 @@
         "cny_per_gpu_hour": 20.81,
         "freshness": {
           "status": "fresh",
-          "age_days": 0,
+          "age_days": 6,
           "allowed_days": 45
         }
       },
@@ -2035,7 +2435,7 @@
         "cny_per_gpu_hour": 21.53,
         "freshness": {
           "status": "fresh",
-          "age_days": 0,
+          "age_days": 6,
           "allowed_days": 45
         }
       },
@@ -2054,7 +2454,7 @@
         "cny_per_gpu_hour": 31.61,
         "freshness": {
           "status": "fresh",
-          "age_days": 0,
+          "age_days": 6,
           "allowed_days": 45
         }
       },
@@ -2073,7 +2473,7 @@
         "cny_per_gpu_hour": 42.41,
         "freshness": {
           "status": "fresh",
-          "age_days": 0,
+          "age_days": 6,
           "allowed_days": 45
         }
       },
@@ -2092,7 +2492,7 @@
         "cny_per_gpu_hour": 53.21,
         "freshness": {
           "status": "fresh",
-          "age_days": 0,
+          "age_days": 6,
           "allowed_days": 45
         }
       },
@@ -2112,7 +2512,7 @@
         "usd_per_gpu_hour": 6.0667,
         "freshness": {
           "status": "fresh",
-          "age_days": 0,
+          "age_days": 6,
           "allowed_days": 45
         }
       }
@@ -2977,7 +3377,7 @@
     "stage_short": "共振拥挤",
     "stage_label": "上游紧缺涨价与中下游商业闭环共振期",
     "rationale": "产业兑现仍强，但总量估值、杠杆与风险偏好已处较高分位。",
-    "macro_score": 90.0,
+    "macro_score": 81.8,
     "industry_score": 77.0,
     "macro_coverage": "8/8",
     "industry_coverage": "6/6",
@@ -3186,6 +3586,14 @@
     ],
     "ai_review_queue": [
       {
+        "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
+        "title": "降幅高达80%！OpenAI大砍两款AI模型价格 “Token价格战”升温 - 财联社",
+        "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBCWHJOcG91cUpOc2tLcWFmRlpDaW1vbDlaZURpWGxyMVVYeGpPLWNjSllBRWtUdXlXU3ZibnkwUWhhRDZOZWViSg?oc=5",
+        "published_at": "2026-08-01T13:44:35+00:00",
+        "publisher": "财联社",
+        "status": "待人工复核"
+      },
+      {
         "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
         "title": "Anthropic Opus 5发布：主打Token效率而非能力飞跃 - 至顶网",
         "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9FbWZzOHgxdHd2QXhaSlp2X3lobkJjek45S1VKMkI5QnZCY3dEbjVxNXI3UnRWT3NCSDRIRndXUXIzMUJ1X0tQdmNHTFVBampaUkE?oc=5",
@@ -3195,18 +3603,26 @@
       },
       {
         "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "Anthropic ARR达741亿美元，大幅领先OpenAI，但增速开始放缓 - 华尔街见闻",
-        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5XZUtic0RMMzRvRFNKRUVpSGdMX3FySGlWOXpURVBDLXZ5RjNlOE0zbDFnWU94S1FCSkRqNkJLY1BQckVXZ0tYcTR5VGFmcWM4MWc?oc=5",
-        "published_at": "2026-07-24T02:42:15+00:00",
-        "publisher": "华尔街见闻",
+        "title": "Anthropic Opus 5发布：主打Token效率而非能力飞跃-模型 - 至顶网",
+        "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5rQlpON3hrNk5LTmZ4Qk8zejNlRXN4dFdMX3BWVFB0dWZncDk2c1NGWWlpV0dJVndJOXJqUE5rU25NZGJMWGNPOEdoc3JaNmdNdGZ3c0xBYzI4djl3UUFtWllxaw?oc=5",
+        "published_at": "2026-07-25T16:02:46+00:00",
+        "publisher": "至顶网",
         "status": "待人工复核"
       },
       {
         "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "TickerTrends：Anthropic ARR 达 741 亿美元，约为 OpenAI 413 亿美元的 1.79 倍 - 链捕手ChainCatcher",
+        "title": "TickerTrends：Anthropic ARR 达 741 亿美元，约为 OpenAI 413 亿美元的 1.79 倍 - ChainCatcher",
         "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE1XTnN3T2g2MDhISGNBX2dEUTEwWW5lTjVWeGZrVzZrV2VkOXhBY3hwTnhuSllvNlVuODdoc2ZUUGJCbkxnRzROM1EtLUpndUJmVXExNUVSYw?oc=5",
         "published_at": "2026-07-24T00:44:02+00:00",
-        "publisher": "链捕手ChainCatcher",
+        "publisher": "ChainCatcher",
+        "status": "待人工复核"
+      },
+      {
+        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+        "title": "Anthropic ARR达741亿美元，大幅领先OpenAI，但增速开始放缓 - 华尔街见闻",
+        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE5XZUtic0RMMzRvRFNKRUVpSGdMX3FySGlWOXpURVBDLXZ5RjNlOE0zbDFnWU94S1FCSkRqNkJLY1BQckVXZ0tYcTR5VGFmcWM4MWc?oc=5",
+        "published_at": "2026-07-23T07:00:00+00:00",
+        "publisher": "华尔街见闻",
         "status": "待人工复核"
       },
       {
@@ -3215,6 +3631,14 @@
         "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTFBGcUZiLW9HT2hPQnBfaW13YUJ0YkJmQnJnV1JaT3ZVTTAwdUZQTUo0cnhTcm93LURrVnQ0SDhHRXNOT19GREp6Nw?oc=5",
         "published_at": "2026-07-21T10:05:00+00:00",
         "publisher": "财联社",
+        "status": "待人工复核"
+      },
+      {
+        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+        "title": "报道：智谱ARR达到10亿美元，半年增长15倍 - 华尔街见闻",
+        "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE01dGY4b1RaMi1sdEZ0LVFyVFpkc3NwcnpZQzlNazNYbEQ5Nm4xYU0xOThacWVldTdJMm8tcUQ1c3BSM1lFZ2ZIdGZYbVZZRDEteUo4?oc=5",
+        "published_at": "2026-07-17T07:00:00+00:00",
+        "publisher": "华尔街见闻",
         "status": "待人工复核"
       },
       {
@@ -3250,6 +3674,14 @@
         "status": "待人工复核"
       },
       {
+        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+        "title": "Anthropic ARR暴涨_新浪新闻 - 新浪网",
+        "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5ybmVRYnZyVVBUQThyOC1DbEtNenZtUzBQQWVWaXNJbGFZUk9ZclN3SWpKdnh5NnFWd0JmMTF1WFhXZV80bEN1OWR4N3ZZS3BweUNRVm90NzVLQkhualdVYjhYQQ?oc=5",
+        "published_at": "2026-06-27T07:00:00+00:00",
+        "publisher": "新浪网",
+        "status": "待人工复核"
+      },
+      {
         "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
         "title": "180万亿Token之后，豆包要算经济账 - 北京商报",
         "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1YQ29qRXNVZlV2encybmVHRHNVblVOX2ZhcnhLTEJKR3pEalNoUUxkVHh1Z3VFMDN4V01mVzJlbzN2RlBocGZKSnBkWmxYVVFWWXFMb1lQNWhFWkdtQ1NR?oc=5",
@@ -3259,10 +3691,18 @@
       },
       {
         "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-        "title": "一年暴涨10倍！豆包大模型日均token调用量达180万亿！“国模国芯”长逻辑VS流动性调整，科创芯片ETF汇添富(588750)后市怎么看？ - 东方财富",
+        "title": "180万亿Token之后，豆包要算经济账 - 北京商报",
+        "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5lbXFxS0p3eVdCRms3UHBNN2xpMFl5aThyaEhCS21tbTB0d05lMk15VG9IdjcxREo3NUtXZnN2MWNVVEdSaEx0MzlCb3FTcFBTM1JYeGthMFAzNzhuX3c?oc=5",
+        "published_at": "2026-06-25T07:00:00+00:00",
+        "publisher": "北京商报",
+        "status": "待人工复核"
+      },
+      {
+        "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
+        "title": "一年暴涨10倍！豆包大模型日均token调用量达180万亿！“国模国芯”长逻辑VS流动性调整，科创芯片ETF汇添富(588750)后市怎么看？ - eastmoney.com",
         "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE4zTER3OG9RRDlmYTk3OTFJVDVmdDdwVlVVRkdNQkJJMC11a19aQ21zdkM0Zm95dHlxRl9FZFo5SjBiZ3VHdW9VVERVTUJlOGJsRDMtUGlSdDFZNkxSRFNwYw?oc=5",
         "published_at": "2026-06-24T07:00:00+00:00",
-        "publisher": "东方财富",
+        "publisher": "eastmoney.com",
         "status": "待人工复核"
       },
       {
@@ -3275,10 +3715,10 @@
       },
       {
         "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-        "title": "豆包2.1 Pro模型发布，日均Token调用量增长超10倍 - 搜狐网",
+        "title": "豆包2.1 Pro模型发布，日均Token调用量增长超10倍 - sohu.com",
         "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAwYlI4Xzk2ajAyRlNoR1ZVLWJuc3BWbnA0cUpZZkhoNENwOGdRcjhBZHlPTGZVV1lqQUt4NGRmNnV1ekQ2YU13TTlRY2dRcVExM09XcVpn?oc=5",
         "published_at": "2026-06-24T01:46:08+00:00",
-        "publisher": "搜狐网",
+        "publisher": "sohu.com",
         "status": "待人工复核"
       },
       {
@@ -3291,10 +3731,10 @@
       },
       {
         "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-        "title": "豆包大模型日均Token调用量已突破180万亿，过去一年增长超10倍 - 中国基金报",
+        "title": "豆包大模型日均Token调用量已突破180万亿，过去一年增长超10倍 - chnfund.com",
         "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBXSnlhdE5YbnF1QjQ3RWU4MHJHOE1pa1BNbTFZaURrM3YwdDlwZmJUUkh0RGdRRk1weFMwemhua2w0R2FGZXlQLVlZOWFVOWZUYndtX0RSTnlqRlh1am9seGF5cHNNVS16VDFmU0hZU21ib3ctU3NwOUdB?oc=5",
         "published_at": "2026-06-23T07:00:00+00:00",
-        "publisher": "中国基金报",
+        "publisher": "chnfund.com",
         "status": "待人工复核"
       },
       {
@@ -3303,6 +3743,14 @@
         "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE80MzFaenM0WVI1OTlKQkMxQ0tac3BteDhGS3R3dnpFRkNzRHFLQk9pbkdURHZ3WG5SdTBnbFBrZ2lEbEhUc3lxT1g2WQ?oc=5",
         "published_at": "2026-06-23T07:00:00+00:00",
         "publisher": "时代在线",
+        "status": "待人工复核"
+      },
+      {
+        "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
+        "title": "豆包日均Token使用量突破180万亿，两年涨1500倍 - 风闻",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9LZ3FaUk1xZmpPc0ZGQ0dVNDVuYkxEbDlOcHB4eWIySVlQOXRGTHg4Wkl2cUt4Z2ZEall5TUQ4SDViMjdONnVORHdoWm43V2NUajdEc1o4WHRKQ2s?oc=5",
+        "published_at": "2026-06-23T04:55:03+00:00",
+        "publisher": "风闻",
         "status": "待人工复核"
       },
       {
@@ -3319,6 +3767,14 @@
         "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBxYTU5ZTRkNUN2S0duR3pjVTc3dDFON2w1Zk5fN0UzbkhwU19JdWhFeEdZd0c3UVpzWENkU0FRTnRfeWJxTW1YOFdsa2R6dWV3anJCWkhVaFVtY21ocDN1Rw?oc=5",
         "published_at": "2026-06-16T07:00:00+00:00",
         "publisher": "信息化观察网",
+        "status": "待人工复核"
+      },
+      {
+        "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
+        "title": "智谱股价冲高回落，对标Anthropic仍需考虑企业预算压力 - 证券时报",
+        "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9JOU5BWjhqbExCOGdHMTk5YnljLWd1ckZ3UkdUaVdieEJmRzR4a0hhWDd0aUJCajBLdkhJOEdZX1ViczFhLWE4UWd4NEhyOG9wTzV1SUxCX2U4anZ2?oc=5",
+        "published_at": "2026-06-15T07:00:00+00:00",
+        "publisher": "证券时报",
         "status": "待人工复核"
       },
       {
@@ -3371,6 +3827,14 @@
       },
       {
         "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
+        "title": "补贴→Token计费→降价，OpenAI打响价格战，Token经济学拐点将至？ - 36 Kr",
+        "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFA3czRDVHQ2VjZpNFBkOG1NRmxlaURJUzlTREx2SXhVeXVrVDRhb0JBZWQ5dE42NE1sVGhUUXlyOHNvRE5pYkJmRllTUTVWZw?oc=5",
+        "published_at": "2026-06-11T07:00:00+00:00",
+        "publisher": "36 Kr",
+        "status": "待人工复核"
+      },
+      {
+        "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
         "title": "继谷歌大模型Gemini降价后，OpenAI也将迎来降价潮，会发展成“新能源车式”竞争吗？ - TradingKey",
         "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOVUlLQ0V3SWFlQTMyYmd6OEZteXc1bEY1T0FMTVlBMXctQzRqVDhvUF9MVlN1SXI2NnRoUjFmbDFOd0YyRXBzSmNqUVVhdEd1eXRpUTJBaVlWT3l1ZUpHb0dkamRhVVQ1cXp0Z3BjVllpa1BJSUFuek40dFdYYVgzem1iN2NRZ1l0VzlMV3ZnRk1QUUl6eXpXY3Q1RVRqd0FLTnJQLXBDRU1HUWNMRDcyYXB0ckhDdHZxOW16VmNYVkVVUUlLOHVIMWxOdlc2WGpEbkQ1TUJkWlRGN1hLekM2MWJ3RU9YTlZHMnhn?oc=5",
         "published_at": "2026-06-10T07:00:00+00:00",
@@ -3383,6 +3847,14 @@
         "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTFBUaHNaSW55MThJYkszR2R3bHlrVzBMc1g3N3lMdGVzWmhjaE9sbmx4WHpqVnBWaDlheTRhQ0N5RU5PQ0psOW9FMnM0SEtGUQ?oc=5",
         "published_at": "2026-06-08T07:00:00+00:00",
         "publisher": "36 Kr",
+        "status": "待人工复核"
+      },
+      {
+        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
+        "title": "合计700亿美元！SpaceX先后与Anthropic和谷歌签下大单，“算力租赁”ARR高达260亿美元 - 华尔街见闻",
+        "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9SN0Q3aGx3VlhKWmNaNkFXYl9JVkRKVVhEZm1VbGtOWm1tZnlaUG1wa1ZRelZrRUlxUW9RT2tuSTUzMjk0aE1tUGlWbXQ4LURaeGdn?oc=5",
+        "published_at": "2026-06-06T07:00:00+00:00",
+        "publisher": "华尔街见闻",
         "status": "待人工复核"
       },
       {
@@ -3432,205 +3904,136 @@
         "published_at": "2026-05-06T07:00:00+00:00",
         "publisher": "财联社",
         "status": "待人工复核"
-      },
-      {
-        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "两个月就翻倍！Claude Code让Anthropic成史上收入增长最快公司 - 智源社区",
-        "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE94MWRQWTVYYmNuWmZLdWYwMW5Dd2UtYzZjNG1qS3JVMS1jVUc5Z2JDNlBNbzFvcVllWjkwamhPb3pjb2NDT2loTA?oc=5",
-        "published_at": "2026-05-05T07:00:00+00:00",
-        "publisher": "智源社区",
-        "status": "待人工复核"
-      },
-      {
-        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "“从未见过此等增速”！Anthropic年化收入两个月翻番，首超OpenAI - 华尔街见闻",
-        "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9HQWFsVUpjNkpVeFFvU3UtYlN5am9OUGhEWGZUTzBjc0tFSjVUWE5xNE1FN2FJdEVoQ1ItQ2tYTnFrQUZHempaUGVnNDJoQzVVdGFV?oc=5",
-        "published_at": "2026-05-04T07:00:00+00:00",
-        "publisher": "华尔街见闻",
-        "status": "待人工复核"
-      },
-      {
-        "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-        "title": "日均140万亿Token狂飙背后，中国AI有哪4大趋势？ - 中欧国际工商学院| CEIBS",
-        "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1CYWlpZUtBemhMUFRlRF8xVm4yVlk2NEtqanhIRGo5d1BXdk9JZEQzUlBRSFNGM3FKN1pjMW1YS3NoMi1CQ0s1OGU0UXl4RzFfVk1CREVEQzE?oc=5",
-        "published_at": "2026-04-24T07:00:00+00:00",
-        "publisher": "中欧国际工商学院| CEIBS",
-        "status": "待人工复核"
-      },
-      {
-        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "今天的一个大新闻：Anthropic的3月份最新ARR已经达到300亿美金，超过OpenAI的大约250亿。你知道有多疯... - 雪球",
-        "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5CazFkZ3FvaU1EN0hfb0U2UkttVl9uSm5MSG9JQmlSbktBaG5PTFducDRpNzg2azBxMXBhVFJ2MkxOdkFWRDFGajloWmo3Y25J?oc=5",
-        "published_at": "2026-04-08T07:00:00+00:00",
-        "publisher": "雪球",
-        "status": "待人工复核"
-      },
-      {
-        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "小米罗福莉谈Anthropic封杀OpenClaw：真正的出路并非更便宜Token！ - C114通信网",
-        "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9JaHRibVp1RE5hbm9GcVBMb1RlQmtYb2VpRFJaNFk2Wko0V2Z1NzRVMXlXeTBDZnFHNE9fN3BLWG5yS1U4VU9kdGpPaUpjMUV5Tnc?oc=5",
-        "published_at": "2026-04-08T07:00:00+00:00",
-        "publisher": "C114通信网",
-        "status": "待人工复核"
-      },
-      {
-        "query": "\"OpenAI\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "ARR反超OpenAI，Anthropic重写token经济学 - finance.sina.com.cn",
-        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5GdmJyVk5YMUpZeGI3ZzVZSHlaZlkydW9qWWhhaHd4aFpvaUk3OWp4MnpOV0dPTDVhWVl6cXpTMWcwQ0dxcnZCTVFscXZoNzhLb0pSUDNFMmV1blliM2xkUXRRZ3dmMHlMYnJ1V0FFUnVaR0NtNEE?oc=5",
-        "published_at": "2026-04-07T07:00:00+00:00",
-        "publisher": "finance.sina.com.cn",
-        "status": "待人工复核"
-      },
-      {
-        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "Anthropic ARR 首超 OpenAI 达 300 亿美金，极度聚焦编程和B2B - vcsmemo.com",
-        "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFB2Z081OHN0Z0tZN2ZDdWdHQjB0OHFQci0zU2c5TzVKVGxSbGJLRUFHTFJtNjc1Zk9ReUhIb1UxUmlkWndWd2E5RTh1UGxWWnNpMXBfOXBGQzBwRUJjNmh2cllORTdBMll6S1NQWmpBM3oydw?oc=5",
-        "published_at": "2026-04-07T07:00:00+00:00",
-        "publisher": "vcsmemo.com",
-        "status": "待人工复核"
-      },
-      {
-        "query": "\"Anthropic\" (ARR OR \"annualized revenue\" OR token pricing)",
-        "title": "ARR反超OpenAI，Anthropic重写token经济学 - finance.sina.com.cn",
-        "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBJYjBNc2kzSi1BRTlDUGZVSkhBdXdUT3ZaUldjdEZSenUtZUV5blkxTWUyTVVnbmhtOUNqWG1uU1l1NEIyRlZoVm4yNGh3ak9Qa19Kd21aNXJrZ2RJWm5ybFZDbUc0ekhCYWdVTzRHOA?oc=5",
-        "published_at": "2026-04-07T07:00:00+00:00",
-        "publisher": "finance.sina.com.cn",
-        "status": "待人工复核"
-      },
-      {
-        "query": "(豆包 OR 通义千问 OR DeepSeek OR 智谱 OR Kimi) (ARR OR 年化收入 OR 日均 token OR 价格调整)",
-        "title": "每天烧 120 万亿 Token，这是 AI 圈最新的凡尔赛 - 爱范儿",
-        "url": "https://news.google.com/rss/articles/CBMiQ0FVX3lxTFBuTUc1c2ZCbllzbk5YSjhmak1Ja3h1bkVWNy1WbHZaZG1GczZ1SGxkU2w4X2RCSkl1NWRYRlByYjdkNVU?oc=5",
-        "published_at": "2026-04-02T10:03:33+00:00",
-        "publisher": "爱范儿",
-        "status": "待人工复核"
       }
     ]
   },
   "health": {
     "status": "ok",
-    "generated_at": "2026-07-27T18:24:07+08:00",
-    "ai_sources_ok": 9,
+    "generated_at": "2026-08-02T12:59:50+08:00",
+    "ai_sources_ok": 8,
     "ai_sources_total": 10,
     "storage_status": "ready",
     "storage_source_errors": 0,
     "storage_price_status": "ready",
     "storage_price_errors": 0,
     "stale_macro_metrics": [],
+    "macro_source_status": "ok",
+    "macro_last_collected_at": "2026-08-02T12:58:27+08:00",
+    "macro_source_errors": [],
     "delivery": "github-pages-static-json"
   },
   "normalized_metrics": [
     {
       "metric_id": "macro_spy_djp",
-      "value": 16.74,
+      "value": 15.7668,
       "unit": "倍",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开版后续以公开ETF行情代理",
+      "period": "2026-07-31",
+      "source_name": "Yahoo Finance 公开行情",
       "source_url": "https://finance.yahoo.com/quote/SPY/",
       "source_tier": 2,
-      "evidence_status": "proxy_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "股票相对商品的表现；高分位代表成长交易拥挤度提高。"
+      "evidence_status": "public_proxy",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "股票相对商品的公开 ETF 代理；高分位代表成长交易拥挤度提高。"
     },
     {
       "metric_id": "macro_discretionary_staples",
-      "value": 2.06,
+      "value": 1.365,
       "unit": "倍",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开版使用XLY/XLP代理",
+      "period": "2026-07-31",
+      "source_name": "Yahoo Finance 公开行情",
       "source_url": "https://finance.yahoo.com/quote/XLY/",
       "source_tier": 2,
-      "evidence_status": "proxy_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "风险消费相对防御消费；代理口径与Wind行业指数并非完全一致。"
+      "evidence_status": "public_proxy",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "XLY/XLP 代理风险消费相对防御消费。"
     },
     {
       "metric_id": "macro_dxy",
-      "value": 100.96,
+      "value": 99.8,
       "unit": "指数点",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开版使用美元指数公开行情代理",
-      "source_url": "https://fred.stlouisfed.org/series/DTWEXBGS",
+      "period": "2026-07-31",
+      "source_name": "Yahoo Finance 公开行情",
+      "source_url": "https://finance.yahoo.com/quote/DX-Y.NYB/",
       "source_tier": 2,
-      "evidence_status": "proxy_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "美元走强通常对应全球美元流动性收紧。"
+      "evidence_status": "public_proxy",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "美元指数公开行情代理；美元走强通常对应全球美元流动性收紧。"
     },
     {
       "metric_id": "macro_funding_kst",
-      "value": 3.72,
+      "value": 3.78,
       "unit": "% / KST",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开版以FRED资金价格与银行资产负债代理",
-      "source_url": "https://fred.stlouisfed.org/",
-      "source_tier": 2,
-      "evidence_status": "proxy_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "资金价格和信用扩张合成指标，两个子指标不应拆成两个总量指标。"
+      "period": "2026-07-30",
+      "source_name": "美联储 CP 与 H.8",
+      "source_url": "https://www.federalreserve.gov/releases/cp/",
+      "source_tier": 1,
+      "evidence_status": "official_calculated",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "90天 AA 非金融商业票据利率与商业银行贷存比 KST 的风险分位均值；两项均为美联储公开代理口径。"
     },
     {
       "metric_id": "macro_cpi_18roc",
-      "value": 5.81,
+      "value": 5.0675,
       "unit": "%",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；CPI公开源为FRED",
-      "source_url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "period": "2026-06-01",
+      "source_name": "美国劳工统计局 BLS",
+      "source_url": "https://www.bls.gov/cpi/data.htm",
       "source_tier": 1,
-      "evidence_status": "research_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "衡量通胀趋势边际变化，不等于CPI同比水平。"
+      "evidence_status": "official_calculated",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "CPI-U 经季调指数的18个月变化率，反映通胀趋势而非当月同比。"
     },
     {
       "metric_id": "macro_dividend_yield",
-      "value": 1.06,
+      "value": 1.08,
       "unit": "%",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开版以Shiller数据代理",
-      "source_url": "https://www.econ.yale.edu/~shiller/data.htm",
+      "period": "2026-07-31",
+      "source_name": "Multpl 标普500股息率公开月表",
+      "source_url": "https://www.multpl.com/s-p-500-dividend-yield/table/by-month",
       "source_tier": 2,
-      "evidence_status": "proxy_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "低股息率对应较高估值风险，因此风险分位采用反向分位。"
+      "evidence_status": "public_snapshot",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "标普500股息率公开月度序列；低股息率对应高估值风险，风险分位反向计算。"
     },
     {
       "metric_id": "macro_margin_kst",
-      "value": 5.81,
+      "value": 631.3777,
       "unit": "KST",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开源为FINRA月度保证金统计",
-      "source_url": "https://www.finra.org/investors/learn-to-invest/advanced-investing/margin-statistics",
+      "period": "2026-06-01",
+      "source_name": "FINRA 保证金统计",
+      "source_url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
       "source_tier": 1,
-      "evidence_status": "research_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "高位动量代表杠杆资金拥挤；需观察顶背离而非只看绝对值。"
+      "evidence_status": "official_calculated",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "FINRA 客户证券保证金账户借方余额的经典 KST 动量；高分位代表杠杆资金拥挤。"
     },
     {
       "metric_id": "macro_excess_cape_yield",
-      "value": 1.39,
+      "value": -0.0256,
       "unit": "%",
       "currency": null,
       "region": "全球",
-      "period": "2026-07-22",
-      "source_name": "浙商研究基准；公开源为Shiller数据",
-      "source_url": "https://www.econ.yale.edu/~shiller/data.htm",
-      "source_tier": 1,
-      "evidence_status": "research_baseline",
-      "collected_at": "2026-07-27T18:24:07+08:00",
-      "note": "低超额收益率代表股票相对无风险利率的风险补偿不足。"
+      "period": "2026-07-31",
+      "source_name": "Multpl CAPE + 美国财政部实际收益率",
+      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
+      "source_tier": 2,
+      "evidence_status": "public_calculated",
+      "collected_at": "2026-08-02T12:59:50+08:00",
+      "note": "CAPE 收益率减美国财政部10年期实际收益率；CAPE月表为公开二级源，实际收益率为官方一级源。"
     },
     {
       "metric_id": "gpu_runpod_h100_pcie_secure",
@@ -3643,7 +4046,7 @@
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": ""
     },
     {
@@ -3657,7 +4060,7 @@
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": ""
     },
     {
@@ -3671,7 +4074,7 @@
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": ""
     },
     {
@@ -3685,7 +4088,7 @@
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": ""
     },
     {
@@ -3699,7 +4102,7 @@
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": ""
     },
     {
@@ -3713,7 +4116,7 @@
       "source_url": "https://help.aliyun.com/en/cs/product-overview/product-billing-rules",
       "source_tier": 1,
       "evidence_status": "official",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "不含vCPU、内存、存储和网络费用。"
     },
     {
@@ -3727,7 +4130,7 @@
       "source_url": "https://www.dramexchange.com/WeeklyResearch/PrinterFriendly/2/12762.html",
       "source_tier": 2,
       "evidence_status": "public_release",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅引用公开新闻稿方向与区间，不转载付费历史数据库。"
     },
     {
@@ -3741,7 +4144,7 @@
       "source_url": "https://www.trendforce.com/presscenter/news/20260721-13148.html",
       "source_tier": 2,
       "evidence_status": "public_release",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅引用公开新闻稿方向与区间，不转载付费历史数据库。"
     },
     {
@@ -3755,7 +4158,7 @@
       "source_url": "https://www.trendforce.com/presscenter/news/20260602-13074.html",
       "source_tier": 2,
       "evidence_status": "public_release",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "方向性信号，不等同具体成交价。"
     },
     {
@@ -3769,7 +4172,7 @@
       "source_url": "https://www.trendforce.com/presscenter/news/20260611-13092.html",
       "source_tier": 2,
       "evidence_status": "public_release",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "不使用零售促销价替代企业级合约价。"
     },
     {
@@ -3783,7 +4186,7 @@
       "source_url": "https://www.trendforce.com/price/dram/module_spot",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3797,7 +4200,7 @@
       "source_url": "https://www.trendforce.com/price/dram/module_spot",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3811,7 +4214,7 @@
       "source_url": "https://www.trendforce.com/price/dram/module_spot",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3825,7 +4228,7 @@
       "source_url": "https://www.trendforce.com/price/dram/module_spot",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3839,7 +4242,7 @@
       "source_url": "https://www.trendforce.com/price/dram/module_spot",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3853,7 +4256,7 @@
       "source_url": "https://www.trendforce.com/price/flash/ssd_street",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3867,7 +4270,7 @@
       "source_url": "https://www.trendforce.com/price/flash/ssd_street",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3881,7 +4284,7 @@
       "source_url": "https://www.trendforce.com/price/flash/ssd_street",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3895,7 +4298,7 @@
       "source_url": "https://www.trendforce.com/price/flash/ssd_street",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     },
     {
@@ -3909,7 +4312,7 @@
       "source_url": "https://www.trendforce.com/price/flash/ssd_street",
       "source_tier": 2,
       "evidence_status": "public_snapshot",
-      "collected_at": "2026-07-27T18:24:07+08:00",
+      "collected_at": "2026-08-02T12:59:50+08:00",
       "note": "仅保存公开页面当前快照；芯片、模组、晶圆与整盘报价单位不同，不做直接加总。"
     }
   ]

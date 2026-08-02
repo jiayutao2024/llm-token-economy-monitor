@@ -90,13 +90,14 @@
       <div class="grid-2">
         <article class="card pad">
           ${rows.map(row => `<div class="risk-row">
-            <div class="risk-name"><b>${esc(row.name)}</b><small>${esc(row.family)} · ${esc(row.period)}</small></div>
+            <div class="risk-name"><b>${esc(row.name)}</b><small>${esc(row.family)} · ${esc(row.period)} · ${esc(row.data_frequency || "研究基准")}</small></div>
             <div class="track"><div class="fill ${Number(row.risk_percentile) < 45 ? "open" : ""}" style="width:${Number(row.risk_percentile) || 0}%"></div></div>
             <div class="value">${esc(row.risk_percentile)}%</div>
           </div>`).join("")}
         </article>
         <article class="card pad">
           <h3>口径与可用性</h3>
+          <p class="source-note">观测日期按数据源真实频率显示；日频跟随交易日，月频不会伪装为当天实时值。</p>
           <div class="table-wrap"><table><thead><tr><th>指标</th><th>当前值</th><th>证据</th><th>来源</th></tr></thead><tbody>
           ${rows.map(row => `<tr><td>${esc(row.name)}</td><td class="num">${esc(row.value)} ${esc(row.unit)}</td>
           <td><span class="tag ${row.source_tier === 1 ? "red" : ""}">T${esc(row.source_tier)} · ${esc(row.evidence_status)}</span></td>

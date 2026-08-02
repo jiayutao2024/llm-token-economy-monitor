@@ -144,6 +144,7 @@ def main() -> int:
 
     ai = load_json(root / "data" / "dashboard_api.json", {})
     framework = load_json(root / "data" / "framework_metrics.json", {})
+    macro_snapshot = load_json(root / "data" / "macro_indicators_latest.json", {})
     storage_prices = load_json(root / "data" / "storage_prices_latest.json", {})
     storage = load_json(root / "存储日报" / "output" / "latest.json", {})
     if not storage:
@@ -179,7 +180,9 @@ def main() -> int:
             gpu["cny_per_gpu_hour"] = round(float(gpu["usd_per_gpu_hour"]) * fx, 2)
         gpu["freshness"] = freshness(gpu.get("observed_at"), 45, now)
 
-    macro = framework.get("macro_indicators", [])
+    # A successful public-source refresh overrides the original research
+    # baseline. The baseline remains a last-resort fallback.
+    macro = macro_snapshot.get("metrics") or framework.get("macro_indicators", [])
     valid_macro = []
     for row in macro:
         row["freshness"] = freshness(
@@ -280,6 +283,11 @@ def main() -> int:
         "stale_macro_metrics": [
             row["metric_id"] for row in macro if row.get("freshness", {}).get("status") == "stale"
         ],
+        "macro_source_status": macro_snapshot.get("meta", {}).get(
+            "status", "ok" if macro_snapshot.get("metrics") else "baseline_fallback"
+        ),
+        "macro_last_collected_at": macro_snapshot.get("meta", {}).get("collected_at"),
+        "macro_source_errors": macro_snapshot.get("errors", []),
         "delivery": "github-pages-static-json",
     }
 
@@ -288,8 +296,11 @@ def main() -> int:
             "title": TITLE,
             "contact": CONTACT,
             "generated_at": generated_at,
-            "metrics_as_of": framework.get("as_of", ai.get("meta", {}).get("metrics_as_of")),
-            "schedule": "每日 07:30（Asia/Shanghai）",
+            "metrics_as_of": max(
+                (row.get("period", "") for row in macro),
+                default=framework.get("as_of", ""),
+            ),
+            "schedule": "每日 01:30 / 07:30 / 13:30 / 19:30（Asia/Shanghai）",
             "timezone": "Asia/Shanghai",
             "fx_note": fx_note or "跨币种展示按 1 USD = 7.2 CNY，仅用于横向比较。",
             "public_policy": "只发布可公开引用的数据、方向和有限快照；不上传Wind、付费TrendForce历史或内部底稿。",

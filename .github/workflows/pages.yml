@@ -3,7 +3,8 @@ name: Refresh and deploy dashboard
 on:
   workflow_dispatch:
   schedule:
-    - cron: "30 23 * * *"
+    # Four public refreshes per day: 01:30/07:30/13:30/19:30 Asia/Shanghai.
+    - cron: "30 5,11,17,23 * * *"
   push:
     branches: ["main"]
     paths:
@@ -54,9 +55,17 @@ jobs:
           else
             : > data/storage_price_history.jsonl
           fi
+          if [ -f .history-store/data/macro_history.jsonl ]; then
+            cp .history-store/data/macro_history.jsonl data/macro_history.jsonl
+          else
+            : > data/macro_history.jsonl
+          fi
 
       - name: Refresh public sources
         run: python scripts/update_dashboard.py --project-root .
+
+      - name: Refresh eight macro indicators
+        run: python scripts/collect_macro_indicators.py --project-root .
 
       - name: Refresh storage intelligence
         run: python "存储日报/scripts/run_storage_intel.py" --hours 30 --target-news 12 --max-news 15
@@ -80,9 +89,10 @@ jobs:
           cp ../data/history.jsonl data/history.jsonl
           cp ../data/unified_history.jsonl data/unified_history.jsonl
           cp ../data/storage_price_history.jsonl data/storage_price_history.jsonl
+          cp ../data/macro_history.jsonl data/macro_history.jsonl
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/history.jsonl data/unified_history.jsonl data/storage_price_history.jsonl
+          git add data/history.jsonl data/unified_history.jsonl data/storage_price_history.jsonl data/macro_history.jsonl
           if git diff --cached --quiet; then
             echo "No history changes"
           else
