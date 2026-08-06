@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "validated_at": "2026-08-06T12:58:06+08:00",
+    "workbook": "八大指标20260806.xlsx",
+    "method": "same-period point reconciliation after workbook-defined transforms",
+    "status": "passed",
+    "passed": 9,
+    "total": 9,
+    "failed_metrics": []
+  },
+  "checks": [
+    {
+      "metric_id": "macro_spy_djp",
+      "definition": "SPYDJP",
+      "workbook_period": "2026-08-05",
+      "public_period": "2026-08-05",
+      "workbook_value": 16.6046160483175,
+      "public_value": 16.604616048317514,
+      "absolute_error": 1.4210854715202004e-14,
+      "relative_error_pct": 8.558375980420186e-14,
+      "tolerance_pct": 0.01,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_discretionary_staples",
+      "definition": "可选必选",
+      "workbook_period": "2026-08-05",
+      "public_period": "2026-08-05",
+      "workbook_value": 2.07760746764715,
+      "public_value": 2.07761767327363,
+      "absolute_error": 1.0205626479908858e-05,
+      "relative_error_pct": 0.0004912201481190541,
+      "tolerance_pct": 0.01,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_dxy",
+      "definition": "美元指数收盘",
+      "workbook_period": "2026-08-05",
+      "public_period": "2026-08-05",
+      "workbook_value": 99.6902,
+      "public_value": 99.69000244140625,
+      "absolute_error": 0.00019755859375436557,
+      "relative_error_pct": 0.0001981725322593049,
+      "tolerance_pct": 0.05,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_cp_rate",
+      "definition": "AA非金融商业票据3个月",
+      "workbook_period": "2026-08-04",
+      "public_period": "2026-08-04",
+      "workbook_value": 3.76,
+      "public_value": 3.76,
+      "absolute_error": 0.0,
+      "relative_error_pct": 0.0,
+      "tolerance_pct": 0.01,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_ldr_kst",
+      "definition": "对商业银行贷款/存款 KST",
+      "workbook_period": "2026-07-22",
+      "public_period": "2026-07-22",
+      "workbook_value": 3.60846230275243,
+      "public_value": 3.608462302752426,
+      "absolute_error": 3.9968028886505635e-15,
+      "relative_error_pct": 1.1076194105178593e-13,
+      "tolerance_pct": 0.1,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_cpi_18roc",
+      "definition": "季调CPI ROC18",
+      "workbook_period": "2026-06-30",
+      "public_period": "2026-06-30",
+      "workbook_value": 0.0506748218167112,
+      "public_value": 0.050674821816711235,
+      "absolute_error": 3.469446951953614e-17,
+      "relative_error_pct": 6.846490678353966e-14,
+      "tolerance_pct": 0.01,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_dividend_kst",
+      "definition": "1/股息率 KST",
+      "workbook_period": "2026-07-31",
+      "public_period": "2026-07-31",
+      "workbook_value": 1.75753953870748,
+      "public_value": 1.7575395387074793,
+      "absolute_error": 6.661338147750939e-16,
+      "relative_error_pct": 3.7901498094602096e-14,
+      "tolerance_pct": 0.5,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_margin_kst",
+      "definition": "FINRA保证金余额 KST",
+      "workbook_period": "2026-06-30",
+      "public_period": "2026-06-30",
+      "workbook_value": 6.00730459612016,
+      "public_value": 6.007304596120157,
+      "absolute_error": 2.6645352591003757e-15,
+      "relative_error_pct": 4.4354921853326296e-14,
+      "tolerance_pct": 0.01,
+      "status": "passed"
+    },
+    {
+      "metric_id": "macro_excess_cape_yield",
+      "definition": "Shiller Excess CAPE Yield",
+      "workbook_period": "2026-08-01",
+      "public_period": "2026-08-01",
+      "workbook_value": 0.0097,
+      "public_value": 0.009735644305289917,
+      "absolute_error": 3.564430528991622e-05,
+      "relative_error_pct": 0.36746706484449704,
+      "tolerance_pct": 0.5,
+      "status": "passed"
+    }
+  ]
+}

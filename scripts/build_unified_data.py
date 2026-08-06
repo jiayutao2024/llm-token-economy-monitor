@@ -288,6 +288,10 @@ def main() -> int:
         ),
         "macro_last_collected_at": macro_snapshot.get("meta", {}).get("collected_at"),
         "macro_source_errors": macro_snapshot.get("errors", []),
+        "macro_baseline_workbook": macro_snapshot.get("meta", {}).get("baseline_workbook"),
+        "macro_baseline_generated_at": macro_snapshot.get("meta", {}).get("baseline_generated_at"),
+        "macro_source_validation_status": macro_snapshot.get("meta", {}).get("source_validation_status"),
+        "macro_source_validation_at": macro_snapshot.get("meta", {}).get("source_validation_at"),
         "delivery": "github-pages-static-json",
     }
 

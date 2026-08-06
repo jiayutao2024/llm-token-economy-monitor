@@ -37,6 +37,8 @@ def main() -> int:
     output.mkdir(parents=True)
 
     payload = json.loads((root / "data" / "dashboard_v2.json").read_text(encoding="utf-8"))
+    macro_validation_path = root / "data" / "macro_source_validation.json"
+    macro_validation = json.loads(macro_validation_path.read_text(encoding="utf-8")) if macro_validation_path.exists() else {"meta": {"status": "missing"}, "checks": []}
     web = root / "web"
     template = (web / "index.html").read_text(encoding="utf-8")
     (output / "index.html").write_text(render_page(template, "./", ""), encoding="utf-8")
@@ -66,6 +68,7 @@ def main() -> int:
                 "errors": payload["health"].get("macro_source_errors", []),
             },
         },
+        "macro-source-validation.json": macro_validation,
         "ai-compute.json": {
             "meta": meta,
             **payload["ai_compute"],
@@ -136,6 +139,10 @@ def main() -> int:
     endpoint_docs.append({
         "path": "./macro-indicators.json",
         "description": "总量八大指标最新观测、真实数据日期、频率与公开来源",
+    })
+    endpoint_docs.append({
+        "path": "./macro-source-validation.json",
+        "description": "公开源与 Wind 底稿对应期逐点回测结果（不包含 Wind 历史原始序列）",
     })
     write_json(
         api_root / "index.json",

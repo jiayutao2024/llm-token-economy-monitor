@@ -97,7 +97,7 @@
         </article>
         <article class="card pad">
           <h3>口径与可用性</h3>
-          <p class="source-note">观测日期按数据源真实频率显示；日频跟随交易日，月频不会伪装为当天实时值。</p>
+          <p class="source-note">公开源先按底稿公式做 ROC/KST 等技术处理，再进入 2026-08-06 Wind 底稿历史分布计算分位；观测日期按真实频率显示。</p>
           <div class="table-wrap"><table><thead><tr><th>指标</th><th>当前值</th><th>证据</th><th>来源</th></tr></thead><tbody>
           ${rows.map(row => `<tr><td>${esc(row.name)}</td><td class="num">${esc(row.value)} ${esc(row.unit)}</td>
           <td><span class="tag ${row.source_tier === 1 ? "red" : ""}">T${esc(row.source_tier)} · ${esc(row.evidence_status)}</span></td>

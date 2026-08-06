@@ -1,93 +1,156 @@
 {
   "meta": {
-    "collected_at": "2026-08-02T12:58:27+08:00",
+    "collected_at": "2026-08-06T13:01:57+08:00",
     "timezone": "Asia/Shanghai",
-    "method": "public-source-refresh",
-    "indicator_count": 8
+    "method": "public-source-refresh + Wind-baseline technical transforms",
+    "indicator_count": 8,
+    "baseline_generated_at": "2026-08-06T12:58:04+08:00",
+    "baseline_workbook": "八大指标20260806.xlsx",
+    "source_validation_status": "passed",
+    "source_validation_at": "2026-08-06T12:58:06+08:00"
   },
   "metrics": [
     {
       "metric_id": "macro_spy_djp",
       "name": "SPY / DJP",
       "family": "跨资产",
-      "value": 15.7668,
+      "value": 16.6046,
       "unit": "倍",
-      "percentile": 74.3,
-      "risk_percentile": 74.3,
-      "period": "2026-07-31",
+      "percentile": 87.1,
+      "risk_percentile": 87.1,
+      "period": "2026-08-05",
       "data_frequency": "日频（交易日）",
-      "source_date": "2026-07-31",
-      "source_name": "Yahoo Finance 公开行情",
+      "source_date": "2026-08-05",
+      "source_name": "Yahoo Finance 公开行情（与 Wind 收盘价回测）",
       "source_url": "https://finance.yahoo.com/quote/SPY/",
       "source_tier": 2,
-      "evidence_status": "public_proxy",
+      "evidence_status": "public_validated",
       "freshness_days": 7,
-      "sample_count": 2514,
-      "history_start": "2016-08-01",
-      "note": "股票相对商品的公开 ETF 代理；高分位代表成长交易拥挤度提高。"
+      "sample_count": 5057,
+      "history_start": "2006-11-01",
+      "note": "与底稿 SPY.OF/DJP.OF 收盘价口径一致。",
+      "baseline_as_of": "2026-08-05",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_spy_djp"
+        ]
+      }
     },
     {
       "metric_id": "macro_discretionary_staples",
       "name": "可选消费 / 必需消费",
       "family": "风险偏好",
-      "value": 1.365,
+      "value": 2.0776,
       "unit": "倍",
-      "percentile": 80.1,
-      "risk_percentile": 80.1,
-      "period": "2026-07-31",
+      "percentile": 95.7,
+      "risk_percentile": 95.7,
+      "period": "2026-08-05",
       "data_frequency": "日频（交易日）",
-      "source_date": "2026-07-31",
-      "source_name": "Yahoo Finance 公开行情",
-      "source_url": "https://finance.yahoo.com/quote/XLY/",
+      "source_date": "2026-08-05",
+      "source_name": "Yahoo Finance 公开行情（与 Wind 收盘价回测）",
+      "source_url": "https://finance.yahoo.com/quote/^SP500-25/",
       "source_tier": 2,
-      "evidence_status": "public_proxy",
+      "evidence_status": "public_validated",
       "freshness_days": 7,
-      "sample_count": 2514,
-      "history_start": "2016-08-01",
-      "note": "XLY/XLP 代理风险消费相对防御消费。"
+      "sample_count": 5057,
+      "history_start": "2026-07-06",
+      "note": "与底稿 S5COND.SPI/S5CONS.SPI 的价格指数口径一致。",
+      "baseline_as_of": "2026-08-05",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_discretionary_staples"
+        ]
+      }
     },
     {
       "metric_id": "macro_dxy",
       "name": "美元流动性",
       "family": "流动性",
-      "value": 99.8,
+      "value": 99.723,
       "unit": "指数点",
-      "percentile": 62.3,
-      "risk_percentile": 62.3,
-      "period": "2026-07-31",
+      "percentile": 80.7,
+      "risk_percentile": 80.7,
+      "period": "2026-08-06",
       "data_frequency": "日频（交易日）",
-      "source_date": "2026-07-31",
-      "source_name": "Yahoo Finance 公开行情",
+      "source_date": "2026-08-06",
+      "source_name": "Yahoo Finance 公开行情（与 Wind 收盘价回测）",
       "source_url": "https://finance.yahoo.com/quote/DX-Y.NYB/",
       "source_tier": 2,
-      "evidence_status": "public_proxy",
+      "evidence_status": "public_validated",
       "freshness_days": 7,
-      "sample_count": 2513,
-      "history_start": "2016-08-02",
-      "note": "美元指数公开行情代理；美元走强通常对应全球美元流动性收紧。"
+      "sample_count": 5252,
+      "history_start": "1985-01-01",
+      "note": "美元指数收盘值，与底稿逐点回测。",
+      "baseline_as_of": "2026-08-05",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_dxy"
+        ]
+      }
     },
     {
       "metric_id": "macro_funding_kst",
       "name": "商业票据利率 + 贷存比 KST",
       "family": "流动性",
-      "value": 3.78,
+      "value": 3.76,
       "unit": "% / KST",
-      "percentile": 68.0,
-      "risk_percentile": 68.0,
-      "period": "2026-07-30",
+      "percentile": 91.0,
+      "risk_percentile": 91.0,
+      "period": "2026-08-04",
       "data_frequency": "周频",
-      "source_date": "2026-07-30",
+      "source_date": "2026-08-04",
       "source_name": "美联储 CP 与 H.8",
       "source_url": "https://www.federalreserve.gov/releases/cp/",
       "source_tier": 1,
       "evidence_status": "official_calculated",
       "freshness_days": 14,
-      "sample_count": 478,
-      "history_start": "2017-05-31",
-      "note": "90天 AA 非金融商业票据利率与商业银行贷存比 KST 的风险分位均值；两项均为美联储公开代理口径。",
-      "secondary_value": 2.6012,
+      "sample_count": 1048,
+      "history_start": "2017-04-26",
+      "note": "与底稿同口径：90天AA非金融商业票据利率，以及对商业银行贷款/存款比的 KST；两项底稿分位取均值。",
+      "secondary_value": 3.6085,
       "secondary_period": "2026-07-22",
-      "calculation": "mean(percentile(CP90), percentile(KST(loan/deposit)))"
+      "cp_percentile": 86.2,
+      "ldr_kst_percentile": 95.8,
+      "calculation": "mean(base_percentile(CP90), base_percentile(KST(LDR)))",
+      "kst_parameters": {
+        "roc": [
+          10,
+          13,
+          15,
+          20
+        ],
+        "sma": [
+          10,
+          13,
+          15,
+          20
+        ],
+        "weights": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "baseline_as_of": "2026-08-04",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_cp_rate",
+          "macro_ldr_kst"
+        ]
+      }
     },
     {
       "metric_id": "macro_cpi_18roc",
@@ -95,85 +158,165 @@
       "family": "通胀",
       "value": 5.0675,
       "unit": "%",
-      "percentile": 72.5,
-      "risk_percentile": 72.5,
-      "period": "2026-06-01",
+      "percentile": 81.2,
+      "risk_percentile": 81.2,
+      "period": "2026-06-30",
       "data_frequency": "月频",
-      "source_date": "2026-06-01",
+      "source_date": "2026-06-30",
       "source_name": "美国劳工统计局 BLS",
       "source_url": "https://www.bls.gov/cpi/data.htm",
       "source_tier": 1,
       "evidence_status": "official_calculated",
       "freshness_days": 75,
-      "sample_count": 120,
-      "history_start": "2016-06-01",
-      "note": "CPI-U 经季调指数的18个月变化率，反映通胀趋势而非当月同比。",
-      "calculation": "CPI(t)/CPI(t-18m)-1"
+      "sample_count": 240,
+      "history_start": "2008-07-31",
+      "note": "与底稿同口径：美国季调 CPI 的18个月变化率；先做 ROC18，再进入底稿历史分布计算分位。",
+      "calculation": "CPI(t)/CPI(t-18m)-1",
+      "processed_value": 0.050674821816711235,
+      "baseline_as_of": "2026-06-30",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_cpi_18roc"
+        ]
+      }
     },
     {
       "metric_id": "macro_dividend_yield",
-      "name": "股息率",
+      "name": "股息率 KST",
       "family": "估值",
       "value": 1.08,
       "unit": "%",
-      "percentile": 98.4,
-      "risk_percentile": 98.4,
+      "percentile": 76.7,
+      "risk_percentile": 76.7,
       "period": "2026-07-31",
       "data_frequency": "月频",
       "source_date": "2026-07-31",
-      "source_name": "Multpl 标普500股息率公开月表",
+      "source_name": "标准普尔股息率公开月表（Multpl 展示）",
       "source_url": "https://www.multpl.com/s-p-500-dividend-yield/table/by-month",
       "source_tier": 2,
-      "evidence_status": "public_snapshot",
+      "evidence_status": "public_validated",
       "freshness_days": 75,
-      "sample_count": 122,
-      "history_start": "2016-07-31",
-      "note": "标普500股息率公开月度序列；低股息率对应高估值风险，风险分位反向计算。",
-      "calculation": "100 - percentile(S&P 500 dividend yield)"
+      "sample_count": 241,
+      "history_start": "1873-09-30",
+      "note": "与底稿同口径：先取 1/股息率，再按指定参数计算 KST，最后进入底稿历史分布。",
+      "processed_value": 1.7575395387074793,
+      "calculation": "KST(1/dividend yield)",
+      "kst_parameters": {
+        "roc": [
+          9,
+          12,
+          18,
+          24
+        ],
+        "sma": [
+          6,
+          6,
+          6,
+          9
+        ],
+        "weights": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "baseline_as_of": "2026-07-31",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_dividend_kst"
+        ]
+      }
     },
     {
       "metric_id": "macro_margin_kst",
       "name": "保证金余额 KST",
       "family": "杠杆资金",
-      "value": 631.3777,
+      "value": 6.0073,
       "unit": "KST",
-      "percentile": 100.0,
-      "risk_percentile": 100.0,
-      "period": "2026-06-01",
+      "percentile": 99.6,
+      "risk_percentile": 99.6,
+      "period": "2026-06-30",
       "data_frequency": "月频",
-      "source_date": "2026-06-01",
+      "source_date": "2026-06-30",
       "source_name": "FINRA 保证金统计",
       "source_url": "https://www.finra.org/rules-guidance/key-topics/margin-accounts/margin-statistics",
       "source_tier": 1,
       "evidence_status": "official_calculated",
       "freshness_days": 75,
-      "sample_count": 77,
-      "history_start": "2020-02-01",
-      "note": "FINRA 客户证券保证金账户借方余额的经典 KST 动量；高分位代表杠杆资金拥挤。",
+      "sample_count": 240,
+      "history_start": "1999-09-30",
+      "note": "与底稿同口径：FINRA 客户证券保证金账户借方余额按指定参数计算 KST。",
       "underlying_value": 1502072.0,
       "underlying_unit": "USD million",
-      "calculation": "KST(FINRA margin debit balance)"
+      "calculation": "KST(FINRA margin debit balance)",
+      "kst_parameters": {
+        "roc": [
+          9,
+          12,
+          18,
+          24
+        ],
+        "sma": [
+          6,
+          6,
+          6,
+          9
+        ],
+        "weights": [
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "baseline_as_of": "2026-06-30",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_margin_kst"
+        ]
+      }
     },
     {
       "metric_id": "macro_excess_cape_yield",
       "name": "超额 CAPE 收益率",
       "family": "估值",
-      "value": -0.0256,
+      "value": 0.9736,
       "unit": "%",
-      "percentile": 99.2,
-      "risk_percentile": 99.2,
-      "period": "2026-07-31",
+      "percentile": 99.6,
+      "risk_percentile": 99.6,
+      "period": "2026-08-01",
       "data_frequency": "月频",
-      "source_date": "2026-07-31",
-      "source_name": "Multpl CAPE + 美国财政部实际收益率",
-      "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates",
-      "source_tier": 2,
-      "evidence_status": "public_calculated",
+      "source_date": "2026-08-01",
+      "source_name": "Robert Shiller ie_data.xls",
+      "source_url": "https://shillerdata.com/",
+      "source_tier": 1,
+      "evidence_status": "official_snapshot",
       "freshness_days": 75,
-      "sample_count": 121,
-      "history_start": "2016-08-01",
-      "note": "CAPE 收益率减美国财政部10年期实际收益率；CAPE月表为公开二级源，实际收益率为官方一级源。",
-      "calculation": "100/CAPE - Treasury 10Y real yield"
+      "sample_count": 243,
+      "history_start": "1881-01-01",
+      "note": "直接读取 ie_data.xls 的 Excess CAPE Yield；展示原始分位，同时阶段风险使用反向分位（ECY 越低风险越高）；Shiller 当月值可能含估算。",
+      "raw_percentile": 0.4,
+      "processed_value": 0.009735644305289917,
+      "calculation": "Shiller ie_data.xls: Excess CAPE Yield",
+      "baseline_as_of": "2026-08-01",
+      "percentile_method": "Wind底稿历史CDF + PERCENTRANK.EXC插值",
+      "source_validation": {
+        "status": "passed",
+        "validated_at": "2026-08-06T12:58:06+08:00",
+        "checks": [
+          "macro_excess_cape_yield"
+        ]
+      }
     }
   ],
   "errors": []

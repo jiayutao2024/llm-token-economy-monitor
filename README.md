@@ -30,10 +30,23 @@
 - 国内外核心标的行情；
 - 经过去重和零售噪声过滤的公开新闻发现队列。
 
+## 总量八指标口径
+
+- 授权的 Wind Excel 只用于生成不带日期明细的 1 分位 CDF 基准，原始底稿不上传公开仓库；
+- 公开源抓取后严格复现底稿技术处理：CPI ROC18、LDR KST、1/股息率 KST、Margin Debt KST；
+- ECY 直接读取 Robert Shiller `ie_data.xls` 的 Excess CAPE Yield 月度列；
+- `data/macro_source_validation.json` 保存公开源与 Wind 对应期逐点回测，不包含 Wind 历史原始序列；
+- 新 Wind 底稿到位时，本地依次运行：
+
+```powershell
+python scripts/import_macro_baseline.py "八大指标YYYYMMDD.xlsx" --project-root .
+python scripts/validate_macro_sources.py "八大指标YYYYMMDD.xlsx" --project-root .
+```
+
 ## 刷新与历史
 
-- 每日北京时间 07:30 自动更新；
-- GitHub Actions cron：`30 23 * * *`；
+- 每日北京时间 01:30、07:30、13:30、19:30 自动更新；
+- GitHub Actions cron：`30 5,11,17,23 * * *`；
 - `data-history` 分支保存 AI、统一指标与存储公开价格历史；
 - 单一来源失败时保留最近成功快照并在健康接口中标记。
 
@@ -53,6 +66,8 @@
 
 - `/api/dashboard.json`：完整双 Tab 快照；
 - `/api/overview.json`：阶段判断和总量八指标；
+- `/api/macro-indicators.json`：八指标数值、处理公式、底稿基准和验证状态；
+- `/api/macro-source-validation.json`：公开源与 Wind 对应期回测结果；
 - `/api/ai-compute.json`：Token、ARR、价格和 Capex；
 - `/api/gpu-rental.json`：GPU 租赁价格；
 - `/api/storage.json`：存储周期、公开价格、行情和事件；

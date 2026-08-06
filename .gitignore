@@ -6,6 +6,8 @@ dashboard-preview*.png
 dashboard-*-preview*.png
 dashboard-mobile-final.png
 _site/
+artifacts/
+/八大指标*.xlsx
 .history-store/
 产业报告模板/
 存储日报/output/

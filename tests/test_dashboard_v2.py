@@ -36,6 +36,30 @@ class DashboardV2Tests(unittest.TestCase):
         self.assertIsNotNone(result[44])
         self.assertGreater(result[-1], 0)
 
+    def test_workbook_specific_kst_parameters(self):
+        values = [100 + i * i / 100 for i in range(100)]
+        ldr = macro.weighted_roc_momentum(values, (10, 13, 15, 20), (10, 13, 15, 20))
+        monthly = macro.weighted_roc_momentum(values, (9, 12, 18, 24), (6, 6, 6, 9))
+        self.assertIsNotNone(ldr[-1])
+        self.assertIsNotNone(monthly[-1])
+        self.assertNotEqual(ldr[-1], monthly[-1])
+
+    def test_macro_baseline_and_validation_are_publishable_aggregates(self):
+        baseline = json.loads((ROOT / "data" / "macro_baseline.json").read_text(encoding="utf-8"))
+        validation = json.loads((ROOT / "data" / "macro_source_validation.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(baseline["series"]), 9)
+        self.assertEqual(validation["meta"]["status"], "passed")
+        self.assertEqual(validation["meta"]["passed"], 9)
+        for row in baseline["series"].values():
+            self.assertEqual(len(row["quantile_knots"]), 101)
+            self.assertNotIn("observations", row)
+
+    def test_baseline_percentile_bounds(self):
+        baseline = json.loads((ROOT / "data" / "macro_baseline.json").read_text(encoding="utf-8"))
+        series = baseline["series"]["macro_dxy"]
+        self.assertGreaterEqual(macro.baseline_percentile(baseline, "macro_dxy", series["min"] - 1), 0)
+        self.assertLessEqual(macro.baseline_percentile(baseline, "macro_dxy", series["max"] + 1), 100)
+
     def test_macro_snapshot_contract(self):
         path = ROOT / "data" / "macro_indicators_latest.json"
         if not path.exists():
@@ -50,6 +74,7 @@ class DashboardV2Tests(unittest.TestCase):
             self.assertGreater(row["sample_count"], 0)
             self.assertGreaterEqual(row["risk_percentile"], 0)
             self.assertLessEqual(row["risk_percentile"], 100)
+            self.assertEqual(row["source_validation"]["status"], "passed")
 
     def test_stage_matrix(self):
         self.assertEqual(
