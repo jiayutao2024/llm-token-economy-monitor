@@ -174,8 +174,9 @@ class DashboardV2Tests(unittest.TestCase):
 
     def test_public_pages_use_local_zheshang_logo(self):
         html = (ROOT / "web" / "index.html").read_text(encoding="utf-8")
-        self.assertIn('assets/zs-logo.svg', html)
-        self.assertTrue((ROOT / "web" / "assets" / "zs-logo.svg").exists())
+        css = (ROOT / "web" / "styles.css").read_text(encoding="utf-8")
+        self.assertIn('assets/zs-logo-original.png', css)
+        self.assertTrue((ROOT / "web" / "assets" / "zs-logo-original.png").exists())
 
     def test_public_storage_price_parser(self):
         parser = storage_prices.PricePageParser()
