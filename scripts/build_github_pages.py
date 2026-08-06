@@ -51,6 +51,8 @@ def main() -> int:
     )
     shutil.copy2(web / "styles.css", output / "styles.css")
     shutil.copy2(web / "app.js", output / "app.js")
+    if (web / "assets").exists():
+        shutil.copytree(web / "assets", output / "assets")
     (output / ".nojekyll").write_text("", encoding="utf-8")
 
     meta = payload["meta"]

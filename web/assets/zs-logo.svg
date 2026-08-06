@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 104" role="img" aria-labelledby="title desc">
+  <title id="title">浙商证券</title>
+  <desc id="desc">ZHESHANG SECURITIES 品牌标识</desc>
+  <g transform="translate(2 2)">
+    <circle cx="50" cy="50" r="48" fill="#ed1c24"/>
+    <path d="M14 21 30 8l20 18L70 8l16 13-22 21v16l22 21-16 13-20-18-20 18-16-13 22-21V42Z" fill="#fff"/>
+    <path d="M36 26 50 39l14-13v18L53 55v36h-6V55L36 44Z" fill="#ed1c24"/>
+  </g>
+  <g transform="translate(115 8)" fill="#111">
+    <text x="0" y="53" font-family="Microsoft YaHei,SimHei,Arial,sans-serif" font-size="50" font-weight="800" letter-spacing="3">浙商证券</text>
+    <rect x="0" y="61" width="300" height="3" fill="#ed1c24"/>
+    <text x="0" y="89" font-family="Georgia,Times New Roman,serif" font-size="22" font-weight="700" letter-spacing="1">ZHESHANG SECURITIES</text>
+  </g>
+</svg>

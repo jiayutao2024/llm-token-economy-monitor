@@ -86,25 +86,34 @@
   function macroSection(D) {
     const rows = D.overview.macro_indicators || [];
     return `<section class="section">
-      ${sectionHead("总量八大指标", "风险分位越高，代表流动性、估值或交易拥挤度越值得警惕。", "研究基准与公开代理口径")}
-      <div class="grid-2">
-        <article class="card pad">
-          ${rows.map(row => `<div class="risk-row">
-            <div class="risk-name"><b>${esc(row.name)}</b><small>${esc(row.family)} · ${esc(row.period)} · ${esc(row.data_frequency || "研究基准")}</small></div>
-            <div class="track"><div class="fill ${Number(row.risk_percentile) < 45 ? "open" : ""}" style="width:${Number(row.risk_percentile) || 0}%"></div></div>
-            <div class="value">${esc(row.risk_percentile)}%</div>
-          </div>`).join("")}
-        </article>
-        <article class="card pad">
+      ${sectionHead("总量八大指标", "公开源按底稿公式处理后，进入 Wind 历史底稿 + 每日公开增量序列计算分位。", "研究基准与公开代理口径")}
+      <div class="macro-grid">
+        ${rows.map((row, index) => {
+          const percentile = Number(row.risk_percentile) || 0;
+          const inverse = row.risk_direction === "lower_is_riskier" || row.metric_id === "macro_excess_cape_yield";
+          const level = inverse ? (percentile <= 20 ? "alert" : percentile <= 45 ? "watch" : "normal") : (percentile >= 80 ? "alert" : percentile >= 55 ? "watch" : "normal");
+          return `<article class="card macro-card ${level} ${inverse ? "inverse" : ""}">
+            <div class="macro-card-head"><span class="macro-index">0${index + 1}</span><span class="tag">${esc(row.family)}</span></div>
+            <h3>${esc(row.name)}</h3>
+            <div class="macro-reading"><strong>${esc(row.risk_percentile)}</strong><span>%<small>历史分位</small></span></div>
+            <div class="track" aria-label="${esc(row.name)}分位 ${esc(row.risk_percentile)}%"><div class="fill" style="width:${Math.max(1, percentile)}%"></div></div>
+            <div class="macro-value"><b>${esc(row.value)} ${esc(row.unit)}</b><span>${esc(row.period)} · ${esc(row.data_frequency || "研究基准")}</span></div>
+            ${inverse ? '<p class="direction-note">特别口径：ECY 直接展示原始分位，越低风险越高</p>' : ''}
+          </article>`;
+        }).join("")}
+      </div>
+      <article class="card pad methodology-card">
+        <div class="methodology-copy">
           <h3>口径与可用性</h3>
-          <p class="source-note">公开源先按底稿公式做 ROC/KST 等技术处理，再进入 2026-08-06 Wind 底稿历史分布计算分位；观测日期按真实频率显示。</p>
-          <div class="table-wrap"><table><thead><tr><th>指标</th><th>当前值</th><th>证据</th><th>来源</th></tr></thead><tbody>
+          <p class="source-note">公开源先按底稿公式做 ROC/KST 等技术处理，再进入 2026-08-06 Wind 底稿历史分布计算分位；后续新值逐行沉淀到历史序列。ECY 保留原始分位，越低风险越高。</p>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>指标</th><th>当前值</th><th>数据日</th><th>证据</th><th>来源</th></tr></thead><tbody>
           ${rows.map(row => `<tr><td>${esc(row.name)}</td><td class="num">${esc(row.value)} ${esc(row.unit)}</td>
+          <td>${esc(row.period)}</td>
           <td><span class="tag ${row.source_tier === 1 ? "red" : ""}">T${esc(row.source_tier)} · ${esc(row.evidence_status)}</span></td>
           <td>${sourceLink(row.source_url, row.source_name)}</td></tr>`).join("")}
           </tbody></table></div>
-        </article>
-      </div>
+      </article>
     </section>`;
   }
 

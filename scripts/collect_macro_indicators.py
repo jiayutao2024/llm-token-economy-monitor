@@ -380,11 +380,12 @@ def valuation_metrics(baseline: dict) -> list[dict]:
                "与底稿同口径：先取 1/股息率，再按指定参数计算 KST，最后进入底稿历史分布。",
                processed_value=dk_values[-1], calculation="KST(1/dividend yield)", kst_parameters={"roc": [9, 12, 18, 24], "sma": [6, 6, 6, 9], "weights": [1, 2, 3, 4]},
                baseline_as_of=dividend_base.get("latest_period"), percentile_method="Wind底稿历史CDF + 公开增量序列 + PERCENTRANK.EXC插值"),
-        metric("macro_excess_cape_yield", "超额 CAPE 收益率", "估值", 100 * ecy[-1], "%", 100 - raw_ecy_percentile, edates[-1], "月频",
+        metric("macro_excess_cape_yield", "超额 CAPE 收益率", "估值", 100 * ecy[-1], "%", raw_ecy_percentile, edates[-1], "月频",
                "Robert Shiller ie_data.xls", SHILLER_PAGE, 1, "official_snapshot", ecy_base["sample_count"], edates[0],
-               "直接读取 ie_data.xls 的 Excess CAPE Yield；展示原始分位，同时阶段风险使用反向分位（ECY 越低风险越高）；Shiller 当月值可能含估算。",
+               "直接读取 ie_data.xls 的 Excess CAPE Yield 原始分位，不做反向换算；ECY 越低风险越高；Shiller 当月值可能含估算。",
                raw_percentile=raw_ecy_percentile, processed_value=ecy[-1], calculation="Shiller ie_data.xls: Excess CAPE Yield",
-               baseline_as_of=ecy_base.get("latest_period"), percentile_method="Wind底稿历史CDF + 公开增量序列 + PERCENTRANK.EXC插值")
+               baseline_as_of=ecy_base.get("latest_period"), percentile_method="Wind底稿历史CDF + 公开增量序列 + PERCENTRANK.EXC插值",
+               risk_direction="lower_is_riskier")
     ]
 
 
@@ -517,7 +518,7 @@ def collect(root: Path, now: datetime | None = None, previous_metrics: list[dict
     ecy = by_id["macro_excess_cape_yield"]
     ecy_raw, ecy_count = extended_percentile(baseline, public_history, "macro_excess_cape_yield", ecy["processed_value"])
     ecy["raw_percentile"] = ecy_raw
-    ecy["percentile"] = ecy["risk_percentile"] = round(100 - ecy_raw, 1)
+    ecy["percentile"] = ecy["risk_percentile"] = round(ecy_raw, 1)
     ecy["history_sample_count"] = ecy_count
     order = ["macro_spy_djp", "macro_discretionary_staples", "macro_dxy", "macro_funding_kst", "macro_cpi_18roc", "macro_dividend_yield", "macro_margin_kst", "macro_excess_cape_yield"]
     rows.sort(key=lambda row: order.index(row["metric_id"]))

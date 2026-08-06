@@ -108,6 +108,9 @@ class DashboardV2Tests(unittest.TestCase):
             self.assertGreaterEqual(row["risk_percentile"], 0)
             self.assertLessEqual(row["risk_percentile"], 100)
             self.assertEqual(row["source_validation"]["status"], "passed")
+        ecy = next(row for row in rows if row["metric_id"] == "macro_excess_cape_yield")
+        self.assertEqual(ecy["risk_percentile"], ecy["raw_percentile"])
+        self.assertEqual(ecy["risk_direction"], "lower_is_riskier")
 
     def test_stage_matrix(self):
         self.assertEqual(
@@ -168,6 +171,11 @@ class DashboardV2Tests(unittest.TestCase):
         self.assertIn('class="watermark-layer"', html)
         self.assertIn(".watermark-layer", css)
         self.assertIn("pointer-events:none", css)
+
+    def test_public_pages_use_local_zheshang_logo(self):
+        html = (ROOT / "web" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('assets/zs-logo.svg', html)
+        self.assertTrue((ROOT / "web" / "assets" / "zs-logo.svg").exists())
 
     def test_public_storage_price_parser(self):
         parser = storage_prices.PricePageParser()
