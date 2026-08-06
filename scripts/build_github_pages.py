@@ -39,6 +39,8 @@ def main() -> int:
     payload = json.loads((root / "data" / "dashboard_v2.json").read_text(encoding="utf-8"))
     macro_validation_path = root / "data" / "macro_source_validation.json"
     macro_validation = json.loads(macro_validation_path.read_text(encoding="utf-8")) if macro_validation_path.exists() else {"meta": {"status": "missing"}, "checks": []}
+    macro_history_path = root / "data" / "macro_public_history.jsonl"
+    macro_history = [json.loads(line) for line in macro_history_path.read_text(encoding="utf-8").splitlines() if line.strip()] if macro_history_path.exists() else []
     web = root / "web"
     template = (web / "index.html").read_text(encoding="utf-8")
     (output / "index.html").write_text(render_page(template, "./", ""), encoding="utf-8")
@@ -69,6 +71,15 @@ def main() -> int:
             },
         },
         "macro-source-validation.json": macro_validation,
+        "macro-history.json": {
+            "meta": {
+                "generated_at": meta["generated_at"],
+                "grain": "one row per metric_id and source observation period",
+                "rows": len(macro_history),
+                "baseline": "Wind workbook CDF through each metric's baseline_as_of; this endpoint contains public-source extensions only",
+            },
+            "rows": macro_history,
+        },
         "ai-compute.json": {
             "meta": meta,
             **payload["ai_compute"],
@@ -139,6 +150,10 @@ def main() -> int:
     endpoint_docs.append({
         "path": "./macro-indicators.json",
         "description": "总量八大指标最新观测、真实数据日期、频率与公开来源",
+    })
+    endpoint_docs.append({
+        "path": "./macro-history.json",
+        "description": "Wind 基准日之后逐指标、逐观测期去重的公开增量历史",
     })
     endpoint_docs.append({
         "path": "./macro-source-validation.json",

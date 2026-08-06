@@ -36,6 +36,7 @@
 - 公开源抓取后严格复现底稿技术处理：CPI ROC18、LDR KST、1/股息率 KST、Margin Debt KST；
 - ECY 直接读取 Robert Shiller `ie_data.xls` 的 Excess CAPE Yield 月度列；
 - `data/macro_source_validation.json` 保存公开源与 Wind 对应期逐点回测，不包含 Wind 历史原始序列；
+- Wind 基准日之后，每个指标只在出现新观测期时向 `data/macro_public_history.jsonl` 追加或修订一行；分位按“Wind CDF 基准 + 公开增量历史”滚动重算；
 - 新 Wind 底稿到位时，本地依次运行：
 
 ```powershell
@@ -68,6 +69,7 @@ python scripts/validate_macro_sources.py "八大指标YYYYMMDD.xlsx" --project-r
 - `/api/overview.json`：阶段判断和总量八指标；
 - `/api/macro-indicators.json`：八指标数值、处理公式、底稿基准和验证状态；
 - `/api/macro-source-validation.json`：公开源与 Wind 对应期回测结果；
+- `/api/macro-history.json`：基准日之后去重的公开指标历史序列；
 - `/api/ai-compute.json`：Token、ARR、价格和 Capex；
 - `/api/gpu-rental.json`：GPU 租赁价格；
 - `/api/storage.json`：存储周期、公开价格、行情和事件；

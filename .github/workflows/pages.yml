@@ -66,6 +66,11 @@ jobs:
           else
             : > data/macro_history.jsonl
           fi
+          if [ -f .history-store/data/macro_public_history.jsonl ]; then
+            cp .history-store/data/macro_public_history.jsonl data/macro_public_history.jsonl
+          else
+            : > data/macro_public_history.jsonl
+          fi
 
       - name: Refresh public sources
         run: python scripts/update_dashboard.py --project-root .
@@ -96,9 +101,10 @@ jobs:
           cp ../data/unified_history.jsonl data/unified_history.jsonl
           cp ../data/storage_price_history.jsonl data/storage_price_history.jsonl
           cp ../data/macro_history.jsonl data/macro_history.jsonl
+          cp ../data/macro_public_history.jsonl data/macro_public_history.jsonl
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/history.jsonl data/unified_history.jsonl data/storage_price_history.jsonl data/macro_history.jsonl
+          git add data/history.jsonl data/unified_history.jsonl data/storage_price_history.jsonl data/macro_history.jsonl data/macro_public_history.jsonl
           if git diff --cached --quiet; then
             echo "No history changes"
           else

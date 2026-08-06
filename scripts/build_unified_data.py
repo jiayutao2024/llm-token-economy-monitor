@@ -292,6 +292,8 @@ def main() -> int:
         "macro_baseline_generated_at": macro_snapshot.get("meta", {}).get("baseline_generated_at"),
         "macro_source_validation_status": macro_snapshot.get("meta", {}).get("source_validation_status"),
         "macro_source_validation_at": macro_snapshot.get("meta", {}).get("source_validation_at"),
+        "macro_public_history_rows": macro_snapshot.get("meta", {}).get("public_history_rows", 0),
+        "macro_new_or_revised_history_rows": macro_snapshot.get("meta", {}).get("new_or_revised_history_rows", 0),
         "delivery": "github-pages-static-json",
     }
 

@@ -60,6 +60,39 @@ class DashboardV2Tests(unittest.TestCase):
         self.assertGreaterEqual(macro.baseline_percentile(baseline, "macro_dxy", series["min"] - 1), 0)
         self.assertLessEqual(macro.baseline_percentile(baseline, "macro_dxy", series["max"] + 1), 100)
 
+    def test_public_macro_history_upserts_observation_grain(self):
+        baseline = {
+            "series": {
+                "test": {
+                    "latest_period": "2026-08-05",
+                    "sample_count": 100,
+                    "quantile_knots": [[0, 0], [100, 100]],
+                }
+            }
+        }
+        row = {"metric_id": "test", "period": "2026-08-06", "value": 60.0, "collected_at": "first"}
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "history.jsonl"
+            rows, changed = macro.update_public_history(path, baseline, [row])
+            self.assertEqual((len(rows), changed), (1, 1))
+            row["collected_at"] = "second"
+            rows, changed = macro.update_public_history(path, baseline, [row])
+            self.assertEqual((len(rows), changed), (1, 0))
+            score, count = macro.extended_percentile(baseline, rows, "test", 60)
+            self.assertEqual(count, 101)
+            self.assertGreater(score, 0)
+
+    def test_public_macro_history_has_unique_post_baseline_keys(self):
+        path = ROOT / "data" / "macro_public_history.jsonl"
+        if not path.exists():
+            self.skipTest("public macro history is generated during refresh")
+        rows = [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        keys = [(row["metric_id"], row["period"]) for row in rows]
+        self.assertEqual(len(keys), len(set(keys)))
+        baseline = json.loads((ROOT / "data" / "macro_baseline.json").read_text(encoding="utf-8"))
+        for row in rows:
+            self.assertGreater(row["period"], baseline["series"][row["metric_id"]]["latest_period"])
+
     def test_macro_snapshot_contract(self):
         path = ROOT / "data" / "macro_indicators_latest.json"
         if not path.exists():
