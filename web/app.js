@@ -119,10 +119,18 @@
 
   function industrySignals(D) {
     const rows = D.overview.industry_signals || [];
+    const tier1 = rows.filter(x => Number(x.source_tier) === 1).length;
+    const avg = rows.length ? rows.reduce((s,x)=>s+Number(x.score||0),0)/rows.length : 0;
     return `<section class="section">
-      ${sectionHead("产业六项验证", "验证上游算力紧缺是否与中下游Token消费、商业化和盈利形成闭环。")}
+      ${sectionHead("产业验证六项 · 最新闭环", "从资源价格、使用量、单位经济性、模型公司商业化、资本开支和云端兑现六个维度交叉验证。")}
+      <article class="card industry-brief">
+        <div><span class="tag red">结论</span><b>产业验证仍在增强，但量价已经分化</b><p>Token调用和云收入加速、CSP指引继续上修；基础Token通缩与高性能Agent溢价并存。</p></div>
+        <div class="brief-stat"><strong>${n(avg,0)}</strong><small>六项均分</small></div>
+        <div class="brief-stat"><strong>${tier1}/${rows.length}</strong><small>一级来源</small></div>
+      </article>
       <div class="signal-grid">${rows.map(row => `<article class="card signal-card">
-        <b>${esc(row.name)}</b><strong>${esc(row.score)}</strong>
+        <div class="signal-top"><b>${esc(row.name)}</b><span class="tag">T${esc(row.source_tier)}</span></div><strong>${esc(row.score)}</strong>
+        <div class="mini-track"><i style="width:${Math.max(0,Math.min(100,Number(row.score)||0))}%"></i></div>
         <span class="tag red">${esc(row.direction)}</span><small>${esc(row.period)} · T${esc(row.source_tier)}</small>
         <p class="source-note">${esc(row.note)}</p>
       </article>`).join("")}</div>
@@ -151,19 +159,26 @@
     const pricing = [...(D.ai_compute.pricing || [])].sort((a,b)=>a.blended_cost_usd-b.blended_cost_usd);
     const gpu = [...(D.gpu_rental.rows || [])].sort((a,b)=>a.usd_per_gpu_hour-b.usd_per_gpu_hour);
     return `<section class="section">
-      ${sectionHead("Token价格与GPU租金", "统一展示单位，但不把不同性能、计费类型和服务等级视为同质商品。", esc(D.gpu_rental.meta.comparability))}
+      ${sectionHead("模型迭代与API量价", "覆盖国内外9家厂商的最新代表性主力模型；价格用于量价观察，不代表性能排名。")}
+      <div class="model-strip">${pricing.map(x=>`<article class="card model-card ${x.region==="国内"?"domestic":""}">
+        <div><span class="tag ${x.region==="国内"?"":"red"}">${esc(x.region)}</span><small>${esc(x.release_status||"")}</small></div>
+        <b>${esc(x.model)}</b><span>${esc(x.company)}</span>
+        <strong>$${n(x.blended_cost_usd,2)}</strong><small>混合成本 · ${esc(x.context_k)}K上下文</small>
+        <p>${esc(x.observed_date)} · ${esc(x.evidence)}</p>
+      </article>`).join("")}</div>
       <div class="grid-2">
-        <article class="card pad"><h3>API混合成本</h3><p class="subtitle">75%输入 + 25%输出，USD/百万总Tokens</p>
+        <article class="card pad"><h3>代表性模型混合成本</h3><p class="subtitle">75%输入 + 25%输出，USD/百万总Tokens；不做能力调整</p>
           ${barList(pricing, x=>Number(x.blended_cost_usd), x=>`${x.company} · ${x.model}`, v=>"$"+n(v,2), x=>x.region==="国内"?"grey":"")}
         </article>
-        <article class="card pad"><h3>GPU公开按需/资源价格</h3><p class="subtitle">USD/单卡·小时；阿里云样本不含CPU、内存与网络</p>
+        <article class="card pad"><h3>GPU公开资源价格</h3><p class="subtitle">USD/单卡·小时；同型号、计费类型、区域需分层比较</p>
           ${barList(gpu, x=>Number(x.usd_per_gpu_hour), x=>`${x.provider} · ${x.gpu}`, v=>"$"+n(v,2), x=>x.region.includes("中国")?"grey":"")}
+          <p class="source-note">${esc(D.gpu_rental.meta.comparability)} 阿里云样本不含CPU、内存、存储和网络。</p>
         </article>
       </div>
       <article class="card pad" style="margin-top:14px">
         <div class="controls"><select id="price-region"><option value="">全部地区</option><option value="国内">国内</option><option value="海外">海外</option></select>
         <input id="price-search" type="search" placeholder="搜索公司或模型"></div>
-        <div class="table-wrap"><table id="pricing-table"><thead><tr><th data-key="region">地区</th><th data-key="company">公司/模型</th><th>档位</th><th data-key="input_per_m">输入</th><th data-key="output_per_m">输出</th><th data-key="blended_cost_usd">混合成本</th><th>证据/来源</th></tr></thead><tbody></tbody></table></div>
+        <div class="table-wrap"><table id="pricing-table"><thead><tr><th data-key="region">地区</th><th data-key="company">公司/模型</th><th>档位</th><th data-key="input_per_m">输入</th><th data-key="output_per_m">输出</th><th data-key="blended_cost_usd">混合成本</th><th>状态/来源</th></tr></thead><tbody></tbody></table></div>
       </article>
     </section>`;
   }
@@ -171,18 +186,40 @@
   function businessTokenCapex(D) {
     const business = D.ai_compute.business || [];
     const tokens = D.ai_compute.tokens || [];
+    const platforms = D.ai_compute.platform_metrics || [];
     const capex = (D.ai_compute.csp_capex || []).filter(x => x.year === "2026E");
+    const runRate = business.filter(x=>["arr","annualized_revenue"].includes(x.metric));
+    const reportedRevenue = business.filter(x=>!["arr","annualized_revenue"].includes(x.metric));
+    const usage = tokens.filter(x=>x.company_id && x.metric!=="training_tokens").sort((a,b)=>Number(b.normalized_daily_t||0)-Number(a.normalized_daily_t||0));
+    const benchmark = tokens.find(x=>x.metric==="china_inference_tokens_per_day");
+    const training = tokens.find(x=>x.metric==="training_tokens");
+    const capexTotal = capex.reduce((s,x)=>s+Number(x.value_usd_b||0),0);
     return `<section class="section">
-      ${sectionHead("商业化、Token用量与Capex", "ARR、年化收入、年度收入和不同Token口径分开呈现。")}
-      <div class="grid-3">
-        <article class="card pad"><h3>ARR/收入公开值</h3><p class="subtitle">十亿美元，标签保留原始口径</p>
-          ${barList([...business].sort((a,b)=>b.value_usd_b-a.value_usd_b), x=>Number(x.value_usd_b), x=>x.company, v=>"$"+n(v,2)+"B")}
+      ${sectionHead("商业化兑现", "私营公司运行率、季度收入、上市云厂商收入严格分栏；未披露不等于0。")}
+      <div class="grid-2 commercial-grid">
+        <article class="card pad"><h3>模型公司ARR / 年化收入运行率</h3><p class="subtitle">十亿美元；均非公开审计财报，采用媒体取得的投资者材料</p>
+          ${barList(runRate, x=>Number(x.value_usd_b), x=>x.company, (v,x)=>(x.comparator||"")+"$"+n(v,1)+"B")}
+          ${runRate.map(x=>`<p class="evidence-line"><span class="tag">T${esc(x.source_tier||2)}</span>${sourceLink(x.source_url,`${x.company} · ${x.period}`)}<small>${esc(x.note)}</small></p>`).join("")}
         </article>
-        <article class="card pad"><h3>Token披露</h3><p class="subtitle">数值按原披露单位；不做跨口径合计</p>
-          ${tokens.map(x=>`<p><b>${esc(x.company)}</b><br><span class="kpi-value">${esc(x.value_t)}T</span> <span class="muted">${esc(x.unit)}</span><br><span class="source-note">${esc(x.period)} · ${sourceLink(x.source_url,x.source_name)}</span></p>`).join("")}
+        <article class="card pad"><h3>季度/年度收入披露</h3><p class="subtitle">按原始周期保留，不能与ARR横向相加</p>
+          <div class="metric-cards">${reportedRevenue.map(x=>`<div class="metric-mini"><span>${esc(x.company)} · ${esc(x.period)}</span><strong>${esc(x.comparator||"")}$${n(x.value_usd_b,3)}B</strong><small>${esc(x.label)} · T${esc(x.source_tier||2)}</small><p>${sourceLink(x.source_url,x.source_name)}<br>${esc(x.note)}</p></div>`).join("")}</div>
         </article>
-        <article class="card pad"><h3>北美CSP 2026E Capex</h3><p class="subtitle">十亿美元；研究框架中的公开指引代理</p>
-          ${barList(capex, x=>Number(x.value_usd_b), x=>x.company, v=>"$"+n(v,0)+"B", ()=>"grey")}
+      </div>
+      <article class="card pad platform-card"><div><h3>上市云厂商：AI需求兑现的财务交叉验证</h3><p class="subtitle">云收入不是纯模型收入，但口径更稳定、证据等级更高。</p></div>
+        <div class="platform-grid">${platforms.map(x=>`<div><span>${esc(x.company)} · ${esc(x.period)}</span><strong>${esc(x.comparator||"")}$${n(x.value_usd_b,1)}B</strong><b>${x.growth_yoy_pct==null?esc(x.label):`+${esc(x.growth_yoy_pct)}% YoY`}</b><small>T${esc(x.source_tier)} · ${sourceLink(x.source_url,x.source_name)}</small></div>`).join("")}</div>
+      </article>
+
+      ${sectionHead("Token使用与CSP Capex", "统一换算仅用于同口径展示；行业总量、公司API量和训练语料不求和。")}
+      <div class="grid-2">
+        <article class="card pad"><h3>公司公开推理/API Token量</h3><p class="subtitle">统一换算为万亿tokens/日；原始频率与来源保留</p>
+          ${barList(usage, x=>Number(x.normalized_daily_t), x=>x.company, v=>n(v,1)+"T/日")}
+          ${usage.map(x=>`<p class="evidence-line"><span class="tag ${x.source_tier===1?"red":""}">T${esc(x.source_tier)}</span>${sourceLink(x.source_url,`${x.company} · ${x.period}`)}<small>${esc(x.note)}</small></p>`).join("")}
+          ${benchmark?`<div class="benchmark-box"><b>行业背景基准 ${n(benchmark.normalized_daily_t,0)}T/日</b><span>中国全行业 · ${esc(benchmark.period)} · 不参与公司排名</span></div>`:""}
+          ${training?`<p class="source-note">训练规模另列：${esc(training.company)} ${esc(training.value_t)}T（${esc(training.period)}），不是线上调用量。</p>`:""}
+        </article>
+        <article class="card pad"><div class="card-title-row"><div><h3>四大CSP 2026E Capex</h3><p class="subtitle">公开指引中枢/运行率代理，十亿美元</p></div><strong class="capex-total">$${n(capexTotal,1)}B</strong></div>
+          ${barList(capex, x=>Number(x.value_usd_b), x=>x.company, (v,x)=>x.range_low?`$${n(x.range_low,0)}–${n(x.range_high,0)}B`:"$"+n(v,0)+"B", ()=>"grey")}
+          <div class="capex-notes">${capex.map(x=>`<p><b>${esc(x.company)}</b> ${x.previous_usd_b?`较前口径 +${n((x.value_usd_b/x.previous_usd_b-1)*100,1)}% · `:""}${sourceLink(x.source_url,x.period||x.status)}<small>${esc(x.note||"")}</small></p>`).join("")}</div>
         </article>
       </div>
     </section>`;
@@ -199,6 +236,7 @@
         </article>
         <article class="card pad"><h3>阶段阈值</h3>
           ${Object.entries(D.market_cycle.thresholds || {}).map(([k,v])=>`<p><span class="tag red">${esc(k)}</span> ${esc(v)}</p>`).join("")}
+          <p><a href="${esc(root)}api/industry-evidence.json" target="_blank" rel="noopener">查看产业证据台账与口径 ↗</a></p>
         </article>
       </div>
     </section>`;
@@ -410,7 +448,7 @@
       );
       tbody.innerHTML = rows.map(x=>`<tr><td><span class="tag">${esc(x.region)}</span></td><td><b>${esc(x.company)}</b><br>${esc(x.model)}</td><td>${esc(x.tier)}</td>
       <td class="num">${esc(x.currency)} ${n(x.input_per_m,3)}</td><td class="num">${esc(x.currency)} ${n(x.output_per_m,3)}</td><td class="num">$${n(x.blended_cost_usd,3)}</td>
-      <td><span class="tag ${x.evidence==="官方"?"red":""}">${esc(x.evidence)}</span><br><small>${esc(x.source_check)}</small></td></tr>`).join("") ||
+      <td><span class="tag ${String(x.evidence).includes("官方")?"red":""}">${esc(x.evidence)}</span><br><small>${esc(x.observed_date)} · ${sourceLink(x.source_url,x.source_name||"原始价格页")}</small></td></tr>`).join("") ||
       `<tr><td colspan="7" class="empty">没有匹配数据</td></tr>`;
       setParam("region", region.value); setParam("q", search.value.trim());
     };

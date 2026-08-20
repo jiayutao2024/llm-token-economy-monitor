@@ -228,6 +228,31 @@ class DashboardV2Tests(unittest.TestCase):
             self.assertEqual(row["source_tier"], 2)
             self.assertIn(row["freshness"]["status"], {"fresh", "stale"})
 
+    def test_industry_metrics_keep_incompatible_revenue_and_token_definitions_separate(self):
+        data = json.loads((ROOT / "data" / "reported_metrics.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(data["pricing"]), 9)
+        self.assertIn("GPT-5.6-Terra", {row["model"] for row in data["pricing"]})
+        self.assertIn("Claude Sonnet 5", {row["model"] for row in data["pricing"]})
+        self.assertIn("Grok 4.6", {row["model"] for row in data["pricing"]})
+        for row in data["business_metrics"]:
+            self.assertIn(row["metric"], {"arr", "annualized_revenue", "quarterly_revenue", "annual_revenue"})
+            self.assertIn(row["source_tier"], {1, 2, 3})
+        usage = [row for row in data["token_disclosures"] if row["metric"] != "training_tokens"]
+        self.assertTrue(all(row.get("normalized_daily_t", 0) > 0 for row in usage))
+        training = next(row for row in data["token_disclosures"] if row["metric"] == "training_tokens")
+        self.assertNotIn("normalized_daily_t", training)
+
+    def test_industry_evidence_ledger_contract(self):
+        ledger = json.loads((ROOT / "data" / "industry_evidence.json").read_text(encoding="utf-8"))
+        required = {"claim_id", "claim", "fact_type", "source_tier", "evidence_stage", "source_name", "source_url", "observed_at", "definition", "unit", "status", "confidence", "used_in", "notes"}
+        ids = []
+        for row in ledger["claims"]:
+            self.assertTrue(required.issubset(row))
+            self.assertTrue(row["source_url"].startswith("https://"))
+            ids.append(row["claim_id"])
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertGreaterEqual(sum(row["source_tier"] == 1 for row in ledger["claims"]), 6)
+
 
 if __name__ == "__main__":
     unittest.main()

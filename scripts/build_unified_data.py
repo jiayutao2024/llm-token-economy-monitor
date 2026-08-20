@@ -314,6 +314,7 @@ def main() -> int:
         "kpis": ai.get("kpis", {}),
         "pricing": ai.get("pricing", []),
         "business": ai.get("business", []),
+        "platform_metrics": ai.get("platform_metrics", []),
         "tokens": ai.get("tokens", []),
         "sources": ai_sources,
         "signals": ai.get("signals", []),
@@ -327,6 +328,7 @@ def main() -> int:
         "ai_compute": {
             "pricing": ai.get("pricing", []),
             "business": ai.get("business", []),
+            "platform_metrics": ai.get("platform_metrics", []),
             "tokens": ai.get("tokens", []),
             "csp_capex": framework.get("csp_capex", []),
             "industry_signals": industry,

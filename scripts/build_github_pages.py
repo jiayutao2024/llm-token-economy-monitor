@@ -52,6 +52,8 @@ def main() -> int:
     macro_validation = json.loads(macro_validation_path.read_text(encoding="utf-8")) if macro_validation_path.exists() else {"meta": {"status": "missing"}, "checks": []}
     macro_history_path = root / "data" / "macro_public_history.jsonl"
     macro_history = [json.loads(line) for line in macro_history_path.read_text(encoding="utf-8").splitlines() if line.strip()] if macro_history_path.exists() else []
+    industry_evidence_path = root / "data" / "industry_evidence.json"
+    industry_evidence = json.loads(industry_evidence_path.read_text(encoding="utf-8")) if industry_evidence_path.exists() else {"meta": {"status": "missing"}, "claims": []}
     web = root / "web"
     template = (web / "index.html").read_text(encoding="utf-8")
     (output / "index.html").write_text(render_page(template, "./", ""), encoding="utf-8")
@@ -92,6 +94,7 @@ def main() -> int:
             "meta": meta,
             **payload["ai_compute"],
         },
+        "industry-evidence.json": industry_evidence,
         "gpu-rental.json": {
             "meta": meta,
             **payload["gpu_rental"],
@@ -127,6 +130,7 @@ def main() -> int:
             "dashboard.json": "AI与算力完整快照",
             "overview.json": "阶段判断、八大总量指标与产业验证",
             "ai-compute.json": "Token、API价格、ARR和CSP Capex",
+            "industry-evidence.json": "产业指标口径、证据等级与原始链接台账",
             "gpu-rental.json": "标准化单卡GPU租赁价格",
             "market-cycle.json": "阶段得分、阈值和证据覆盖",
             "news.json": "经过去重和噪声过滤的发现队列",

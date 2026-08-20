@@ -283,7 +283,10 @@ def prepare_payload(
         record["source_check"] = verify_price_record(
             record, source_texts.get(record["source_id"], "")
         )
-        record["source_status"] = states.get(record["source_id"], {}).get("status", "missing")
+        source_state = states.get(record["source_id"], {})
+        record["source_status"] = source_state.get("status", "missing")
+        record["source_name"] = source_state.get("name", record["source_id"])
+        record["source_url"] = source_state.get("final_url") or source_state.get("url")
         pricing.append(record)
 
     pricing.sort(key=lambda row: row["blended_cost_usd"])
@@ -306,6 +309,9 @@ def prepare_payload(
         record["region"] = companies[record["company_id"]]["region"]
         business.append(record)
     business.sort(key=lambda row: row["value_usd_b"], reverse=True)
+
+    platform_metrics = [dict(item) for item in metrics.get("platform_metrics", [])]
+    platform_metrics.sort(key=lambda row: row.get("value_usd_b", 0), reverse=True)
 
     tokens = []
     for item in metrics["token_disclosures"]:
@@ -355,6 +361,7 @@ def prepare_payload(
         },
         "pricing": pricing,
         "business": business,
+        "platform_metrics": platform_metrics,
         "tokens": tokens,
         "sources": source_states,
         "signals": signals[:40],
@@ -362,6 +369,7 @@ def prepare_payload(
         "methodology": {
             "blended_cost": "每 100 万总 tokens 假设输入 75%、输出 25%；不含缓存、Batch、长上下文、工具调用和企业折扣。",
             "arr": "ARR、annualized revenue、收入运行率和年度收入分别保留原始标签，不强行合并。",
+            "platform": "云收入与AI/芯片业务运行率用于验证下游需求兑现，不等同于基础模型收入。",
             "missing": "未披露不等于 0。科技集团通常不单独披露基础模型 ARR。",
             "automation": "官方页自动抓取、指纹和近邻数字复核；新闻仅进入待复核池，不自动写入正式指标。",
         },

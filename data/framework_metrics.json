@@ -1,5 +1,5 @@
 {
-  "as_of": "2026-07-27",
+  "as_of": "2026-08-21",
   "research_baseline": {
     "as_of": "2026-07-22",
     "stage_label": "上游紧缺涨价与中下游商业闭环共振期",
@@ -141,9 +141,9 @@
     {
       "metric_id": "industry_gpu_rental",
       "name": "GPU租金",
-      "score": 80,
-      "direction": "上行",
-      "period": "2026-07",
+      "score": 82,
+      "direction": "高位分化",
+      "period": "2026-08",
       "source_tier": 1,
       "evidence_status": "official_list_prices",
       "note": "高端GPU按需价格仍处高位，型号和计费类型必须分层比较。"
@@ -151,19 +151,19 @@
     {
       "metric_id": "industry_token_volume",
       "name": "Token使用量",
-      "score": 78,
+      "score": 88,
       "direction": "上行",
-      "period": "2026-06",
+      "period": "2026Q2",
       "source_tier": 2,
       "evidence_status": "company_disclosure",
-      "note": "Agent推理推动调用量扩张；不同公司和行业口径不可直接求和。"
+      "note": "Gemini API升至220亿tokens/分钟，Agent推理推动调用量扩张；公司值与行业值不可直接求和。"
     },
     {
       "metric_id": "industry_api_price",
       "name": "API量价",
-      "score": 68,
+      "score": 75,
       "direction": "两极分化",
-      "period": "2026-07",
+      "period": "2026-08",
       "source_tier": 1,
       "evidence_status": "official_pricing",
       "note": "基础Token通缩，高价值Agent和企业场景维持溢价。"
@@ -171,32 +171,32 @@
     {
       "metric_id": "industry_arr",
       "name": "ARR与盈利",
-      "score": 76,
+      "score": 89,
       "direction": "改善",
-      "period": "2026-05",
+      "period": "2026-07",
       "source_tier": 2,
       "evidence_status": "mixed_disclosure",
-      "note": "ARR与年度收入分开展示，盈利信息仍存在明显披露差异。"
+      "note": "头部私营模型公司年化运行率继续上修；均为投资者更新或媒体取得材料，不等于公开审计财报。"
     },
     {
       "metric_id": "industry_csp_capex",
       "name": "CSP Capex",
-      "score": 86,
+      "score": 93,
       "direction": "上修",
       "period": "2026E",
       "source_tier": 1,
       "evidence_status": "company_guidance",
-      "note": "北美主要CSP资本开支指引维持高增。"
+      "note": "四大CSP 2026年公开指引/运行率中枢约7475亿美元，Alphabet、Amazon再度上修。"
     },
     {
-      "metric_id": "industry_storage_hbm",
-      "name": "存储与HBM",
-      "score": 74,
-      "direction": "偏紧",
+      "metric_id": "industry_cloud_monetization",
+      "name": "云端AI兑现",
+      "score": 90,
+      "direction": "加速",
       "period": "2026Q2",
-      "source_tier": 2,
-      "evidence_status": "public_research_release",
-      "note": "AI服务器需求、HBM产能占用与企业级SSD需求共同支撑存储景气。"
+      "source_tier": 1,
+      "evidence_status": "official_results",
+      "note": "Google Cloud收入同比增长82%，AWS同比增长37%；云收入并非纯模型收入，但验证企业AI需求兑现。"
     }
   ],
   "gpu_rental": [
@@ -220,8 +220,8 @@
       "vram_gb": 80,
       "region": "全球多区域",
       "price_type": "按需 / Secure Cloud",
-      "usd_per_gpu_hour": 2.99,
-      "observed_at": "2026-07-27",
+      "usd_per_gpu_hour": 3.29,
+      "observed_at": "2026-08-21",
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official"
@@ -233,8 +233,8 @@
       "vram_gb": 141,
       "region": "全球多区域",
       "price_type": "按需 / Secure Cloud",
-      "usd_per_gpu_hour": 4.39,
-      "observed_at": "2026-07-27",
+      "usd_per_gpu_hour": 4.59,
+      "observed_at": "2026-08-21",
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official"
@@ -246,8 +246,8 @@
       "vram_gb": 180,
       "region": "全球多区域",
       "price_type": "按需 / Secure Cloud",
-      "usd_per_gpu_hour": 5.89,
-      "observed_at": "2026-07-27",
+      "usd_per_gpu_hour": 6.79,
+      "observed_at": "2026-08-21",
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official"
@@ -259,8 +259,8 @@
       "vram_gb": 288,
       "region": "全球多区域",
       "price_type": "按需 / Secure Cloud",
-      "usd_per_gpu_hour": 7.39,
-      "observed_at": "2026-07-27",
+      "usd_per_gpu_hour": 7.89,
+      "observed_at": "2026-08-21",
       "source_url": "https://www.runpod.io/pricing",
       "source_tier": 1,
       "evidence_status": "official"
@@ -283,16 +283,16 @@
   "csp_capex": [
     {"company": "Microsoft", "year": "2024", "value_usd_b": 56.0, "status": "actual"},
     {"company": "Microsoft", "year": "2025E", "value_usd_b": 83.0, "status": "estimate"},
-    {"company": "Microsoft", "year": "2026E", "value_usd_b": 190.0, "status": "guidance_proxy"},
+    {"company": "Microsoft", "year": "2026E", "value_usd_b": 190.0, "status": "company_run_rate", "period": "FY26Q3", "source_tier": 1, "source_name": "Microsoft FY26 Q3 earnings call", "source_url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q3", "note": "按季度资本开支运行率折算自然年代理值。"},
     {"company": "Alphabet", "year": "2024", "value_usd_b": 52.0, "status": "actual"},
     {"company": "Alphabet", "year": "2025E", "value_usd_b": 75.0, "status": "estimate"},
-    {"company": "Alphabet", "year": "2026E", "value_usd_b": 185.0, "status": "guidance_proxy"},
+    {"company": "Alphabet", "year": "2026E", "value_usd_b": 200.0, "range_low": 195.0, "range_high": 205.0, "previous_usd_b": 185.0, "status": "company_guidance", "period": "2026Q2", "source_tier": 1, "source_name": "Alphabet Q2 2026 earnings", "source_url": "https://abc.xyz/investor/events/event-details/2026/2026-Q2-Earnings-Call-2026-GgTAq7Is0z/default.aspx"},
     {"company": "Amazon", "year": "2024", "value_usd_b": 83.0, "status": "actual"},
     {"company": "Amazon", "year": "2025E", "value_usd_b": 131.8, "status": "estimate"},
-    {"company": "Amazon", "year": "2026E", "value_usd_b": 200.0, "status": "guidance_proxy"},
+    {"company": "Amazon", "year": "2026E", "value_usd_b": 220.0, "previous_usd_b": 200.0, "status": "company_guidance", "period": "2026Q2", "source_tier": 1, "source_name": "Amazon Q2 2026 earnings call", "source_url": "https://ir.aboutamazon.com/events/event-details/default.aspx"},
     {"company": "Meta", "year": "2024", "value_usd_b": 37.2, "status": "actual"},
     {"company": "Meta", "year": "2025E", "value_usd_b": 72.2, "status": "estimate"},
-    {"company": "Meta", "year": "2026E", "value_usd_b": 135.0, "status": "guidance_proxy"}
+    {"company": "Meta", "year": "2026E", "value_usd_b": 137.5, "range_low": 130.0, "range_high": 145.0, "previous_usd_b": 135.0, "status": "company_guidance", "period": "2026Q2", "source_tier": 1, "source_name": "Meta Q2 2026 results", "source_url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Second-Quarter-2026-Results/default.aspx"}
   ],
   "storage_price_signals": [
     {
