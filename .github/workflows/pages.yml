@@ -16,8 +16,6 @@ on:
       - "requirements.txt"
       - "scripts/**"
       - "web/**"
-      - "存储日报/scripts/**"
-      - "存储日报/config/**"
       - ".github/workflows/pages.yml"
 
 permissions:
@@ -56,11 +54,6 @@ jobs:
         run: |
           cp .history-store/data/history.jsonl data/history.jsonl
           cp .history-store/data/unified_history.jsonl data/unified_history.jsonl
-          if [ -f .history-store/data/storage_price_history.jsonl ]; then
-            cp .history-store/data/storage_price_history.jsonl data/storage_price_history.jsonl
-          else
-            : > data/storage_price_history.jsonl
-          fi
           if [ -f .history-store/data/macro_history.jsonl ]; then
             cp .history-store/data/macro_history.jsonl data/macro_history.jsonl
           else
@@ -78,17 +71,11 @@ jobs:
       - name: Refresh eight macro indicators
         run: python scripts/collect_macro_indicators.py --project-root .
 
-      - name: Refresh storage intelligence
-        run: python "存储日报/scripts/run_storage_intel.py" --hours 30 --target-news 12 --max-news 15
-
-      - name: Refresh public storage prices
-        run: python scripts/collect_storage_prices.py --project-root .
-
       - name: Build unified data model
         run: python scripts/build_unified_data.py --project-root .
 
       - name: Run unit tests
-        run: python -m unittest discover -s tests -v && python -m unittest discover -s "存储日报/tests" -v
+        run: python -m unittest discover -s tests -v
 
       - name: Build GitHub Pages and JSON APIs
         run: python scripts/build_github_pages.py --project-root .
@@ -99,12 +86,11 @@ jobs:
         run: |
           cp ../data/history.jsonl data/history.jsonl
           cp ../data/unified_history.jsonl data/unified_history.jsonl
-          cp ../data/storage_price_history.jsonl data/storage_price_history.jsonl
           cp ../data/macro_history.jsonl data/macro_history.jsonl
           cp ../data/macro_public_history.jsonl data/macro_public_history.jsonl
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/history.jsonl data/unified_history.jsonl data/storage_price_history.jsonl data/macro_history.jsonl data/macro_public_history.jsonl
+          git add data/history.jsonl data/unified_history.jsonl data/macro_history.jsonl data/macro_public_history.jsonl
           if git diff --cached --quiet; then
             echo "No history changes"
           else

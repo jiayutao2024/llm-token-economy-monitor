@@ -37,6 +37,17 @@ def main() -> int:
     output.mkdir(parents=True)
 
     payload = json.loads((root / "data" / "dashboard_v2.json").read_text(encoding="utf-8"))
+    payload.pop("storage", None)
+    payload["overview"]["industry_signals"] = [
+        row for row in payload["overview"]["industry_signals"]
+        if row.get("metric_id") != "industry_storage_hbm"
+    ]
+    payload["normalized_metrics"] = [
+        row for row in payload["normalized_metrics"]
+        if not str(row.get("metric_id", "")).startswith("storage_")
+    ]
+    for key in ("storage_status", "storage_source_errors", "storage_price_status", "storage_price_errors"):
+        payload["health"].pop(key, None)
     macro_validation_path = root / "data" / "macro_source_validation.json"
     macro_validation = json.loads(macro_validation_path.read_text(encoding="utf-8")) if macro_validation_path.exists() else {"meta": {"status": "missing"}, "checks": []}
     macro_history_path = root / "data" / "macro_public_history.jsonl"
@@ -44,11 +55,6 @@ def main() -> int:
     web = root / "web"
     template = (web / "index.html").read_text(encoding="utf-8")
     (output / "index.html").write_text(render_page(template, "./", ""), encoding="utf-8")
-    storage_root = output / "storage"
-    storage_root.mkdir()
-    (storage_root / "index.html").write_text(
-        render_page(template, "../", "../"), encoding="utf-8"
-    )
     shutil.copy2(web / "styles.css", output / "styles.css")
     shutil.copy2(web / "app.js", output / "app.js")
     if (web / "assets").exists():
@@ -90,19 +96,6 @@ def main() -> int:
             "meta": meta,
             **payload["gpu_rental"],
         },
-        "storage.json": {
-            "meta": meta,
-            **payload["storage"],
-        },
-        "storage-prices.json": {
-            "meta": meta,
-            "cycle": payload["storage"]["cycle"],
-            "summary": payload["storage"]["price_summary"],
-            "rows": payload["storage"]["price_metrics"],
-            "history": payload["storage"]["price_history"],
-            "quality": payload["storage"]["price_quality"],
-            "methodology": payload["storage"]["price_meta"],
-        },
         "market-cycle.json": {
             "meta": meta,
             **payload["market_cycle"],
@@ -131,12 +124,10 @@ def main() -> int:
     endpoint_docs = [
         {"path": f"./{name}", "description": description}
         for name, description in {
-            "dashboard.json": "完整双Tab兼容快照",
+            "dashboard.json": "AI与算力完整快照",
             "overview.json": "阶段判断、八大总量指标与产业验证",
             "ai-compute.json": "Token、API价格、ARR和CSP Capex",
             "gpu-rental.json": "标准化单卡GPU租赁价格",
-            "storage.json": "存储周期、公开价格指标、事件与行情",
-            "storage-prices.json": "DRAM、NAND、GDDR与SSD公开报价及自建历史",
             "market-cycle.json": "阶段得分、阈值和证据覆盖",
             "news.json": "经过去重和噪声过滤的发现队列",
             "health.json": "来源成功、陈旧数据和部署状态",
@@ -164,7 +155,7 @@ def main() -> int:
     write_json(
         api_root / "index.json",
         {
-            "name": "Zheshang AI Compute & Storage Monitor API",
+            "name": "Zheshang AI & Compute Monitor API",
             "version": 2.1,
             "snapshot_at": meta["generated_at"],
             "refresh_schedule": "Every 6 hours / 01:30, 07:30, 13:30, 19:30 Asia/Shanghai",

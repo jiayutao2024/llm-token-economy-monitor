@@ -1,7 +1,7 @@
 (() => {
   "use strict";
   const root = window.DASHBOARD_ROOT || "./";
-  const view = /\/storage\/?$/.test(location.pathname) ? "storage" : "ai";
+  const view = "ai";
   const app = document.querySelector("#app");
   const esc = value => String(value ?? "").replace(/[&<>"']/g, c => ({
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
@@ -193,7 +193,7 @@
       ${sectionHead("来源、方法与健康度", "每个正式指标保留来源等级；新闻只进入待复核池。")}
       <div class="grid-2">
         <article class="card pad"><h3>运行健康</h3>
-          <p><b>${esc(D.health.status)}</b> · AI来源 ${esc(D.health.ai_sources_ok)}/${esc(D.health.ai_sources_total)} · 存储 ${esc(D.health.storage_status)}</p>
+          <p><b>${esc(D.health.status)}</b> · AI来源 ${esc(D.health.ai_sources_ok)}/${esc(D.health.ai_sources_total)}</p>
           <p class="source-note">陈旧总量指标：${esc((D.health.stale_macro_metrics || []).join("、") || "无")}</p>
           <p>${esc(D.meta.fx_note)}</p>
         </article>
@@ -461,7 +461,7 @@
     })
     .then(D => {
       renderHeader(D);
-      view === "storage" ? storageView(D) : aiView(D);
+      aiView(D);
     })
     .catch(error => {
       app.innerHTML = `<section class="card error"><h2>快照暂时不可用</h2><p>${esc(error.message)}</p><p><a href="${esc(root)}api/health.json">查看健康接口</a></p></section>`;
